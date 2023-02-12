@@ -1,0 +1,371 @@
+﻿
+@{
+    ViewData["Title"] = "About";
+}
+
+   <!-- Start Navbar Area --> 
+        <div class="navbar-area">      
+            <!-- Menu For Mobile Device -->
+            <div class="container"> 
+                <div class="mobile-nav"> 
+                    <div class="logo">
+                        <a href="index.html"> 
+                            <img src="~/assets/images/logo-two.png" class="main-logo" alt="Images">  
+                            <img src="~/assets/images/logo-img.png" class="optional-logo" alt="Images">   
+                        </a> 
+                    </div>
+                </div>  
+            </div> 
+
+            <!-- Menu For Desktop Device -->
+            <div class="main-nav main-two">         
+                <div class="container-fluid">    
+                    <nav class="navbar navbar-expand-md navbar-light">   
+
+                        <a href="index.html">   
+                            <img src="~/assets/images/logo-two.png" class="main-logo" alt="Images">  
+                            <img src="~/assets/images/logo-img.png" class="optional-logo" alt="Images">     
+                        </a>   
+
+                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent"> 
+                            <ul class="navbar-nav m-auto">  
+                                <li class="nav-item">  
+                                    <a asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
+                                </li> 
+
+                                <li class="nav-item">
+                                    <a asp-controller="Home" asp-action="About" class="nav-link active">About Us</a>         
+                                </li>  
+                                
+                                <li class="nav-item"> 
+
+                                    <a href="#" class="nav-link dropdown-toggle">Pages</a>   
+                                    
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a asp-controller="Pages" asp-action="Index" class="nav-link">Player List</a>     
+                                        </li> 
+                                        <li class="nav-item">
+                                            <a asp-controller="Pages" asp-action="Details" class="nav-link">Player Details</a>     
+                                        </li> 
+                                    </ul>
+
+                                </li>  
+
+                                <li class="nav-item"> 
+                                    <a href="#" class="nav-link dropdown-toggle">Shop</a>     
+                                    
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a asp-controller="Shop" asp-action="Index" class="nav-link">Shop</a>     
+                                        </li> 
+                                        <li class="nav-item">
+                                            <a asp-controller="Shop" asp-action="Details" class="nav-link">Shop Details</a>     
+                                        </li> 
+                                        <li class="nav-item">
+                                            <a asp-controller="Shop" asp-action="Cart" class="nav-link">Cart</a>     
+                                        </li> 
+                                    </ul>
+
+                                </li> 
+
+                                <li class="nav-item"> 
+
+                                    <a href="#" class="nav-link dropdown-toggle">Blog</a>   
+                                    
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a asp-controller="Blog" asp-action="Index" class="nav-link">Blog</a>     
+                                        </li> 
+                                        <li class="nav-item">
+                                            <a asp-controller="Blog" asp-action="Details" class="nav-link">Blog Details</a>     
+                                        </li> 
+                                    </ul>
+
+                                </li>     
+
+                                <li class="nav-item"> 
+                                    <a asp-controller="Home" asp-action="Contact" class="nav-link">Contact</a>      
+                                </li> 
+                            </ul> 
+
+
+                            <div class="others-option-vg d-flex align-items-center"> 
+                                <div class="single-option-item">
+
+                                    <div class="option-item">
+                                        <form class="search-form">
+                                            <input type="text" class="form-control" placeholder="Searching Here" name="search">
+                                            <button class="search-button" type="submit">
+                                                <i class="ri-search-line"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                    <div class="cart-icon">
+                                        <a asp-controller="Shop" asp-action="Cart">
+                                            <img src="~/assets/images/navber-card-img.png" alt="images">
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </nav> 
+                </div>
+            </div>     
+
+            <div class="others-option-for-responsive"> 
+                <div class="container">
+                    <div class="dot-menu">
+                        <div class="inner">
+                            <div class="circle circle-one"></div>
+                            <div class="circle circle-two"></div>
+                            <div class="circle circle-three"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="container">
+                        <div class="option-inner">
+                            <div class="others-options justify-content-center d-flex align-items-center">
+                                <div class="single-option-item">
+
+                                    <div class="option-item">
+                                        <form class="search-form">
+                                            <input type="text" class="form-control" placeholder="Searching Here" name="search">
+                                            <button class="search-button" type="submit">
+                                                <i class="ri-search-line"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                    <div class="cart-icon">
+                                        <a asp-controller="Shop" asp-action="Cart">
+                                            <img src="~/assets/images/navber-card-img.png" alt="images">
+                                        </a>
+                                    </div>
+
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div> 
+        <!-- End  Navbar Area -->
+
+   <!-- Start Page Banner Area-->
+        <div class="page-banner-area" style="padding-top:150px">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-9 col-md-6">
+                        <div class="single-page-banner-content">
+                            <h1>About Us</h1>
+                            <p><a asp-controller="Home" asp-action="Index">Home</a>About</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="page-banner-img" data-aos="fade-up-left" data-aos-duration="3000" data-aos-once="true">
+                            <img src="assets/images/page-banner/page-banner-image-1.png" alt="images">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Banner Area-->
+
+        <!-- Start Champion Area -->
+        <div class="about-champion-area pt-100 pb-100">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6 col-md-6">
+                                <div class="about-champion-img" data-aos="fade-right" data-aos-duration="2000" data-aos-once="true">
+                                    <img src="assets/images/about/champion-about-img-1.jpg" alt="images">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6 col-md-6">
+                                <div class="about-champion-img-2" data-aos="fade-down" data-aos-duration="2000" data-aos-once="true">
+                                    <img src="assets/images/about/champion-about-img-2.jpg" alt="images">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-champion-content" data-aos="fade-left" data-aos-duration="2000" data-aos-once="true">
+                            <h2>We're Holder As Champion In 2022</h2>
+                            <p>Ligula eget dolor aenean massa cum sociis cum sociis natoque penatibuse magnis dolorei natoque penatibus et.</p>
+                            <p>Lorem ipsum dolor sit amet uum sociis natoque penatibuse magnis dolorei conse ctetuer adipiscing elit enean commodo qui
+                            ligula eget dolor aenean massa cum sociis natoque penatibuse magnis dolorei.</p>
+                            <ul class="about-champion-list">
+                                <li><i class="ri-checkbox-circle-fill"></i>Vivamus at sem lobortis ullamcorper leo cursus feugiat mi.</li>
+                                <li><i class="ri-checkbox-circle-fill"></i>Duis ac mi eleifend fringilla justo eget viverra lectus.</li>
+                                <li><i class="ri-checkbox-circle-fill"></i>In ac turpis nec lorem blandit bibendum at vel dolor.</li>
+                                <li><i class="ri-checkbox-circle-fill"></i>Aliquam molestie nisl ac tortor suscipit vel feugiat sem ornare.</li>
+                                <li><i class="ri-checkbox-circle-fill"></i>Quisque iaculis lectus consectetur justo rutrum rhoncus.</li>
+                            </ul>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Champion Area -->
+
+        <!-- Start Opposition Area -->
+        <div class="about-opposition-area pt-100 pb-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="about-opposition-content" data-aos="fade-right" data-aos-duration="2000" data-aos-once="true">
+                            <h2>Who Are Against The Opposition</h2>
+                            <p>Ligula eget dolor aenean massa cum sociis natoque penatibus et magnis dolor
+                            parturient montes nascetur ridiculus mus.</p>
+                            <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo qui
+                            ligula eget dolo aenean massa sociis natoque penatibuse magnis dolorei
+                            parturient montes nascetur ridiculus mus.</p>
+                            <div class="opposition-icon">
+                                <div class="soccer">
+                                    <i class="flaticon-soccer-player"></i>
+                                </div>
+                                <h5>Top 50 Best Supporting Teams In Football</h5>
+                                <p>Ligula eget dolor aenean massa cum sociis natoque
+                                parturient montes nascetur ridiculus.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="opposition-image"  data-aos="fade-left" data-aos-duration="2000" data-aos-once="true"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Opposition Area -->
+
+        <!-- Start About FAQ Area -->
+        <div class="about-faq-area pt-100">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-6"> 
+                        <div class="about-faq-image" data-aos="fade-right" data-aos-duration="2000" data-aos-once="true"></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-faq" data-aos="fade-left" data-aos-duration="2000" data-aos-once="true">
+                            <div class="faq-accordion">
+                                <ul class="accordion">
+                                    <li class="accordion-item">
+                                        <a class="accordion-title active" href="javascript:void(0)">
+                                            <i class="ri-add-fill add"></i>
+                                            <i class="ri-subtract-line subtract"></i>
+                                            What is coronavirus? What is COVID-19?
+                                        </a>
+            
+                                        <div class="accordion-content show">
+                                            <p>Lorem ipsum dolor sit amet how do you startup consectetur adipisicing elit accusamus ipsa error excepturi obcaecati aliquid veniam blanditiis quas voluptates maxime unde iste minima dolores dolor perferendis facilis how do you startup blanditiis voluptates.</p>
+                                        </div>
+                                    </li>
+            
+                                    <li class="accordion-item">
+                                        <a class="accordion-title" href="javascript:void(0)">
+                                            <i class="ri-add-fill add"></i>
+                                            <i class="ri-subtract-line subtract"></i>
+                                            What are the symptoms of COVID-19?
+                                        </a>
+            
+                                        <div class="accordion-content">
+                                            <p>Lorem ipsum dolor sit amet how do you startup consectetur adipisicing elit accusamus ipsa error excepturi obcaecati aliquid veniam blanditiis quas voluptates maxime unde iste minima dolores dolor perferendis facilis how do you startup blanditiis voluptates.</p>
+                                        </div>
+                                    </li>
+            
+                                    <li class="accordion-item">
+                                        <a class="accordion-title" href="javascript:void(0)">
+                                            <i class="ri-add-fill add"></i>
+                                            <i class="ri-subtract-line subtract"></i>
+                                            What can I do to prevent myself from coronavirus and others?
+                                        </a>
+            
+                                        <div class="accordion-content">
+                                            <p>Lorem ipsum dolor sit amet how do you startup consectetur adipisicing elit accusamus ipsa error excepturi obcaecati aliquid veniam blanditiis quas voluptates maxime unde iste minima dolores dolor perferendis facilis how do you startup blanditiis voluptates.</p>
+                                        </div>
+                                    </li>
+            
+                                    <li class="accordion-item">
+                                        <a class="accordion-title" href="javascript:void(0)">
+                                            <i class="ri-add-fill add"></i>
+                                            <i class="ri-subtract-line subtract"></i>
+                                            What should I do If I feel sick?
+                                        </a>
+            
+                                        <div class="accordion-content">
+                                            <p>Lorem ipsum dolor sit amet how do you startup consectetur adipisicing elit accusamus ipsa error excepturi obcaecati aliquid veniam blanditiis quas voluptates maxime unde iste minima dolores dolor perferendis facilis how do you startup blanditiis voluptates.</p>
+                                        </div>
+                                    </li>
+            
+                                    <li class="accordion-item">
+                                        <a class="accordion-title" href="javascript:void(0)">
+                                            <i class="ri-add-fill add"></i>
+                                            <i class="ri-subtract-line subtract"></i>
+                                            If a loved one gets sick, how can I care for them?
+                                        </a>
+            
+                                        <div class="accordion-content">
+                                            <p>Lorem ipsum dolor sit amet how do you startup consectetur adipisicing elit accusamus ipsa error excepturi obcaecati aliquid veniam blanditiis quas voluptates maxime unde iste minima dolores dolor perferendis facilis how do you startup blanditiis voluptates.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End About FAQ Area -->
+
+        <!-- Start Latest Video area -->
+        <div class="latest-video-area pb-100 pt-100">
+            <div class="container-fluid">
+                <div class="latest-video-item">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="latest-img">
+                                <img src="assets/images/latest-video-img-1.png" alt="images" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">
+                                <div class="latest-shape">
+                                    <img src="assets/images/latest-video-img-shape.png" alt="images">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="single-latest-video" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">
+                                <h2>Our Latest Video</h2>
+                                <p>Ligula eget dolor aenean massa cum sociis natoque penatibus ul enean massa cum sociis ipsum dolor.</p>
+                                <p>Lorem ipsum dolor sit amet consectetuer adipiscing commodo ligula eget dolor aenean massa natoque penatibus ul enean massa cum sociis ipsum dolor adipiscing.</p>
+                                <div class="latest-services">
+                                    <div class="player">
+                                        <i class="flaticon-soccer-player"></i>
+                                    </div>
+                                    <h3>Top 50 Best Supporting Teams In Football</h3>
+                                    <p>Ligula eget dolor ul enean massa cum sociis ipsum dolor sit amet enean massa dolor.</p> 
+                                </div>
+                                <div class="latest-button">
+                                    <a href="about.html%20https_/youtu.be/bk7McNUjWgw.html" class="default-btn popup-youtube"> 
+                                        <i class="ri-play-fill"></i>Watch Intro Play
+                                        <div class="video-icons">
+                                            <i class="ri-play-fill"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Latest Video area -->
+
+

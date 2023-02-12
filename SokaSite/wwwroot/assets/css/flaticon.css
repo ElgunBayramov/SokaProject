@@ -1,0 +1,35 @@
+@font-face {
+    font-family: "flaticon";
+    src: url("../fonts/flaticon93c9.ttf?07f91ad4959b180a38880c145bec0463") format("truetype"),
+url("../fonts/flaticon93c9.woff?07f91ad4959b180a38880c145bec0463") format("woff"),
+url("../fonts/flaticon93c9.woff2?07f91ad4959b180a38880c145bec0463") format("woff2"),
+url("../fonts/flaticon93c9.eot?07f91ad4959b180a38880c145bec0463#iefix") format("embedded-opentype"),
+url("../fonts/flaticon93c9.svg?07f91ad4959b180a38880c145bec0463#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-trophy:before {
+    content: "\f101";
+}
+.flaticon-clock:before {
+    content: "\f102";
+}
+.flaticon-badge:before {
+    content: "\f103";
+}
+.flaticon-championship:before {
+    content: "\f104";
+}
+.flaticon-soccer-player:before {
+    content: "\f105";
+}

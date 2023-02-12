@@ -1,0 +1,323 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+   <!-- Start Navbar Area --> 
+        <div class="navbar-area">      
+            <!-- Menu For Mobile Device -->
+            <div class="container"> 
+                <div class="mobile-nav"> 
+                    <div class="logo">
+                        <a href="index.html"> 
+                            <img src="~/assets/images/logo-two.png" class="main-logo" alt="Images">  
+                            <img src="~/assets/images/logo-img.png" class="optional-logo" alt="Images">   
+                        </a> 
+                    </div>
+                </div>  
+            </div> 
+
+            <!-- Menu For Desktop Device -->
+            <div class="main-nav main-two">         
+                <div class="container-fluid">    
+                    <nav class="navbar navbar-expand-md navbar-light">   
+
+                        <a href="index.html">   
+                            <img src="~/assets/images/logo-two.png" class="main-logo" alt="Images">  
+                            <img src="~/assets/images/logo-img.png" class="optional-logo" alt="Images">     
+                        </a>   
+
+                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent"> 
+                            <ul class="navbar-nav m-auto">  
+                                <li class="nav-item">  
+                                    <a asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
+                                </li> 
+
+                                <li class="nav-item">
+                                    <a asp-controller="Home" asp-action="About" class="nav-link">About Us</a>         
+                                </li>  
+                                
+                                <li class="nav-item"> 
+
+                                    <a href="#" class="nav-link dropdown-toggle">Pages</a>   
+                                    
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a asp-controller="Pages" asp-action="Index" class="nav-link">Player List</a>     
+                                        </li> 
+                                        <li class="nav-item">
+                                            <a asp-controller="Pages" asp-action="Details" class="nav-link">Player Details</a>     
+                                        </li> 
+                                    </ul>
+
+                                </li>  
+
+                                <li class="nav-item"> 
+                                    <a href="#" class="nav-link dropdown-toggle">Shop</a>     
+                                    
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a asp-controller="Shop" asp-action="Index" class="nav-link">Shop</a>     
+                                        </li> 
+                                        <li class="nav-item">
+                                            <a asp-controller="Shop" asp-action="Details" class="nav-link">Shop Details</a>     
+                                        </li> 
+                                        <li class="nav-item">
+                                            <a asp-controller="Shop" asp-action="Cart" class="nav-link">Cart</a>     
+                                        </li> 
+                                    </ul>
+
+                                </li> 
+
+                                <li class="nav-item"> 
+
+                                    <a href="#" class="nav-link dropdown-toggle">Blog</a>   
+                                    
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a asp-controller="Blog" asp-action="Index" class="nav-link active">Blog</a>     
+                                        </li> 
+                                        <li class="nav-item">
+                                            <a asp-controller="Blog" asp-action="Details" class="nav-link">Blog Details</a>     
+                                        </li> 
+                                    </ul>
+
+                                </li>     
+
+                                <li class="nav-item"> 
+                                    <a asp-controller="Home" asp-action="Contact" class="nav-link">Contact</a>      
+                                </li> 
+                            </ul> 
+
+
+                            <div class="others-option-vg d-flex align-items-center"> 
+                                <div class="single-option-item">
+
+                                    <div class="option-item">
+                                        <form class="search-form">
+                                            <input type="text" class="form-control" placeholder="Searching Here" name="search">
+                                            <button class="search-button" type="submit">
+                                                <i class="ri-search-line"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                    <div class="cart-icon">
+                                        <a asp-controller="Shop" asp-action="Cart">
+                                            <img src="~/assets/images/navber-card-img.png" alt="images">
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </nav> 
+                </div>
+            </div>     
+
+            <div class="others-option-for-responsive"> 
+                <div class="container">
+                    <div class="dot-menu">
+                        <div class="inner">
+                            <div class="circle circle-one"></div>
+                            <div class="circle circle-two"></div>
+                            <div class="circle circle-three"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="container">
+                        <div class="option-inner">
+                            <div class="others-options justify-content-center d-flex align-items-center">
+                                <div class="single-option-item">
+
+                                    <div class="option-item">
+                                        <form class="search-form">
+                                            <input type="text" class="form-control" placeholder="Searching Here" name="search">
+                                            <button class="search-button" type="submit">
+                                                <i class="ri-search-line"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                    <div class="cart-icon">
+                                        <a asp-controller="Shop" asp-action="Cart">
+                                            <img src="~/assets/images/navber-card-img.png" alt="images">
+                                        </a>
+                                    </div>
+
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div> 
+        <!-- End  Navbar Area -->
+ <!-- Start Page Banner Area-->
+        <div class="page-banner-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-9 col-md-6">
+                        <div class="single-page-banner-content">
+                            <h1>Our Blog</h1>
+                            <p><a asp-controller="Home" asp-action="Index">Home</a>Blog</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="page-banner-img" data-aos="fade-up-left" data-aos-duration="3000" data-aos-once="true">
+                            <img src="assets/images/page-banner/page-banner-image-1.png" alt="images">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Banner Area-->
+
+        <!-- Start Blog Area -->
+        <div class="banner-blog-area pt-100 pb-70">
+            <div class="container">
+                <div class="row justify-content-center"> 
+                    <div class="col-lg-4 col-md-6"> 
+                        <div class="single-blog-card" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
+                            <div class="blog-img">
+                                <a href="blog-details.html">
+                                    <img src="assets/images/blog/blog-img-1.jpg" alt="images">
+                                </a>
+                            </div>
+                            <span><i class="ri-calendar-check-line"></i>April 17 2022</span> 
+                            <div class="single-blog-text">
+                                <ul>
+                                    <li><i class="ri-account-circle-line"></i><a href="blog-details.html">Kendall</a></li>
+                                    <li><i class="ri-football-line"></i><a href="blog-details.html">Football</a></li>
+                                </ul>
+                                <h3><a href="blog-details.html">Monday Morning’s Session With
+                                Practice In Field Today</a></h3>
+                                <p>There are many variations of passages of us
+                                Lorem Ipsum available, but the majority have
+                                suffered alteration in some form.</p>
+                                <a href="blog-details.html" class="default-btn style-1">Read More<i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6"> 
+                        <div class="single-blog-card" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                            <div class="blog-img">
+                                <a href="blog-details.html">
+                                    <img src="assets/images/blog/blog-img-2.jpg" alt="images">
+                                </a>
+                            </div>
+                            <span><i class="ri-calendar-check-line"></i>April 17 2022</span> 
+                            <div class="single-blog-text"> 
+                                <ul>
+                                    <li><i class="ri-account-circle-line"></i><a href="blog-details.html">Kendall</a></li>
+                                    <li><i class="ri-football-line"></i><a href="blog-details.html">Sports</a></li>
+                                </ul>
+                                <h3><a href="blog-details.html">More Effective Training Program
+                                For Basic Specialists</a></h3>
+                                <p>There are many variations of passages of us
+                                Lorem Ipsum available, but the majority have
+                                suffered alteration in some form.</p>
+                                <a href="blog-details.html" class="default-btn style-1">Read More<i class="ri-arrow-right-line"></i></a>
+                            </div> 
+                        </div> 
+                    </div>
+                    <div class="col-lg-4 col-md-6"> 
+                        <div class="single-blog-card" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
+                            <div class="blog-img">
+                                <a href="blog-details.html">
+                                    <img src="assets/images/blog/blog-img-3.jpg" alt="images">
+                                </a>
+                            </div>
+                            <span><i class="ri-calendar-check-line"></i>April 17 2022</span> 
+                            <div class="single-blog-text">
+                                <ul>
+                                    <li><i class="ri-account-circle-line"></i><a href="blog-details.html">Kendall</a></li>
+                                    <li><i class="ri-football-line"></i><a href="blog-details.html">Training</a></li>
+                                </ul>
+                                <h3><a href="blog-details.html">How Tim Cahill Induced Aussie
+                                    Star Raso To Join Kelton</a></h3>
+                                <p>There are many variations of passages of us
+                                Lorem Ipsum available, but the majority have
+                                suffered alteration in some form.</p>
+                                <a href="blog-details.html" class="default-btn style-1">Read More<i class="ri-arrow-right-line"></i></a> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6"> 
+                        <div class="single-blog-card" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
+                            <div class="blog-img">
+                                <a href="blog-details.html">
+                                    <img src="assets/images/blog/blog-img-4.jpg" alt="images">
+                                </a>
+                            </div>
+                            <span><i class="ri-calendar-check-line"></i>April 17 2022</span> 
+                            <div class="single-blog-text">
+                                <ul>
+                                    <li><i class="ri-account-circle-line"></i><a href="blog-details.html">Kendall</a></li>
+                                    <li><i class="ri-football-line"></i><a href="blog-details.html">Football</a></li>
+                                </ul>
+                                <h3><a href="blog-details.html">Monday Morning’s Session With
+                                Practice In Field Today</a></h3>
+                                <p>There are many variations of passages of us
+                                Lorem Ipsum available, but the majority have
+                                suffered alteration in some form.</p>
+                                <a href="blog-details.html" class="default-btn style-1">Read More<i class="ri-arrow-right-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6"> 
+                        <div class="single-blog-card" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                            <div class="blog-img">
+                                <a href="blog-details.html">
+                                    <img src="assets/images/blog/blog-img-5.jpg" alt="images">
+                                </a>
+                            </div>
+                            <span><i class="ri-calendar-check-line"></i>April 17 2022</span> 
+                            <div class="single-blog-text"> 
+                                <ul>
+                                    <li><i class="ri-account-circle-line"></i><a href="blog-details.html">Kendall</a></li>
+                                    <li><i class="ri-football-line"></i><a href="blog-details.html">Sports</a></li>
+                                </ul>
+                                <h3><a href="blog-details.html">Comments Invited On Everton’S
+                                Amended Stadium</a></h3>
+                                <p>There are many variations of passages of us
+                                Lorem Ipsum available, but the majority have
+                                suffered alteration in some form.</p>
+                                <a href="blog-details.html" class="default-btn style-1">Read More<i class="ri-arrow-right-line"></i></a>
+                            </div> 
+                        </div> 
+                    </div>
+                    <div class="col-lg-4 col-md-6"> 
+                        <div class="single-blog-card" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
+                            <div class="blog-img">
+                                <a href="blog-details.html">
+                                    <img src="assets/images/blog/blog-img-6.jpg" alt="images">
+                                </a>
+                            </div>
+                            <span><i class="ri-calendar-check-line"></i>April 17 2022</span> 
+                            <div class="single-blog-text">
+                                <ul>
+                                    <li><i class="ri-account-circle-line"></i><a href="blog-details.html">Kendall</a></li>
+                                    <li><i class="ri-football-line"></i><a href="blog-details.html">Training</a></li>
+                                </ul>
+                                <h3><a href="blog-details.html">How Tim Cahill Convinced Aussie
+                                Star Raso To Join Kelton</a></h3>
+                                <p>There are many variations of passages of us
+                                Lorem Ipsum available, but the majority have
+                                suffered alteration in some form.</p>
+                                <a href="blog-details.html" class="default-btn style-1">Read More<i class="ri-arrow-right-line"></i></a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-bg-btn">
+                    <a href="blog.html" class="default-btn style-1">Load More <i class="ri-arrow-right-line"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- End Blog Area -->
+
+

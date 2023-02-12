@@ -1,0 +1,2498 @@
+@media only screen and (max-width: 767px) {
+  .others-option-vg {
+    display: none !important;
+  }
+  .partner-content::after {
+    display: none;
+  }
+  .single-page-banner-content {
+    top: 0;
+  }
+  .match-schedule-card .schedule-text {
+    padding-left: 0;
+  }
+  .others-option-for-responsive .container .container {
+    right: 0;
+  }
+  .total-cart {
+    margin-right: auto;
+  }
+  .single-blog-details-content .blog-details-list li {
+    margin-right: 10px;
+  }
+  .single-blog-details-content .blog-details-list li a {
+    font-size: 15px;
+  }
+  .single-blog-details-content h3 {
+    font-size: 23px;
+  }
+  .single-blog-details-content .customer-review h2 {
+    font-size: 23px;
+  }
+  .single-blog-details-content .leave-form h2 {
+    font-size: 23px;
+  }
+  .premier-league-table-area.player-area-two::before {
+    width: 100%;
+  }
+  .blog-details-right {
+    padding-left: 0;
+  }
+  .shop-single-content h3 {
+    font-size: 24px;
+  }
+  .leave-form h2 {
+    font-size: 24px;
+  }
+  .my-account-content .account-list ul {
+    display: block;
+  }
+  .datepicker.datepicker-dropdown.dropdown-menu.datepicker-orient-right.datepicker-orient-bottom {
+    left: auto !important;
+    right: 0;
+  }
+  .customer-review h2 {
+    font-size: 24px;
+  }
+  .cart-table .table-responsive .table.table-bordered tbody tr .player-list img {
+    padding: 20px 10px;
+    margin-right: 15px;
+  }
+  .cart-table .table-responsive .table.table-bordered tbody tr .player-list.two-table img {
+    padding: 20px;
+  }
+  .soka-has-area::before {
+    width: 100%;
+  }
+  .cart-table .shop-button-two {
+    text-align: left;
+  }
+  .coming-soon-content {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding: 15px;
+  }
+  .single-holder-image .holder-img-5 {
+    bottom: -65px;
+  }
+  .team-details-area {
+    padding-bottom: 0 !important;
+  }
+  .player-list-area {
+    padding-top: 20px !important;
+  }
+  .about-opposition-content .opposition-icon .soccer {
+    position: unset;
+    display: inline-block;
+    padding: 3px 23px;
+    margin-bottom: 15px;
+  }
+  .about-opposition-content .opposition-icon .soccer i {
+    position: relative;
+    top: 14px;
+  }
+  .single-latest-video .latest-services .player {
+    position: unset;
+    display: inline-table;
+    margin-bottom: 15px;
+    padding: 0.5px 6px;
+    font-size: 40px;
+  }
+  .coming-soon-content .newsletter-form .form-control {
+    height: 67px;
+    width: 100%;
+  }
+  .coming-soon-content .newsletter-form .default-btn {
+    padding: 26px 8px;
+    font-size: 9px;
+    margin-right: 0;
+    right: 0;
+  }
+  .coming-soon-content p {
+    margin-bottom: 0;
+  }
+  .coming-soon-content #timer div {
+    display: inline-block;
+    position: relative;
+    margin-right: 20px;
+    margin-top: 30px;
+    margin-left: 20px;
+  }
+  .single-banner-content.banner-three {
+    max-width: 520px;
+    margin: auto;
+  }
+  .league-table-content .table-responsive .table.table-bordered tbody tr th p {
+    font-size: 14px;
+  }
+  .league-table-content .table-responsive .table.table-bordered tbody tr th p b {
+    font-size: 14px;
+  }
+  .navbar-area .others-option-for-responsive .single-option-item .cart-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    margin: 0 15px;
+  }
+  .single-shop-product {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .checkout-left .payment-method {
+    padding: 15px;
+  }
+  .checkout-from {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  .total-cart {
+    padding: 15px;
+  }
+  .total-cart ul li span {
+    width: 78%;
+  }
+  .shop-single-content .shop-product-list li:last-child {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+  .tab-area .tab.shop-details-tab .tab_content .tabs_item .shop-details-tab-content {
+    padding: 10px;
+  }
+  .tab-area .tab.shop-details-tab .tab_content .tabs_item .shop-details-tab-content .additional-information li span {
+    width: 48%;
+  }
+  .tab-area .tab.shop-details-tab .tab_content .tabs_item .shop-details-tab-content .additional-information li::after {
+    left: 46%;
+  }
+  .tab-area .tab.shop-details-tab .tabs li {
+    margin-right: 0;
+    font-size: 10px;
+    padding: 10px 10px;
+  }
+  .single-blog-details-content .blog-details-card {
+    padding: 15px;
+  }
+  .single-blog-details-content .blog-details-card img {
+    position: unset;
+    margin-top: 15px;
+  }
+  .customer-review .review-item {
+    padding-left: 0 !important;
+    margin-bottom: 30px !important;
+  }
+  .customer-review .review-item img {
+    position: unset !important;
+    margin-bottom: 15px;
+  }
+  .blog-details-right {
+    margin-top: 50px;
+  }
+  .blog-details-right .categories h2 {
+    font-size: 25px;
+  }
+  .blog-details-right .popular-posts h2 {
+    font-size: 25px;
+  }
+  .blog-details-right .popular-posts .recent-card {
+    padding-left: 90px;
+  }
+  .blog-details-right .popular-posts .recent-card h3 a {
+    font-size: 13px;
+  }
+  .blog-details-area {
+    padding-bottom: 20px !important;
+  }
+  .showing {
+    margin-bottom: 20px;
+  }
+  .single-contact-item {
+    padding-left: 0;
+    margin-top: 20px;
+  }
+  .single-contact-item .contact-text p a {
+    display: block;
+  }
+  .ticket-card {
+    padding: 20px 10px;
+  }
+  .my-account-content {
+    padding: 15px;
+    margin-bottom: 25px;
+  }
+  .faq-area {
+    padding: 20px 10px;
+  }
+  .about-champion-img {
+    margin-bottom: 20px;
+  }
+  .table-responsive .table.table-bordered thead tr th {
+    white-space: nowrap;
+  }
+  .table-responsive .table.table-bordered tbody tr th {
+    padding: 15px 6px;
+    font-size: 14px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  .cart-table {
+    padding: 15px;
+  }
+  .about-opposition-content {
+    margin-bottom: 30px;
+    padding: 20px;
+    top: 0;
+    right: 0;
+    margin-right: 0;
+  }
+  .about-opposition-content h2 {
+    font-size: 26px;
+  }
+  .about-opposition-content p {
+    font-size: 13px;
+  }
+  .about-opposition-content .opposition-icon {
+    padding-left: 0;
+    margin-top: 0;
+  }
+  .about-opposition-content .opposition-icon i {
+    position: unset;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  .about-opposition-area::before {
+    width: 100%;
+    right: 0;
+  }
+  .about-faq-image {
+    margin-bottom: 30px;
+  }
+  .faq-accordion .accordion {
+    padding-left: 0;
+  }
+  .faq-accordion .accordion .accordion-item:last-child {
+    margin-bottom: 0;
+  }
+  .faq-accordion .accordion .accordion-item .accordion-title {
+    padding: 10px 34px 10px 10px;
+    font-size: 15px;
+  }
+  .about-champion-img-2 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  .about-champion-content {
+    padding-left: 0 !important;
+  }
+  .about-champion-content h2 {
+    font-size: 26px !important;
+  }
+  .team-about-details .team-detail-img {
+    margin-bottom: 20px;
+  }
+  .page-banner-area .container-fluid {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .error-content {
+    padding-top: 100px;
+  }
+  .error-content h2 {
+    font-size: 29px;
+    margin-bottom: 12px;
+  }
+  .error-content p {
+    margin-bottom: 15px;
+  }
+  .single-page-banner-content {
+    margin-bottom: 30px !important;
+    max-width: 520px;
+    margin: auto;
+  }
+  .single-page-banner-content h1 {
+    font-size: 30px;
+  }
+  .page-banner-img {
+    text-align: center;
+  }
+  .banner-three-area {
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }
+  .banner-three-area .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .upcoming-match-item {
+    padding: 12px;
+    margin-top: 50px;
+  }
+  .upcoming-match-item .dallas p {
+    font-size: 15px;
+  }
+  .upcoming-list {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .upcoming-list ul li {
+    width: 85px;
+    height: 92px;
+    margin-bottom: 10px;
+    margin-right: 4px;
+  }
+  .upcoming-list ul li h5 {
+    font-size: 20px;
+  }
+  .upcoming-list ul li p {
+    font-size: 13px;
+  }
+  .live-auctions-countdown li span {
+    font-size: 25px;
+  }
+  .navbar-nav {
+    max-height: 50vh;
+    overflow-y: scroll;
+    box-shadow: 0 7px 13px 0 rgba(0, 0, 0, 0.1);
+  }
+  .navbar-nav::-webkit-scrollbar {
+    width: 3px;
+  }
+  .navbar-nav::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  .navbar-nav::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  .navbar-nav::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  .footer-widget {
+    margin-bottom: 30px;
+  }
+  .footer-widget.footer-widget-two {
+    padding-right: 10px;
+  }
+  .footer-widget.ps-5 {
+    padding-left: 0 !important;
+  }
+  .footer-widget .footer-widget-list li {
+    font-size: 14px;
+  }
+  .footer-widget .footer-widget-list li span {
+    font-size: 15px;
+  }
+  .footer-widget h2 {
+    margin-bottom: 15px;
+  }
+  .table-responsive {
+    overflow-x: auto;
+  }
+  .league-table-area {
+    padding-top: 0 !important;
+  }
+  .league-table-area::before {
+    display: none;
+  }
+  .partner-content {
+    margin-bottom: 0 !important;
+    margin: auto;
+    text-align: center;
+  }
+  .partner-logo-item::before {
+    display: none;
+  }
+  .partner-logo-item::after {
+    display: none;
+  }
+  .partner-logo-slider.owl-theme .owl-nav .owl-prev, .partner-logo-slider.owl-theme .owl-nav .owl-next {
+    position: unset;
+    transform: translateY(0);
+  }
+  .table-card {
+    padding: 20px;
+  }
+  .league-table-content {
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  .league-table-content .table-list ul .venue {
+    margin-top: 25px;
+  }
+  .match-schedule {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .collection-area.bg-color-2 {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .subscribe-form div#validator-newsletter {
+    font-size: 14px;
+  }
+  .match-schedule-card {
+    padding: 0;
+  }
+  .match-schedule-card .schedule-list ul {
+    margin-bottom: 20px !important;
+  }
+  .match-schedule-card .schedule-list ul li {
+    width: 64px;
+    margin-right: 4px;
+  }
+  .match-schedule-card .match-schedule-img {
+    margin-bottom: 20px;
+  }
+  .match-schedule-card .schedule-button .default-btn.style-1 {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+  .match-schedule-card .schedule-text {
+    margin-bottom: 20px;
+  }
+  .match-schedule {
+    padding-bottom: 0 !important;
+  }
+  .bg-blog-color {
+    padding-top: 0 !important;
+    padding-bottom: 20px !important;
+    background-color: transparent;
+  }
+  .single-blog-card.blog-two .blog-img {
+    margin-bottom: 20px;
+  }
+  .single-blog-card.blog-two .single-blog-text {
+    padding: 20px 0px 0px 0px;
+  }
+  .single-blog-card.blog-two .single-blog-text h3 {
+    font-size: 20px;
+  }
+  .about-two-area {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .about-bg-color {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .single-about-content {
+    margin-top: 40px !important;
+    max-width: 540px;
+    margin: auto;
+  }
+  .single-about-content h2 {
+    font-size: 24px;
+  }
+  .banner-two-area {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 50px;
+  }
+  .banner-two-content {
+    margin-bottom: 40px !important;
+    max-width: 540px;
+    margin: auto;
+  }
+  .banner-two-content h1 {
+    font-size: 28px;
+  }
+  .banner-two-content p {
+    margin-bottom: 15px;
+  }
+  .banner-tow-img img {
+    left: 0;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .banner-tow-img .banner-two-shape {
+    display: none;
+  }
+  .banner-tow-img .banner-two-shape-1 {
+    display: none;
+  }
+  .footer-area {
+    padding-top: 50px;
+    padding-bottom: 10px !important;
+  }
+  .newsletter-from {
+    padding: 20px;
+    margin-bottom: 50px;
+  }
+  .collection-area {
+    padding-bottom: 20px !important;
+  }
+  .newsletter-text h2 {
+    font-size: 19px;
+    margin-bottom: 20px;
+  }
+  .subscribe-form .form-control::-moz-placeholder {
+    font-size: 14px;
+  }
+  .subscribe-form .form-control:-ms-input-placeholder {
+    font-size: 14px;
+  }
+  .subscribe-form .form-control::placeholder {
+    font-size: 14px;
+  }
+  .subscribe-form .default-btn {
+    position: unset;
+    margin-top: 20px;
+    width: 100%;
+  }
+  .footer-widget.footer-widget-two {
+    padding-left: 0;
+  }
+  .footer-widget .widget-list li {
+    margin-bottom: 10px;
+  }
+  .footer-widget .footer-list li {
+    margin-bottom: 10px;
+  }
+  .single-football-club {
+    padding-left: 10px;
+    margin: auto;
+  }
+  .single-football-club h2 {
+    font-size: 25px;
+    padding-right: 0;
+    line-height: 40px;
+  }
+  .single-football-club p {
+    margin-bottom: 12px;
+  }
+  .football-club {
+    margin-bottom: 45px;
+  }
+  .football-club-area .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .gallery-area {
+    padding-bottom: 20px !important;
+  }
+  .football-club-area {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .football-club-item {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .partner-logo-item {
+    margin-top: 50px;
+    padding: 50px 20px;
+  }
+  .partner-logo-item .partner-shape {
+    display: none;
+  }
+  .partner-logo .partner-btn {
+    padding: 9px 15px;
+  }
+  .partner-content h2 {
+    font-size: 28px;
+  }
+  .partner-logo-slider.owl-theme .owl-nav {
+    position: unset;
+    margin-top: 0;
+  }
+  .single-gallery-item .gallery-text h3 {
+    font-size: 18px;
+  }
+  .single-gallery-item:hover .gallery-text {
+    bottom: 10px;
+  }
+  .holder-area {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .single-holder-image {
+    margin-top: 30px;
+  }
+  .single-holder-image .holder-img-2 {
+    position: unset;
+  }
+  .single-holder-image .holder-img-1 {
+    position: unset;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  .single-player-card .player-img {
+    text-align: center;
+  }
+  .holder-bg-item {
+    padding-top: 50px;
+    padding-bottom: 50px !important;
+  }
+  .holder-bg-item.bg-holder {
+    padding-bottom: 100px;
+  }
+  .holder-bgs-image .holder-bgs-img {
+    left: 0;
+    margin-top: 30px;
+  }
+  .about-champion-content .about-champion-list li {
+    font-size: 15px;
+  }
+  .single-holder-content {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 25px;
+  }
+  .single-holder-content h3 {
+    font-size: 28px;
+    line-height: 40px;
+  }
+  .single-holder-content p {
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+  .single-holder-content ul {
+    margin-bottom: 20px !important;
+  }
+  .single-holder-content ul li {
+    font-size: 14px;
+  }
+  .latest-video-area {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .features-area {
+    padding-bottom: 20px !important;
+  }
+  .single-features-card {
+    padding: 20px;
+  }
+  .single-features-card p {
+    margin-bottom: 15px;
+  }
+  .single-features-card .features-item h3 {
+    font-size: 20px;
+  }
+  .single-features-card .features-item i {
+    width: 64px;
+    height: 64px;
+    line-height: 72px;
+    font-size: 35px;
+  }
+  .player-area {
+    padding-bottom: 20px !important;
+  }
+  p {
+    font-size: 14px;
+  }
+  .pt-100 {
+    padding-top: 50px;
+  }
+  .pt-70 {
+    padding-top: 0;
+  }
+  .pb-100 {
+    padding-bottom: 50px;
+  }
+  .pb-70 {
+    padding-bottom: 50px;
+  }
+  .ptb-100 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .banner-area {
+    padding-top: 100px;
+  }
+  .banner-area .container-fluid {
+    max-width: 540px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .section-title {
+    margin-bottom: 35px !important;
+  }
+  .section-title h2 {
+    font-size: 27px;
+  }
+  .latest-video-item {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .single-latest-video {
+    padding-left: 20px;
+    max-width: 540px;
+    margin: auto;
+  }
+  .single-latest-video h2 {
+    font-size: 28px;
+  }
+  .single-latest-video .latest-services {
+    padding-left: 0;
+    margin-bottom: 20px;
+  }
+  .single-latest-video .latest-services i {
+    position: unset;
+    margin-bottom: 18px;
+    display: inline-flex;
+    font-size: 35px;
+    padding: 0.5px 9.5px;
+  }
+  .default-btn {
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+  .single-banner-content {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .single-banner-content p {
+    font-size: 14px;
+    max-width: unset;
+    margin-bottom: 22px !important;
+  }
+  .single-banner-content h1 {
+    font-size: 30px;
+    margin-right: 0;
+  }
+  .single-banner-content .default-btn {
+    padding: 13px;
+    margin-right: 10px;
+    font-size: 14px;
+  }
+  .banner-img .banner-shape {
+    right: -73px;
+    max-width: 295px;
+    top: 2px;
+  }
+  .premier-league-area {
+    padding-bottom: 30px;
+  }
+  .premier-league-card {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  .premier-league-card .premier-league-item p {
+    font-size: 12px;
+  }
+  .premier-league-card .premier-league-item span {
+    font-size: 13px;
+    display: block;
+  }
+  .premier-league-card .premier-league-item h2 {
+    font-size: 28px;
+  }
+  .premier-league-card .premier-league-item h2 span {
+    font-size: 28px;
+    display: unset;
+  }
+  .banner-blog-area {
+    padding-bottom: 20px !important;
+  }
+  .single-blog-card .single-blog-text {
+    padding: 20px;
+  }
+  .single-blog-card .single-blog-text h3 {
+    font-size: 18px;
+  }
+  .single-blog-card .single-blog-text ul {
+    margin-bottom: 0 !important;
+  }
+  .single-blog-card .single-blog-text ul li {
+    font-size: 12px;
+    margin-right: 9px;
+  }
+  .single-blog-card .single-blog-text p {
+    margin-bottom: 14px;
+  }
+  .single-latest-video p {
+    font-size: 14px;
+  }
+  .latest-img {
+    margin-bottom: 20px;
+  }
+  .single-latest-video .latest-button a i {
+    width: 40px;
+    height: 40px;
+    line-height: 42px;
+  }
+  .single-latest-video .latest-button .default-btn {
+    padding: 15px 35px 15px 15px;
+  }
+  .single-latest-video .latest-button .default-btn .video-icons i {
+    font-size: 63px;
+    top: -21px;
+    left: -7px;
+  }
+}
+@media only screen and (min-width: 500px) and (max-width: 767px) {
+  .table-responsive {
+    overflow-x: auto;
+  }
+  .upcoming-match-item {
+    padding: 30px;
+  }
+  .cart-table .shop-button-two {
+    text-align: end;
+  }
+  .blog-details-right .popular-posts .recent-card {
+    margin-bottom: 40px;
+  }
+  .schedule-list ul {
+    margin-bottom: 20px !important;
+  }
+  .schedule-list ul li {
+    padding: 7px 15px;
+    margin-right: 10px;
+  }
+  .single-features-card .features-item {
+    padding-left: 75px;
+  }
+  .single-features-card .features-item h3 {
+    font-size: 18px;
+  }
+  .single-features-card .features-item i {
+    font-size: 30px;
+  }
+  .match-schedule-card {
+    padding: 20px 20px 30px 62px;
+  }
+  .single-football-club {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: auto;
+  }
+  .collection-card .collection-item span {
+    display: none !important;
+  }
+  .single-holder-image .holder-img-5 {
+    bottom: -100px;
+    left: 0;
+    right: 0;
+  }
+  .holder-bg-item.bg-holder {
+    padding-bottom: 150px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .others-option-vg {
+    display: none !important;
+  }
+  .about-champion-img {
+    margin-bottom: 20px;
+  }
+  .match-schedule-card .schedule-text {
+    padding-left: 0;
+  }
+  .blog-details-right {
+    padding-left: 0;
+  }
+  .others-option-for-responsive .container .container {
+    right: 0;
+  }
+  .blog-details-area {
+    padding-bottom: 30px !important;
+  }
+  .single-contact-item {
+    padding-left: 0;
+    margin-top: 20px;
+  }
+  .pt-70 {
+    padding-top: 0;
+  }
+  .collection-area.bg-color-2 {
+    margin-left: 38px;
+    margin-right: 38px;
+  }
+  .team-about-details .team-detail-img {
+    margin-bottom: 20px;
+  }
+  .shop-single-content h3 {
+    font-size: 26px;
+  }
+  .my-account-area {
+    padding-bottom: 30px !important;
+  }
+  .leave-form h2 {
+    font-size: 26px;
+  }
+  .customer-review h2 {
+    font-size: 26px;
+  }
+  .coming-soon-content {
+    padding-top: 60px;
+    padding-bottom: 50px;
+  }
+  .coming-soon-content .newsletter-form .form-control {
+    height: 67px;
+  }
+  .error-content {
+    padding-top: 100px;
+  }
+  .error-content h2 {
+    font-size: 29px;
+    margin-bottom: 12px;
+  }
+  .error-content p {
+    margin-bottom: 15px;
+  }
+  .team-details-area {
+    padding-bottom: 0 !important;
+  }
+  .player-list-area {
+    padding-top: 20px !important;
+  }
+  .about-opposition-content .opposition-icon .soccer {
+    padding: 3px 23px;
+    margin-bottom: 15px;
+  }
+  .about-opposition-content .opposition-icon .soccer i {
+    position: relative;
+    top: 14px;
+  }
+  .single-football-club {
+    max-width: 720px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: auto;
+    margin-top: 30px;
+  }
+  .footer-widget.footer-widget-two {
+    padding-left: 0;
+  }
+  .single-banner-content.banner-three {
+    max-width: 720px;
+    margin: auto;
+  }
+  .navbar-area .others-option-for-responsive .single-option-item .cart-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    margin: 0 15px;
+  }
+  .single-blog-details-content h3 {
+    font-size: 28px;
+  }
+  .blog-details-right {
+    margin-top: 50px;
+  }
+  .blog-details-right .popular-posts .recent-card {
+    margin-bottom: 45px;
+  }
+  .checkout-left .total-cart {
+    margin-bottom: 30px !important;
+    margin-top: 30px !important;
+    max-width: 500px;
+    margin: auto;
+  }
+  .checkout-left .payment-method {
+    padding: 15px;
+  }
+  .total-cart {
+    padding: 15px;
+  }
+  .total-cart ul li span {
+    width: 78%;
+  }
+  .single-shop-product {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+  .about-opposition-content {
+    margin-bottom: 30px;
+    top: 0;
+    right: 0;
+    margin-right: 0;
+  }
+  .about-opposition-content h2 {
+    font-size: 26px;
+  }
+  .about-opposition-content .opposition-icon {
+    margin-top: 0;
+  }
+  .about-opposition-content .opposition-icon i {
+    position: unset;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  .table-responsive {
+    overflow-x: auto;
+  }
+  .match-schedule-card .schedule-list ul li {
+    width: 58px;
+    height: 70px;
+    margin-right: 10px;
+    margin-top: 20px;
+  }
+  .bg-blog-color {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    max-width: 720px;
+  }
+  .table-responsive .table.table-bordered tbody tr th {
+    font-size: 14px;
+    padding: 11px 4px;
+  }
+  .table-responsive .table.table-bordered thead tr th {
+    white-space: nowrap;
+  }
+  .table-responsive .table.table-bordered tbody tr th {
+    padding: 15px 6px;
+    font-size: 14px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  .about-opposition-area::before {
+    width: 100%;
+    right: 0;
+  }
+  .about-faq-image {
+    margin-bottom: 30px;
+  }
+  .faq-accordion .accordion {
+    padding-left: 0;
+  }
+  .faq-accordion .accordion .accordion-item:last-child {
+    margin-bottom: 0;
+  }
+  .about-champion-img-2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+  .about-champion-content {
+    padding-left: 0 !important;
+  }
+  .about-champion-content h2 {
+    font-size: 28px;
+  }
+  .page-banner-area .container-fluid {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .single-page-banner-content h1 {
+    font-size: 40px;
+  }
+  .upcoming-match-item {
+    padding: 30px;
+  }
+  .partner-content {
+    margin-bottom: 30px !important;
+    margin: auto;
+    text-align: center;
+    max-width: unset;
+  }
+  .partner-content::after {
+    display: none;
+  }
+  .partner-logo-slider.owl-theme .owl-nav .owl-prev, .partner-logo-slider.owl-theme .owl-nav .owl-next {
+    position: unset;
+    transform: translateY(0);
+  }
+  .holder-bg-item.bg-holder {
+    padding-bottom: 100px;
+  }
+  .single-holder-image .holder-img-5 {
+    left: 0;
+    right: 0;
+  }
+  .upcoming-list {
+    margin-bottom: 30px;
+  }
+  .upcoming-list ul li {
+    width: 80px;
+    height: 90px;
+    margin-right: 8px;
+  }
+  .league-table-area::before {
+    width: 100%;
+  }
+  .upcoming-match-item .dallas p {
+    font-size: 14px;
+  }
+  .banner-three-area .container-fluid {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .league-table-content {
+    margin-bottom: 30px;
+  }
+  .league-table-content .table-list ul li {
+    padding: 15px 7px;
+    font-size: 14px;
+  }
+  .league-table-content .table-list ul li b {
+    font-size: 14px;
+  }
+  .about-two-area {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .cart-table .table-responsive .table.table-bordered tbody tr .player-list img {
+    background-color: #efefef;
+    padding: 20px 10px;
+    margin-top: 23px;
+  }
+  .about-bg-color {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .single-about-content {
+    margin-top: 40px;
+    padding-left: 20px;
+    margin: auto;
+  }
+  .single-about-content h2 {
+    font-size: 36px;
+  }
+  .match-schedule-card {
+    max-width: 800px;
+  }
+  .banner-two-area {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+  }
+  .banner-two-content {
+    margin-bottom: 40px !important;
+    max-width: 720px;
+    margin: auto;
+  }
+  .banner-two-content h1 {
+    font-size: 36px;
+  }
+  .banner-two-content p {
+    margin-bottom: 15px;
+  }
+  .banner-tow-img .banner-two-shape {
+    display: none;
+  }
+  .banner-tow-img .banner-two-shape-1 {
+    display: none;
+  }
+  .football-club-area {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .footer-widget {
+    margin-bottom: 30px;
+  }
+  .footer-widget.footer-widget-two {
+    padding-right: 10px;
+  }
+  .footer-widget.ps-5 {
+    padding-left: 0 !important;
+  }
+  .footer-widget .footer-widget-list li {
+    font-size: 14px;
+  }
+  .footer-widget .footer-widget-list li span {
+    font-size: 15px;
+  }
+  .footer-widget h2 {
+    margin-bottom: 15px;
+  }
+  .footer-area {
+    padding-top: 150px;
+    padding-bottom: 30px !important;
+  }
+  .football-club-item {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .collection-area {
+    padding-bottom: 30px !important;
+  }
+  .newsletter-text h2 {
+    font-size: 19px;
+    margin-bottom: 20px;
+  }
+  .subscribe-form .form-control {
+    max-width: unset;
+  }
+  .subscribe-form .form-control::-moz-placeholder {
+    font-size: 14px;
+  }
+  .subscribe-form .form-control:-ms-input-placeholder {
+    font-size: 14px;
+  }
+  .subscribe-form .form-control::placeholder {
+    font-size: 14px;
+  }
+  .subscribe-form .default-btn {
+    right: 0;
+    top: 1.5px;
+  }
+  .holder-area {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .single-holder-image {
+    margin-top: 116px;
+  }
+  .single-holder-image .holder-img-1 {
+    left: 67px;
+  }
+  .partner-logo-item {
+    margin-top: 50px;
+    padding: 50px 20px;
+  }
+  .partner-logo-item .partner-shape {
+    display: none;
+  }
+  .partner-content h2 {
+    font-size: 28px;
+  }
+  .partner-logo-slider.owl-theme .owl-nav {
+    position: unset;
+    margin-top: 0;
+  }
+  .partner-logo-item::before {
+    display: none;
+  }
+  .partner-logo-item::after {
+    display: none;
+  }
+  .holder-bg-item {
+    padding-top: 50px;
+    padding-bottom: 50px !important;
+  }
+  .single-holder-content {
+    max-width: 720px;
+    padding-right: 5px;
+    margin-bottom: 40px;
+  }
+  .single-holder-content h3 {
+    font-size: 28px;
+    line-height: 40px;
+  }
+  .single-holder-content p {
+    margin-bottom: 10px;
+  }
+  .single-holder-content ul {
+    margin-bottom: 20px !important;
+  }
+  .section-title h2 {
+    font-size: 36px;
+  }
+  .latest-video-area {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .navbar-nav {
+    max-height: 50vh;
+    overflow-y: scroll;
+    box-shadow: 0 7px 13px 0 rgba(0, 0, 0, 0.1);
+  }
+  .navbar-nav::-webkit-scrollbar {
+    width: 3px;
+  }
+  .navbar-nav::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  .navbar-nav::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  .navbar-nav::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  .player-area {
+    padding-bottom: 30px !important;
+  }
+  .features-area {
+    padding-bottom: 30px !important;
+  }
+  .single-features-card p {
+    margin-bottom: 15px;
+    margin-top: 10px;
+  }
+  .single-features-card .features-item h3 {
+    font-size: 24px;
+  }
+  p {
+    font-size: 15px;
+  }
+  .pt-100 {
+    padding-top: 60px;
+  }
+  .ptb-100 {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .pb-100 {
+    padding-bottom: 60px;
+  }
+  .pb-70 {
+    padding-bottom: 60px;
+  }
+  .default-btn {
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+  .latest-video-item {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .single-latest-video {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 30px !important;
+    max-width: 720px;
+    margin: auto;
+  }
+  .single-latest-video h2 {
+    font-size: 28px;
+  }
+  .single-latest-video .latest-services {
+    margin-bottom: 20px;
+  }
+  .single-latest-video .latest-services i {
+    position: unset;
+    margin-bottom: 18px;
+    display: inline-flex;
+  }
+  .single-latest-video .latest-services .player {
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+  .banner-blog-area {
+    padding-bottom: 30px !important;
+  }
+  .single-blog-card .single-blog-text {
+    padding: 20px;
+  }
+  .single-blog-card .single-blog-text h3 {
+    font-size: 20px;
+  }
+  .single-blog-card .single-blog-text ul {
+    margin-bottom: 0 !important;
+  }
+  .single-blog-card .single-blog-text ul li {
+    font-size: 13px;
+    margin-right: 15px;
+  }
+  .single-blog-card .single-blog-text p {
+    margin-bottom: 15px;
+  }
+  .premier-league-area {
+    padding-bottom: 30px;
+  }
+  .premier-league-card {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .premier-league-card .premier-league-item p {
+    font-size: 13px;
+  }
+  .premier-league-card .premier-league-item span {
+    font-size: 13px;
+    display: block;
+  }
+  .premier-league-card .premier-league-item h2 {
+    font-size: 28px;
+  }
+  .premier-league-card .premier-league-item h2 span {
+    font-size: 28px;
+    display: unset;
+  }
+  .banner-area .container-fluid {
+    padding-left: 30px;
+    padding-right: 30px;
+    max-width: 720px;
+  }
+  .single-banner-content {
+    padding-top: 70px;
+    padding-bottom: 50px;
+    max-width: 720px;
+    margin: auto;
+  }
+  .single-banner-content h1 {
+    font-size: 40px;
+  }
+  .banner-img .banner-shape {
+    right: -80px;
+    max-width: 545px;
+    top: 60px;
+  }
+  .single-latest-video .latest-button a i {
+    width: 46px;
+    height: 45px;
+    line-height: 48px;
+    font-size: 28px;
+  }
+  .single-latest-video .latest-button .default-btn {
+    margin-top: 20px;
+  }
+  .single-latest-video .latest-button .default-btn .video-icons i {
+    top: -12px;
+    left: -5px;
+    font-size: 80px;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .single-banner-content h1 {
+    font-size: 37px;
+  }
+  .single-banner-content p {
+    margin-bottom: 25px !important;
+    font-size: 15px;
+  }
+  .leave-form h2 {
+    font-size: 26px;
+  }
+  .league-table-content .table-responsive .table.table-bordered tbody tr th p {
+    margin-top: 9px;
+  }
+  .customer-review h2 {
+    font-size: 26px;
+  }
+  .contact-form-area {
+    padding-bottom: 80px;
+  }
+  .single-contact-item .contact-text {
+    margin-bottom: 20px;
+  }
+  .coming-soon-content .newsletter-form .form-control {
+    height: 66px;
+  }
+  .coming-soon-content {
+    padding-top: 100px;
+    padding-bottom: 90px;
+  }
+  .team-details-area {
+    padding-bottom: 0 !important;
+  }
+  .player-list-area {
+    padding-top: 70px !important;
+  }
+  .faq-accordion .accordion .accordion-item .accordion-title {
+    padding: 13px 60px 17px 25px;
+    font-size: 14px;
+  }
+  .main-nav.main-two .navbar-nav .nav-item a {
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+  }
+  .main-nav .others-option-vg .single-option-item .cart-icon {
+    padding: 12.5px 13px;
+  }
+  .subscribe-form .default-btn {
+    padding: 18.5px 20px;
+  }
+  .schedule-text {
+    padding-left: 24px;
+  }
+  .faq-accordion .accordion .accordion-item .accordion-title {
+    padding: 13px 60px 17px 25px;
+  }
+  .about-champion-content p {
+    font-size: 14px;
+  }
+  .about-champion-content .about-champion-list li {
+    font-size: 14px;
+  }
+  .main-nav.main-two .others-option-vg .single-option-item .option-item .search-form .form-control {
+    width: 193px;
+    margin-right: 5px;
+  }
+  .about-bg-color {
+    max-width: 960px;
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+  .soka-content img {
+    background-color: transparent;
+  }
+  .single-contact-item {
+    padding-left: 0;
+  }
+  .collection-card h3 {
+    font-size: 15px;
+  }
+  .premier-league-table-area.player-area-two::before {
+    width: 100%;
+  }
+  .match-schedule-card .match-schedule-img .match-img p {
+    font-size: 13px;
+  }
+  .blog-details-right {
+    padding-left: 10px;
+  }
+  .blog-details-right .categories h2 {
+    font-size: 25px;
+  }
+  .blog-details-right .popular-posts h2 {
+    font-size: 25px;
+  }
+  .blog-details-right .popular-posts .recent-card {
+    padding-left: 90px;
+  }
+  .blog-details-right .popular-posts .recent-card h3 a {
+    font-size: 13px;
+  }
+  .total-cart {
+    padding: 15px;
+  }
+  .total-cart ul li span {
+    width: 75%;
+  }
+  .checkout-left .payment-method {
+    padding: 15px;
+  }
+  .single-contact-item .contact-text p a {
+    display: block;
+  }
+  .match-schedule-card .schedule-list ul li {
+    width: 59px;
+    height: 70px;
+    margin-right: 5px;
+  }
+  .match-schedule-card .schedule-button .default-btn.style-1 {
+    margin-bottom: 10px;
+    padding: 8px;
+  }
+  .faq-accordion .accordion .accordion-item .accordion-content p {
+    font-size: 14px;
+  }
+  .about-opposition-content {
+    margin-bottom: 30px;
+    top: 60px;
+    right: 0;
+  }
+  .about-opposition-content h2 {
+    font-size: 26px;
+  }
+  .about-opposition-content .opposition-icon {
+    margin-top: 0;
+  }
+  .about-opposition-content .opposition-icon i {
+    position: unset;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  .about-opposition-content .opposition-icon .soccer i {
+    margin-bottom: 0;
+  }
+  .about-opposition-area::before {
+    width: 100%;
+    right: 0;
+  }
+  .about-faq-image {
+    margin-bottom: 30px;
+    height: 542px;
+    top: 15px;
+  }
+  .faq-accordion .accordion {
+    padding-left: 0;
+  }
+  .faq-accordion .accordion .accordion-item:last-child {
+    margin-bottom: 0;
+  }
+  .about-champion-img-2 {
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  .about-champion-content {
+    padding-left: 0;
+  }
+  .about-champion-content h2 {
+    font-size: 37px !important;
+  }
+  .page-banner-area .container-fluid {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .single-page-banner-content h1 {
+    font-size: 45px;
+  }
+  .holder-bg-item.bg-holder .single-holder-image {
+    margin-top: 50px;
+  }
+  .holder-bg-item.bg-holder .single-holder-image .holder-img-5 {
+    left: 0;
+    right: 0;
+  }
+  .partner-content::after {
+    display: none;
+  }
+  .partner-logo-slider.owl-theme .owl-nav {
+    margin-top: 20px;
+  }
+  .partner-logo-slider.owl-theme .owl-nav .owl-prev, .partner-logo-slider.owl-theme .owl-nav .owl-next {
+    position: unset;
+    transform: translateY(0);
+  }
+  .upcoming-match-item {
+    padding: 30px;
+  }
+  .upcoming-match-item .dallas p {
+    font-size: 12px;
+  }
+  .upcoming-list {
+    margin-bottom: 30px;
+  }
+  .upcoming-list ul li {
+    width: 85px;
+    height: 90px;
+    margin-right: 8px;
+  }
+  .upcoming-match-item .dallas h6 {
+    font-size: 17px;
+  }
+  .banner-three-area .container-fluid {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .league-table-content {
+    margin-bottom: 30px;
+    padding: 15px;
+  }
+  .league-table-content .table-list ul li {
+    padding: 15px 7px;
+    font-size: 12px;
+  }
+  .about-two-area {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .single-about-content {
+    padding-right: 20px;
+    margin: auto;
+  }
+  .single-about-content h2 {
+    font-size: 36px;
+  }
+  .banner-two-area {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+  }
+  .banner-two-content {
+    margin-bottom: 40px;
+  }
+  .banner-two-content h1 {
+    font-size: 36px;
+  }
+  .banner-two-content p {
+    margin-bottom: 15px;
+  }
+  .banner-tow-img img {
+    left: 0;
+  }
+  .banner-tow-img .banner-two-shape {
+    display: none;
+  }
+  .banner-tow-img .banner-two-shape-1 {
+    display: none;
+  }
+  .newsletter-text h2 {
+    font-size: 20px;
+  }
+  .holder-area {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .single-holder-image {
+    margin-top: 85px;
+  }
+  .single-holder-image .holder-img-1 {
+    left: 0;
+  }
+  .single-football-club {
+    padding-top: 45px;
+    padding-right: 20px;
+  }
+  .single-football-club h2 {
+    font-size: 27px;
+  }
+  .single-football-club p {
+    margin-bottom: 15px;
+  }
+  .league-table-area {
+    padding-top: 0 !important;
+    padding-bottom: 70px !important;
+  }
+  .league-table-area::before {
+    display: none;
+  }
+  .table-card {
+    padding: 15px;
+  }
+  .table-card .table-responsive .table.table-bordered tbody tr th {
+    padding: 13.5px;
+  }
+  .league-table-content .table-list ul li b {
+    font-size: 12px;
+  }
+  .partner-logo .partner-btn {
+    padding: 11px 8px;
+  }
+  .partner-logo-item {
+    padding: 50px 20px;
+  }
+  .partner-logo-item .partner-shape {
+    display: none;
+  }
+  .partner-content h2 {
+    font-size: 28px;
+  }
+  .single-holder-content {
+    max-width: unset;
+    padding-left: 30px;
+    padding-right: 5px;
+  }
+  .single-holder-content h3 {
+    font-size: 28px;
+    line-height: 40px;
+  }
+  .single-holder-content p {
+    margin-bottom: 10px;
+  }
+  .single-holder-content ul {
+    margin-bottom: 20px !important;
+  }
+  .navbar-area.is-sticky {
+    background-color: #262F3E;
+  }
+  .section-title h2 {
+    font-size: 35px;
+  }
+  .latest-video-area {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .single-features-card {
+    padding: 15px;
+  }
+  .single-features-card p {
+    margin-bottom: 15px;
+    margin-top: 0;
+    font-size: 13px;
+  }
+  .single-features-card .features-item h3 {
+    font-size: 16px;
+  }
+  p {
+    font-size: 15px;
+  }
+  .premier-league-card {
+    padding: 20px;
+  }
+  .premier-league-card .premier-league-item p {
+    font-size: 13px;
+  }
+  .premier-league-card .premier-league-item span {
+    font-size: 13px;
+  }
+  .premier-league-card .premier-league-item h2 {
+    font-size: 28px;
+    margin-bottom: 28px;
+  }
+  .premier-league-card .premier-league-item h2 span {
+    font-size: 28px;
+    display: unset;
+  }
+  .premier-league-card .premier-league-item .league-img {
+    margin-bottom: 8px;
+  }
+  .latest-video-item {
+    padding-bottom: 100px;
+  }
+  .single-latest-video {
+    padding-left: 30px;
+    padding-top: -10px;
+    padding-left: 0;
+    padding-right: 15px;
+  }
+  .single-latest-video h2 {
+    font-size: 28px;
+  }
+  .single-latest-video p {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  .single-latest-video .latest-services {
+    padding-left: 67px;
+    margin-bottom: 15px;
+  }
+  .single-latest-video .latest-services h3 {
+    font-size: 20px;
+  }
+  .single-latest-video .latest-services i {
+    padding: 0.5px 10px;
+    font-size: 36px;
+  }
+  .single-latest-video .latest-services .player {
+    padding: 0.5px 0px;
+    font-size: 30px;
+  }
+  .single-latest-video .latest-button .default-btn {
+    padding: 14px 35px 13px 14px;
+  }
+  .single-latest-video .latest-button .default-btn .video-icons i {
+    font-size: 65px;
+    top: -21px;
+    left: -7px;
+  }
+  .single-latest-video .latest-button a i {
+    font-size: 28px;
+    width: 45px;
+    height: 45px;
+    line-height: 46px;
+  }
+  .latest-img {
+    bottom: -25px;
+  }
+  .league-table-content .table-responsive .table.table-bordered tbody tr th p {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .single-features-card .features-item {
+    margin-bottom: 15px;
+  }
+  .single-features-card .features-item h3 {
+    font-size: 18px;
+  }
+  .single-features-card .features-item i {
+    font-size: 25px;
+    top: 3px;
+    width: 50px;
+    height: 50px;
+    line-height: 57px;
+  }
+  .single-features-card p {
+    margin-bottom: 20px;
+  }
+  .footer-widget.footer-widget-two {
+    padding-left: 0;
+  }
+  .footer-widget.ps-5 {
+    padding-left: 20px;
+  }
+  .footer-widget .widget-list li a {
+    font-size: 14px;
+  }
+  .default-btn {
+    padding: 10px 15px;
+    font-size: 12px;
+  }
+  .single-blog-card .single-blog-text {
+    padding: 15px;
+  }
+  .single-blog-card .single-blog-text h3 {
+    font-size: 18px;
+  }
+  .single-blog-card .single-blog-text ul {
+    margin-bottom: 0 !important;
+  }
+  .single-blog-card .single-blog-text ul li {
+    font-size: 13px;
+    margin-right: 10px;
+    padding-left: 25px;
+  }
+  .single-blog-card .single-blog-text p {
+    margin-bottom: 15px;
+  }
+  .banner-area .container-fluid {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .banner-img .banner-shape {
+    top: 50px;
+    right: -70px;
+    max-width: 450px;
+  }
+  .main-nav .navbar-nav .nav-item .dropdown-toggle {
+    font-size: 13px;
+  }
+  .main-nav .navbar-nav .nav-item a {
+    margin-right: 9px !important;
+    margin-left: 9px !important;
+  }
+  .main-logo {
+    max-width: 90px;
+  }
+  .main-nav .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 960px;
+  }
+  .main-nav .others-option-vg .single-option-item .search-form {
+    margin-right: 5px;
+  }
+  .main-nav .others-option-vg .single-option-item .search-form .form-control {
+    padding: 10px;
+    position: relative;
+    left: 5px;
+  }
+  .main-nav .others-option-vg .single-option-item .search-form.form-one .form-control {
+    width: 157px;
+    margin-right: 5px;
+  }
+  .main-nav .navbar-nav .nav-item {
+    margin-right: 0;
+  }
+  .main-nav.main-nav-three .others-option-vg .single-option-item .option-item .search-form .form-control {
+    width: 180px;
+    margin-right: 5px;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .main-nav .others-option-vg .single-option-item .search-form {
+    margin-right: 10px;
+  }
+  .main-nav .container-fluid {
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 1140px;
+  }
+  .main-nav .others-option-vg .single-option-item .search-form {
+    margin-right: 5px;
+  }
+  .main-nav .others-option-vg .single-option-item .search-form .form-control {
+    padding: 10px;
+    position: relative;
+    left: 5px;
+  }
+  .main-nav .others-option-vg .single-option-item .search-form.form-one .form-control {
+    width: 157px;
+    margin-right: 5px;
+  }
+  .main-nav .navbar-nav .nav-item {
+    margin-right: 25px;
+  }
+  .main-logo {
+    max-width: 90px;
+  }
+  .single-features-card .features-item h3 {
+    font-size: 20px;
+    margin-left: 5px;
+  }
+  .single-features-card .features-item i {
+    width: 60px;
+    height: 60px;
+    line-height: 68px;
+    font-size: 30px;
+  }
+  .coming-soon-content .newsletter-form .form-control {
+    height: 71px;
+  }
+  .single-latest-video p {
+    margin-bottom: 10px;
+  }
+  .single-latest-video .latest-services {
+    margin-bottom: 20px;
+    margin-top: 19px;
+  }
+  .coming-soon-content {
+    padding-top: 100px;
+    padding-bottom: 90px;
+  }
+  .error-content {
+    padding-top: 100px;
+  }
+  .error-content h2 {
+    font-size: 35px;
+    margin-bottom: 15px;
+  }
+  .error-content p {
+    margin-bottom: 20px;
+  }
+  .league-table-content .table-responsive .table.table-bordered tbody tr th p {
+    padding: 7px;
+    margin-top: 5.1px;
+  }
+  .team-details-area {
+    padding-bottom: 0 !important;
+  }
+  .player-list-area {
+    padding-top: 70px !important;
+  }
+  .schedule-button .default-btn.style-1 {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+  .table-card {
+    padding: 15px;
+  }
+  .table-card .table-responsive .table.table-bordered tbody tr th {
+    padding: 12.3px;
+  }
+  .league-table-content .table-list ul li b {
+    font-size: 12px;
+  }
+  .total-cart {
+    padding: 15px;
+  }
+  .total-cart ul li span {
+    width: 75%;
+  }
+  .checkout-left .payment-method {
+    padding: 15px;
+  }
+  .match-schedule-card .schedule-list ul li {
+    padding: 6px 12px;
+    margin-right: 7px;
+  }
+  .match-schedule-card .default-btn.style-1 {
+    padding: 10.5px 15px;
+  }
+  .about-opposition-content h2 {
+    font-size: 28px;
+  }
+  .about-opposition-area::before {
+    width: 100%;
+    right: 0;
+  }
+  .about-champion-content h2 {
+    font-size: 33px;
+  }
+  .upcoming-match-item .dallas p {
+    font-size: 12px;
+  }
+  .premier-league-table-area.player-area-two::before {
+    width: 100%;
+  }
+  .upcoming-list {
+    margin-bottom: 30px;
+  }
+  .upcoming-list ul li {
+    padding: 10px 18px;
+    margin-right: 8px;
+  }
+  .upcoming-list ul li h5 {
+    font-size: 20px;
+  }
+  .upcoming-list ul li p {
+    font-size: 14px;
+  }
+  .banner-three-area .container-fluid {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .league-table-content .table-list ul li {
+    font-size: 13px;
+    padding: 10px;
+  }
+  .about-two-area {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .single-about-content {
+    padding-right: 20px;
+  }
+  .single-about-content h2 {
+    font-size: 36px;
+  }
+  .banner-two-area {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+  }
+  .banner-two-content {
+    margin-bottom: 40px;
+  }
+  .banner-two-content h1 {
+    font-size: 36px;
+  }
+  .banner-two-content p {
+    margin-bottom: 15px;
+  }
+  .banner-tow-img img {
+    left: 0;
+  }
+  .banner-tow-img .banner-two-shape {
+    display: none;
+  }
+  .banner-tow-img .banner-two-shape-1 {
+    display: none;
+  }
+  .collection-card h3 {
+    font-size: 17px;
+  }
+  .partner-logo-item {
+    padding: 50px 20px;
+  }
+  .partner-logo-item .partner-shape {
+    display: none;
+  }
+  .partner-content h2 {
+    font-size: 28px;
+  }
+  .partner-logo-slider.owl-theme .owl-nav {
+    margin-top: 0;
+  }
+  .banner-img .banner-shape {
+    top: 58px;
+    right: -74px;
+    max-width: 494px;
+  }
+  .holder-area {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .single-holder-image {
+    margin-top: 116px;
+  }
+  .single-holder-image .holder-img-1 {
+    left: 0;
+  }
+  .single-holder-content {
+    padding-top: 85px;
+    max-width: unset;
+    padding-left: 30px;
+    padding-right: 5px;
+  }
+  .single-holder-content h3 {
+    font-size: 28px;
+    line-height: 40px;
+  }
+  .single-holder-content p {
+    margin-bottom: 15px;
+  }
+  .single-holder-content ul {
+    margin-bottom: 25px !important;
+  }
+  .latest-video-area {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .navbar-area.is-sticky {
+    background-color: #262F3E;
+  }
+  .single-latest-video {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: -10px;
+  }
+  .single-latest-video h2 {
+    font-size: 38px;
+  }
+  .single-latest-video .latest-services {
+    padding-left: 75px;
+  }
+  .single-latest-video .latest-services .player {
+    padding: 2.5px 13px;
+    font-size: 40px;
+  }
+  .single-latest-video .latest-button .default-btn {
+    padding: 14px 35px 14px 14px;
+  }
+  .single-latest-video .latest-button a i {
+    width: 44px;
+    font-size: 30px;
+    height: 45px;
+    line-height: 46px;
+  }
+  .single-blog-card .single-blog-text {
+    padding: 20px;
+  }
+  .single-blog-card .single-blog-text h3 {
+    font-size: 18px !important;
+  }
+  .single-blog-card .single-blog-text ul {
+    margin-bottom: 0 !important;
+  }
+  .single-blog-card .single-blog-text ul li {
+    font-size: 13px;
+    margin-right: 10px;
+  }
+  .single-blog-card .single-blog-text p {
+    margin-bottom: 15px;
+  }
+  .newsletter-text h2 {
+    font-size: 24px;
+  }
+  .section-title h2 {
+    font-size: 36px;
+  }
+  .main-nav .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .main-nav.main-two .others-option-vg .single-option-item .option-item .search-form .form-control {
+    width: 195px;
+    height: 50px;
+    margin-right: 5px;
+  }
+  .main-nav.main-nav-three .others-option-vg .single-option-item .option-item .search-form .form-control {
+    width: 195px;
+    height: 50px;
+    margin-right: 5px;
+  }
+  .banner-area .container-fluid {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .single-banner-content h1 {
+    font-size: 46px;
+  }
+  .single-banner-content p {
+    margin-bottom: 25px !important;
+    font-size: 15px;
+  }
+  .premier-league-card {
+    padding: 20px;
+  }
+  .premier-league-card .premier-league-item p {
+    font-size: 15px;
+  }
+  .premier-league-card .premier-league-item span {
+    font-size: 15px;
+  }
+  .premier-league-card .premier-league-item h2 {
+    font-size: 28px;
+  }
+  .premier-league-card .premier-league-item h2 span {
+    font-size: 28px;
+    display: unset;
+  }
+}
+@media only screen and (min-width: 1550px) {
+  .single-latest-video {
+    max-width: 520px;
+  }
+  .single-holder-content {
+    max-width: 637px;
+    margin: unset;
+    margin-left: auto !important;
+  }
+  .single-about-content {
+    max-width: 650px;
+  }
+  .about-opposition-area::before {
+    max-width: 1520px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .match-schedule {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  .league-table-area::before {
+    max-width: 1520px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .premier-league-table-area.player-area-two::before {
+    width: 88%;
+  }
+  .collection-area.bg-color-2::before {
+    max-width: 1520px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .banner-tow-img .banner-two-shape {
+    top: 100px;
+    left: -64px;
+    width: 80%;
+  }
+  .banner-tow-img .banner-two-shape-1 {
+    width: 80%;
+    top: 80px;
+  }
+  .main-nav .container-fluid {
+    max-width: 1520px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .main-nav.main-two .container-fluid {
+    max-width: 1520px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .banner-area .container-fluid {
+    max-width: 1520px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .latest-video-area .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 1520px;
+  }
+  .holder-area .container-fluid {
+    max-width: 1520px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .holder-area.holder-two-area .container-fluid {
+    max-width: unset;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .football-club-area .container-fluid {
+    max-width: 1520px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .banner-two-area .container-fluid {
+    max-width: 1520px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .banner-three-area .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 1520px;
+  }
+  .page-banner-area .container-fluid {
+    max-width: 1520px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .soka-has-area::before {
+    width: 88%;
+  }
+  .coming-soon-area {
+    padding-top: 122px;
+    padding-bottom: 122px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .navbar-area {
+    background-color: #ffffff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  .navbar-area.bg-color-one {
+    background-color: #000000;
+    box-shadow: none;
+  }
+  .mobile-nav {
+    display: block;
+    position: relative;
+    padding: 48px 0px;
+  }
+  .others-option-for-responsive {
+    display: block !important;
+    position: relative;
+  }
+  .mobile-nav .logo {
+    text-decoration: none;
+    position: absolute;
+    top: 11px;
+    z-index: 999;
+    left: 15px;
+    color: #d83030;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 20px;
+  }
+  .mean-container .mean-nav ul li a.mean-expand {
+    width: unset;
+  }
+  .mean-container .mean-nav {
+    margin-top: 45px;
+  }
+  .mean-container .mean-bar {
+    background-color: transparent;
+    padding: 0;
+    border-bottom: none;
+    float: unset;
+  }
+  .mean-container a.meanmenu-reveal {
+    padding: 0;
+    color: #d83030;
+    top: -15px;
+  }
+  .mobile-nav nav .navbar-nav .nav-item a i {
+    display: none;
+  }
+  .mean-container a.meanmenu-reveal span {
+    background: #d83030;
+    height: 4px;
+    margin-top: -3px;
+    border-radius: 3px;
+    position: relative;
+    top: 8px;
+  }
+  .others-option-for-responsive {
+    display: block !important;
+    position: relative;
+  }
+  .others-option-for-responsive .option-inner .others-options {
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 50px 30px;
+    text-align: center;
+    max-width: 255px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  .others-option-for-responsive .option-inner .others-options ul {
+    padding-left: 0;
+    margin: 0;
+  }
+  .others-option-for-responsive .option-inner .others-options ul li {
+    border: none;
+  }
+  .others-option-for-responsive .option-inner .others-options.justify-content-center.d-flex.align-items-center .option-item {
+    position: absolute;
+    margin-right: 44px;
+    top: 41%;
+    transform: translateY(-50%);
+  }
+  .others-option-for-responsive .option-inner .others-options.justify-content-center.d-flex.align-items-center .option-item:last-child {
+    margin-right: 0;
+  }
+  .others-option-for-responsive .option-inner .others-options.justify-content-center.d-flex.align-items-center .option-item .search-btn {
+    cursor: pointer;
+    transition: 0.6s;
+    color: #494A60;
+    font-size: 25px;
+    transition: 0.6s;
+    position: relative;
+    left: 0;
+    top: -10px;
+  }
+  .others-option-for-responsive .option-inner .others-options.justify-content-center.d-flex.align-items-center .option-item .close-btn {
+    cursor: pointer;
+    display: none;
+    transition: 0.6s;
+    color: #494A60;
+    font-size: 25px;
+    transition: 0.6s;
+    position: relative;
+    left: 0;
+    top: -10px;
+  }
+  .others-option-for-responsive .option-inner .others-options.justify-content-center.d-flex.align-items-center .option-item .close-btn.active {
+    display: block;
+  }
+  .others-option-for-responsive .option-inner .others-options.justify-content-center.d-flex.align-items-center .option-item .search-form {
+    position: relative;
+  }
+  .others-option-for-responsive .option-inner .others-options.justify-content-center.d-flex.align-items-center .option-item .search-form .form-control {
+    width: 185px;
+    position: absolute;
+    left: -50px;
+    top: -6px;
+    border: none;
+    padding: 6.7px;
+    background: #262F3E;
+    border-radius: 0px;
+    color: white;
+  }
+  .others-option-for-responsive .option-inner .others-options.justify-content-center.d-flex.align-items-center .option-item .search-form .form-control::-moz-placeholder {
+    color: white;
+  }
+  .others-option-for-responsive .option-inner .others-options.justify-content-center.d-flex.align-items-center .option-item .search-form .form-control:-ms-input-placeholder {
+    color: white;
+  }
+  .others-option-for-responsive .option-inner .others-options.justify-content-center.d-flex.align-items-center .option-item .search-form .form-control::placeholder {
+    color: white;
+  }
+  .others-option-for-responsive .option-inner .others-options.justify-content-center.d-flex.align-items-center .option-item .search-form .form-control:focus {
+    box-shadow: none;
+    border: 1px solid #d83030;
+  }
+  .others-option-for-responsive .option-inner .others-options.justify-content-center.d-flex.align-items-center .option-item .search-form .search-button {
+    position: absolute;
+    right: -134px;
+    border: none;
+    top: -5.2px;
+    background-color: red;
+    color: #fff;
+    padding: 5px 15px;
+  }
+}/*# sourceMappingURL=responsive.css.map */

@@ -1,0 +1,367 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+   <!-- Start Navbar Area --> 
+        <div class="navbar-area">      
+            <!-- Menu For Mobile Device -->
+            <div class="container"> 
+                <div class="mobile-nav"> 
+                    <div class="logo">
+                        <a href="index.html"> 
+                            <img src="~/assets/images/logo-two.png" class="main-logo" alt="Images">  
+                            <img src="~/assets/images/logo-img.png" class="optional-logo" alt="Images">   
+                        </a> 
+                    </div>
+                </div>  
+            </div> 
+
+            <!-- Menu For Desktop Device -->
+            <div class="main-nav main-two">         
+                <div class="container-fluid">    
+                    <nav class="navbar navbar-expand-md navbar-light">   
+
+                        <a href="index.html">   
+                            <img src="~/assets/images/logo-two.png" class="main-logo" alt="Images">  
+                            <img src="~/assets/images/logo-img.png" class="optional-logo" alt="Images">     
+                        </a>   
+
+                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent"> 
+                            <ul class="navbar-nav m-auto">  
+                                <li class="nav-item">  
+                                    <a asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
+                                </li> 
+
+                                <li class="nav-item">
+                                    <a asp-controller="Home" asp-action="About" class="nav-link">About Us</a>         
+                                </li>  
+                                
+                                <li class="nav-item"> 
+
+                                    <a href="#" class="nav-link dropdown-toggle">Pages</a>   
+                                    
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a asp-controller="Pages" asp-action="Index" class="nav-link">Player List</a>     
+                                        </li> 
+                                        <li class="nav-item">
+                                            <a asp-controller="Pages" asp-action="Details" class="nav-link">Player Details</a>     
+                                        </li> 
+                                    </ul>
+
+                                </li>  
+
+                                <li class="nav-item"> 
+                                    <a href="#" class="nav-link dropdown-toggle">Shop</a>     
+                                    
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a asp-controller="Shop" asp-action="Index" class="nav-link active">Shop</a>     
+                                        </li> 
+                                        <li class="nav-item">
+                                            <a asp-controller="Shop" asp-action="Details" class="nav-link">Shop Details</a>     
+                                        </li> 
+                                        <li class="nav-item">
+                                            <a asp-controller="Shop" asp-action="Cart" class="nav-link">Cart</a>     
+                                        </li> 
+                                    </ul>
+
+                                </li> 
+
+                                <li class="nav-item"> 
+
+                                    <a href="#" class="nav-link dropdown-toggle">Blog</a>   
+                                    
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a asp-controller="Blog" asp-action="Index" class="nav-link">Blog</a>     
+                                        </li> 
+                                        <li class="nav-item">
+                                            <a asp-controller="Blog" asp-action="Details" class="nav-link">Blog Details</a>     
+                                        </li> 
+                                    </ul>
+
+                                </li>     
+
+                                <li class="nav-item"> 
+                                    <a asp-controller="Home" asp-action="Contact" class="nav-link">Contact</a>      
+                                </li> 
+                            </ul> 
+
+
+                            <div class="others-option-vg d-flex align-items-center"> 
+                                <div class="single-option-item">
+
+                                    <div class="option-item">
+                                        <form class="search-form">
+                                            <input type="text" class="form-control" placeholder="Searching Here" name="search">
+                                            <button class="search-button" type="submit">
+                                                <i class="ri-search-line"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                    <div class="cart-icon">
+                                        <a asp-controller="Shop" asp-action="Cart">
+                                            <img src="~/assets/images/navber-card-img.png" alt="images">
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </nav> 
+                </div>
+            </div>     
+
+            <div class="others-option-for-responsive"> 
+                <div class="container">
+                    <div class="dot-menu">
+                        <div class="inner">
+                            <div class="circle circle-one"></div>
+                            <div class="circle circle-two"></div>
+                            <div class="circle circle-three"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="container">
+                        <div class="option-inner">
+                            <div class="others-options justify-content-center d-flex align-items-center">
+                                <div class="single-option-item">
+
+                                    <div class="option-item">
+                                        <form class="search-form">
+                                            <input type="text" class="form-control" placeholder="Searching Here" name="search">
+                                            <button class="search-button" type="submit">
+                                                <i class="ri-search-line"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                    <div class="cart-icon">
+                                        <a asp-controller="Shop" asp-action="Cart">
+                                            <img src="~/assets/images/navber-card-img.png" alt="images">
+                                        </a>
+                                    </div>
+
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div> 
+        <!-- End  Navbar Area -->
+
+        <!-- Start Page Banner Area-->
+        <div class="page-banner-area">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-9 col-md-6">
+                        <div class="single-page-banner-content">
+                            <h1>Shop Products</h1>
+                            <p><a asp-controller="Shop" asp-action="Index">Home</a>Shop Products</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="page-banner-img" data-aos="fade-up-left" data-aos-duration="3000" data-aos-once="true">
+                            <img src="~/assets/images/page-banner/page-banner-image-1.png" alt="images">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Banner Area-->
+
+        <!-- Start Collection Area -->
+        <div class="collection-area pt-100 pb-70">
+            <div class="container">
+                <div class="shop-item"> 
+                    <div class="row align-items-center">
+                        <div class="col-lg-9">
+                            <div class="showing">
+                                <p>Showing 1–6 Of 9 Results</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="shop-select">
+                                <div class="form-group">
+                                    <select>
+                                        <option value="">Default Sorting </option>
+                                        <option value="">Alpha Goalkeeper</option>
+                                        <option value="">Prestige Soccer T-Shirt</option>
+                                        <option value="">England Vapor Match</option>
+                                        <option value="">Nike Hupervenom Phantom</option>
+                                        <option value="">Glove Vapor Match</option>
+                                    </select>	
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6 col-md-6">
+                            <div class="collection-card"  data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
+                                <div class="collection-item shop-img">
+                                    <span>Sale</span>
+                                    <a href="shop-details.html">
+                                        <img src="~/assets/images/collection/collection-img-1.png" alt="images">
+                                    </a>
+                                    <a href="cart.html" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
+                                </div>
+                                <ul class="collection-list">
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-half-line"></i></li>
+                                </ul>
+                                <h3><a href="shop-details.html">Alpha Goalkeeper Glove</a></h3>
+                                <p><del>£425.00</del>$350.00</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-md-6">
+                            <div class="collection-card"  data-aos="fade-up" data-aos-duration="1200" data-aos-once="true">
+                                <div class="collection-item shop-img">
+                                    <a href="shop-details.html">
+                                        <img src="~/assets/images/collection/collection-img-2.png" alt="images">
+                                    </a>
+                                    <a href="cart.html" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
+                                </div>
+                                <ul class="collection-list">
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-half-line"></i></li>
+                                </ul>
+                                <h3><a href="shop-details.html">Prestige Soccer T-Shirt</a></h3>
+                                <p><del>£189.99</del>$150.00</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-md-6">
+                            <div class="collection-card"  data-aos="fade-up" data-aos-duration="1800" data-aos-once="true">
+                                <div class="collection-item shop-img">
+                                    <span>Sale</span>
+                                    <a href="shop-details.html">
+                                        <img src="~/assets/images/collection/collection-img-3.png" alt="images">
+                                    </a>
+                                    <a href="cart.html" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
+                                </div>
+                                <ul class="collection-list">
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-half-line"></i></li>
+                                </ul>
+                                <h3><a href="shop-details.html">England Vapor Match Home</a></h3>
+                                <p><del>£425.00</del>$350.00</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-md-6">
+                            <div class="collection-card"  data-aos="fade-up" data-aos-duration="2500" data-aos-once="true">
+                                <div class="collection-item shop-img">
+                                    <a href="shop-details.html">
+                                        <img src="~/assets/images/collection/collection-img-4.png" alt="images">
+                                    </a>
+                                    <a href="cart.html" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
+                                </div>
+                                <ul class="collection-list">
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-half-line"></i></li>
+                                </ul>
+                                <h3><a href="shop-details.html">Nike Hupervenom Phantom 3 FG</a></h3>
+                                <p><del>£176.00</del>$150.00</p>
+                            </div>
+                        </div> 
+                        <div class="col-lg-3 col-sm-6 col-md-6">
+                            <div class="collection-card"  data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
+                                <div class="collection-item shop-img">
+                                    <span>Sale</span>
+                                    <a href="shop-details.html">
+                                        <img src="~/assets/images/collection/collection-img-8.png" alt="images">
+                                    </a>
+                                    <a href="cart.html" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
+                                </div>
+                                <ul class="collection-list">
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-half-line"></i></li>
+                                </ul>
+                                <h3><a href="shop-details.html">Nike Hupervenom Phantom 2 FG</a></h3>
+                                <p><del>£276.00</del>$200.00</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-md-6">
+                            <div class="collection-card"  data-aos="fade-up" data-aos-duration="1200" data-aos-once="true">
+                                <div class="collection-item shop-img">
+                                    <a href="shop-details.html">
+                                        <img src="~/assets/images/collection/collection-img-5.png" alt="images">
+                                    </a>
+                                    <a href="cart.html" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
+                                </div>
+                                <ul class="collection-list">
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-half-line"></i></li>
+                                </ul>
+                                <h3><a href="shop-details.html">England Vapor Match Home</a></h3>
+                                <p><del>£325.99</del>$275.00</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-md-6">
+                            <div class="collection-card"  data-aos="fade-up" data-aos-duration="1800" data-aos-once="true">
+                                <div class="collection-item shop-img">
+                                    <span>Sale</span>
+                                    <a href="shop-details.html">
+                                        <img src="~/assets/images/collection/collection-img-6.png" alt="images">
+                                    </a>
+                                    <a href="cart.html" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
+                                </div>
+                                <ul class="collection-list">
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-half-line"></i></li>
+                                </ul>
+                                <h3><a href="shop-details.html">Prestige Soccer T-Shirt</a></h3>
+                                <p><del>£289.99</del>$250.00</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-md-6">
+                            <div class="collection-card"  data-aos="fade-up" data-aos-duration="2500" data-aos-once="true">
+                                <div class="collection-item shop-img">
+                                    <a href="shop-details.html">
+                                        <img src="~/assets/images/collection/collection-img-7.png" alt="images">
+                                    </a>
+                                    <a href="cart.html" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
+                                </div>
+                                <ul class="collection-list">
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-half-line"></i></li>
+                                </ul>
+                                <h3><a href="shop-details.html">Alpha Goalkeeper Glove</a></h3>
+                                <p><del>£125.00</del>$100.00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <!-- End Collection Area -->
+

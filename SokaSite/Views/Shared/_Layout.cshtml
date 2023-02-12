@@ -1,0 +1,345 @@
+﻿<!DOCTYPE html>
+<html lang="en"> 
+    
+<!-- Mirrored from templates.envytheme.com/soka/default/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 Jan 2023 08:24:22 GMT -->
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Css File -->  
+        <link rel="stylesheet" href="~/assets/css/bootstrap.min.css"> 
+        <link rel="stylesheet" href="~/assets/css/meanmenu.min.css">   
+        <link rel="stylesheet" href="~/assets/css/magnific-popup.css"> 
+        <link rel="stylesheet" href="~/assets/css/owl.carousel.min.css">  
+        <link rel="stylesheet" href="~/assets/css/owl.theme.default.min.css"> 
+        <link rel="stylesheet" href="~/assets/css/aos.css"> 
+        <link rel="stylesheet" href="~/assets/css/animate.min.css"> 
+        <link rel="stylesheet" href="~/assets/css/fancybox.min.css"> 
+        <link rel="stylesheet" href="~/assets/css/remixicon.css"> 
+        <link rel="stylesheet" href="~/assets/css/flaticon.css"> 
+        <link rel="stylesheet" href="~/assets/css/nice-select.min.css"> 
+        <link rel="stylesheet" href="~/assets/css/style.css"> 
+        <link rel="stylesheet" href="~/assets/css/dark.css"> 
+        <link rel="stylesheet" href="~/assets/css/responsive.css">  
+
+        <title>Welcome to my WebSite</title> 
+
+        <link rel="icon" type="image/png" href="~/assets/images/favicon.png"> 
+
+    </head>
+    <body>  
+
+        <!-- Start Preloader Area -->
+        <div class="loader-wrapper">
+            <div class="loader"></div>
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+        </div>
+        <!-- End Preloader Area -->
+    @if(ViewBag.IsHome == null)
+    {
+    }
+    else
+    {
+          <div class="navbar-area bg-color-one fixed-top">      
+            <!-- Menu For Mobile Device -->
+            <div class="container"> 
+                <div class="mobile-nav"> 
+                    <div class="logo">
+                        <a href="index.html"> 
+                            <img src="~/assets/images/logo-img.png" class="main-logo" alt="Images">  
+                            <img src="~/assets/images/logo-img.png" class="optional-logo" alt="Images">   
+                        </a> 
+                    </div>
+                </div>  
+            </div> 
+  <!-- Menu For Desktop Device -->
+            <div class="main-nav">         
+                <div class="container-fluid">    
+                    <nav class="navbar navbar-expand-md navbar-light">   
+
+                        <a href="index.html">   
+                            <img src="~/assets/images/logo-img.png" class="main-logo" alt="Images">  
+                            <img src="~/assets/images/logo-img.png" class="optional-logo" alt="Images">     
+                        </a>   
+
+                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent"> 
+                            <ul class="navbar-nav m-auto">  
+                                <li class="nav-item">  
+                                    <a asp-controller="Home" asp-action="Index" class="nav-link active">Home</a>
+
+                                </li> 
+
+                                <li class="nav-item">
+                                    <a asp-controller="Home" asp-action="About" class="nav-link">About Us</a>         
+                                </li> 
+                                
+                                <li class="nav-item"> 
+
+                                    <a href="#" class="nav-link dropdown-toggle">Pages</a>   
+                                    
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a asp-controller="Pages" asp-action="Index" class="nav-link">Player List</a>     
+                                        </li> 
+                                        <li class="nav-item">
+                                            <a asp-controller="Pages" asp-action="Details" class="nav-link">Player Details</a>     
+                                        </li> 
+                                    </ul>
+
+                                </li>  
+
+                                <li class="nav-item"> 
+                                    <a href="#" class="nav-link dropdown-toggle">Shop</a>     
+                                    
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a asp-controller="Shop" asp-action="Index" class="nav-link">Shop</a>     
+                                        </li> 
+                                        <li class="nav-item">
+                                            <a asp-controller="Shop" asp-action="Details" class="nav-link">Shop Details</a>     
+                                        </li> 
+                                        <li class="nav-item">
+                                            <a asp-controller="Shop" asp-action="Cart" class="nav-link">Cart</a>     
+                                        </li> 
+                                    </ul>
+
+                                </li> 
+
+                                <li class="nav-item"> 
+
+                                    <a href="#" class="nav-link dropdown-toggle">Blog</a>   
+                                    
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a asp-controller="Blog" asp-action="Index" class="nav-link">Blog</a>     
+                                        </li> 
+                                        <li class="nav-item">
+                                            <a asp-controller="Blog" asp-action="Details" class="nav-link">Blog Details</a>     
+                                        </li> 
+                                    </ul>
+
+                                </li>     
+
+                                <li class="nav-item"> 
+                                    <a asp-controller="Home" asp-action="Contact" class="nav-link">Contact</a>      
+                                </li> 
+                            </ul> 
+
+
+                            <div class="others-option-vg d-flex align-items-center"> 
+                                <div class="single-option-item">
+
+                                    <div class="option-item">
+                                        <form class="search-form form-one">
+                                            <input type="text" class="form-control" placeholder="Searching Here" name="search">
+                                            <button class="search-button" type="submit">
+                                                <i class="ri-search-line"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                    <div class="cart-icon">
+                                        <a asp-controller="Shop" asp-action="Cart">
+                                            <img src="~/assets/images/navber-card-img-1.png" alt="images">
+                                        </a>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                    </nav> 
+                </div>
+            </div>     
+
+            <div class="others-option-for-responsive"> 
+                <div class="container">
+                    <div class="dot-menu">
+                        <div class="inner">
+                            <div class="circle circle-one"></div>
+                            <div class="circle circle-two"></div>
+                            <div class="circle circle-three"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="container">
+                        <div class="option-inner">
+                            <div class="others-options justify-content-center d-flex align-items-center">
+                                <div class="single-option-item">
+
+                                    <div class="option-item">
+                                        <form class="search-form">
+                                            <input type="text" class="form-control" placeholder="Searching Here" name="search">
+                                            <button class="search-button" type="submit">
+                                                <i class="ri-search-line"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                    <div class="cart-icon">
+                                        <a asp-controller="Shop" asp-action="Cart">
+                                            <img src="~/assets/images/navber-card-img.png" alt="images">
+                                        </a>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+            </div>
+    }
+
+
+        @RenderBody()
+         <partial name="_Newsletter"/>
+
+        <!-- Start Footer Area -->
+        <div class="footer-area pb-70">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="footer-widget" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
+                            <a href="index.html">
+                                <img src="~/assets/images/logo-img.png" alt="images">
+                            </a>
+                            <ul class="footer-widget-list">
+                                <li><span>Address:</span> Suraxanı rayonu, Hövsan qəsəbəsi</li>
+                                <li><span>Phone: </span><a href="">+994516839288</a></li>
+                                <li><span>Email: </span><a href=""><span class="__cf_email__" data-cfemail="b4dddad2dbcddbc1c6f4c7dbdfd59ad7dbd9">elgunbayramov223@gmail.com</span></a></li>
+                                <li><span>Open Hours:</span>7/24 açıqdır</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="footer-widget ps-5" data-aos="fade-up" data-aos-duration="1200" data-aos-once="true">
+                            <h2>Quick Links</h2>
+                            <ul class="footer-list">
+                                <li><a asp-controller="Home" asp-action="Contact"><i class="ri-arrow-right-s-line"></i>Contact Us</a></li>
+                                <li><a asp-controller="Blog" asp-action="Index"><i class="ri-arrow-right-s-line"></i>Blog</a></li>
+                                <li><a asp-controller="Shop" asp-action="Index"><i class="ri-arrow-right-s-line"></i>Shop</a></li>
+                                <li><a asp-controller="Pages" asp-action="Index"><i class="ri-arrow-right-s-line"></i>Player List</a></li>
+                            </ul>
+                        </div> 
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="footer-widget" data-aos="fade-up" data-aos-duration="1800" data-aos-once="true">
+                           <h2>Explore Posts</h2>
+                            <ul class="widget-list">
+                                <li><i class="ri-arrow-right-s-line"></i><a href="blog-details.html">What’s the football equipment for professional athletes football the</a><span>
+                                April 19, 2022</span>
+                                </li>
+                                <li><i class="ri-arrow-right-s-line"></i><a href="blog-details.html">More effective training program</a><span>April 27, 2022</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="footer-widget footer-widget-two" data-aos="fade-up" data-aos-duration="2500" data-aos-once="true">
+                            <h2>Follow Us On Instagram</h2>
+                            <div class="row">
+                                <div class="col-lg-4 col-4 col-sm-6 col-md-4">
+                                    <div class="footer-image" data-aos="fade-right" data-aos-duration="1200" data-aos-once="true">
+                                        <img src="~/assets/images/footer/footer-img-1.png" alt="images">
+                                        <a href="https://www.instagram.com/" target="_blank"><i class="ri-instagram-line"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-4 col-sm-6 col-md-4">
+                                    <div class="footer-image" data-aos="fade-down" data-aos-duration="1200" data-aos-once="true">
+                                        <img src="~/assets/images/footer/footer-img-2.png" alt="images">
+                                        <a href="https://www.instagram.com/" target="_blank"><i class="ri-instagram-line"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-4 col-sm-6 col-md-4">
+                                    <div class="footer-image" data-aos="fade-left" data-aos-duration="1200" data-aos-once="true">
+                                        <img src="~/assets/images/footer/footer-img-3.png" alt="images">
+                                        <a href="https://www.instagram.com/" target="_blank"><i class="ri-instagram-line"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-4 col-sm-6 col-md-4">
+                                    <div class="footer-image" data-aos="fade-up-right" data-aos-duration="1200" data-aos-once="true">
+                                        <img src="~/assets/images/footer/footer-img-4.png" alt="images">
+                                        <a href="https://www.instagram.com/" target="_blank"><i class="ri-instagram-line"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-4 col-sm-6 col-md-4">
+                                    <div class="footer-image" data-aos="fade-up" data-aos-duration="1200" data-aos-once="true">
+                                        <img src="~/assets/images/footer/footer-img-5.png" alt="images">
+                                        <a href="https://www.instagram.com/" target="_blank"><i class="ri-instagram-line"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-4 col-sm-6 col-md-4">
+                                    <div class="footer-image" data-aos="fade-up-left" data-aos-duration="1200" data-aos-once="true">
+                                        <img src="~/assets/images/footer/footer-img-6.png" alt="images">
+                                        <a href="https://www.instagram.com/" target="_blank"><i class="ri-instagram-line"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Area -->
+
+        <!-- Start Copyright Area -->
+        <div class="copyright-area">
+            <div class="container">
+                <div class="copyright-content">
+                    <p>Bu səhifənin sahibi <a href="https://github.com/Elgunn02" target="_blank">Elgündür!</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- Start Copyright Area -->
+
+        <!-- Start Go Top Area -->
+		<div class="go-top">
+            <i class="ri-arrow-up-s-line"></i>
+            <i class="ri-arrow-up-s-line"></i>
+		</div>
+		<!-- End Go Top Area -->
+
+        <!-- Js File -->
+        @*<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>*@
+        <script src="~/assets/js/jquery.min.js"></script>
+        <script src="~/assets/js/bootstrap.bundle.min.js"></script>
+        @*<script src="~/assets/js/ajaxchimp.min.js"></script>*@
+        <script src="~/assets/js/form-validator.min.js"></script>
+        <script src="~/assets/js/contact-form-script.js"></script>
+        @*<script src="~/assets/js/subscribe-custom.js"></script>*@
+        <script src="~/assets/js/owl.carousel.min.js"></script>
+        <script src="~/assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="~/assets/js/aos.js"></script>
+        <script src="~/assets/js/fancybox.min.js"></script>
+        <script src="~/assets/js/meanmenu.min.js"></script>
+        <script src="~/assets/js/downCount.js"></script>
+        <script src="~/assets/js/bootstrap-datepicker.min.js"></script>
+        <script src="~/assets/js/wow.min.js"></script> 
+        <script src="~/assets/js/nice-select.min.js"></script>  
+        <script src="~/assets/js/custom.js"></script> 
+        <script src="~/assets/js/script.js"></script>
+                 <script>
+    $(document).ready(function(){
+        $('#frmNewsletter').submit(function(e) {
+            e.preventDefault();
+            let fd = new FormData(e.currentTarget);
+            $.ajax({
+                url:'@Url.Action("Subscribe")',
+                type:'post',
+                data:fd,
+                processData:false,
+                contentType:false,
+                success:function(response){
+                    console.log(response);
+                },
+                error:function(response){
+                    console.warn(response);
+                }
+            })
+        });
+    });
+        </script>
+    </body>
+
+<!-- Mirrored from templates.envytheme.com/soka/default/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 Jan 2023 08:24:48 GMT -->
+</html>

@@ -1,0 +1,311 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+}
+   <!-- Start Navbar Area --> 
+        <div class="navbar-area">      
+            <!-- Menu For Mobile Device -->
+            <div class="container"> 
+                <div class="mobile-nav"> 
+                    <div class="logo">
+                        <a href="index.html"> 
+                            <img src="~/assets/images/logo-two.png" class="main-logo" alt="Images">  
+                            <img src="~/assets/images/logo-img.png" class="optional-logo" alt="Images">   
+                        </a> 
+                    </div>
+                </div>  
+            </div> 
+
+            <!-- Menu For Desktop Device -->
+            <div class="main-nav main-two">         
+                <div class="container-fluid">    
+                    <nav class="navbar navbar-expand-md navbar-light">   
+
+                        <a href="index.html">   
+                            <img src="~/assets/images/logo-two.png" class="main-logo" alt="Images">  
+                            <img src="~/assets/images/logo-img.png" class="optional-logo" alt="Images">     
+                        </a>   
+
+                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent"> 
+                            <ul class="navbar-nav m-auto">  
+                                <li class="nav-item">  
+                                    <a asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
+                                </li> 
+
+                                <li class="nav-item">
+                                    <a asp-controller="Home" asp-action="About" class="nav-link">About Us</a>         
+                                </li>  
+                                
+                                <li class="nav-item"> 
+
+                                    <a href="#" class="nav-link dropdown-toggle">Pages</a>   
+                                    
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a asp-controller="Pages" asp-action="Index" class="nav-link">Player List</a>     
+                                        </li> 
+                                        <li class="nav-item">
+                                            <a asp-controller="Pages" asp-action="Details" class="nav-link">Player Details</a>     
+                                        </li> 
+                                    </ul>
+
+                                </li>  
+
+                                <li class="nav-item"> 
+                                    <a href="#" class="nav-link dropdown-toggle">Shop</a>     
+                                    
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a asp-controller="Shop" asp-action="Index" class="nav-link">Shop</a>     
+                                        </li> 
+                                        <li class="nav-item">
+                                            <a asp-controller="Shop" asp-action="Details" class="nav-link">Shop Details</a>     
+                                        </li> 
+                                        <li class="nav-item">
+                                            <a asp-controller="Shop" asp-action="Cart" class="nav-link">Cart</a>     
+                                        </li> 
+                                    </ul>
+
+                                </li> 
+
+                                <li class="nav-item"> 
+
+                                    <a href="#" class="nav-link dropdown-toggle">Blog</a>   
+                                    
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a asp-controller="Blog" asp-action="Index" class="nav-link">Blog</a>     
+                                        </li> 
+                                        <li class="nav-item">
+                                            <a asp-controller="Blog" asp-action="Details" class="nav-link active">Blog Details</a>     
+                                        </li> 
+                                    </ul>
+
+                                </li>     
+
+                                <li class="nav-item"> 
+                                    <a asp-controller="Home" asp-action="Contact" class="nav-link">Contact</a>      
+                                </li> 
+                            </ul> 
+
+
+                            <div class="others-option-vg d-flex align-items-center"> 
+                                <div class="single-option-item">
+
+                                    <div class="option-item">
+                                        <form class="search-form">
+                                            <input type="text" class="form-control" placeholder="Searching Here" name="search">
+                                            <button class="search-button" type="submit">
+                                                <i class="ri-search-line"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                    <div class="cart-icon">
+                                        <a asp-controller="Shop" asp-action="Cart">
+                                            <img src="~/assets/images/navber-card-img.png" alt="images">
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </nav> 
+                </div>
+            </div>     
+
+            <div class="others-option-for-responsive"> 
+                <div class="container">
+                    <div class="dot-menu">
+                        <div class="inner">
+                            <div class="circle circle-one"></div>
+                            <div class="circle circle-two"></div>
+                            <div class="circle circle-three"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="container">
+                        <div class="option-inner">
+                            <div class="others-options justify-content-center d-flex align-items-center">
+                                <div class="single-option-item">
+
+                                    <div class="option-item">
+                                        <form class="search-form">
+                                            <input type="text" class="form-control" placeholder="Searching Here" name="search">
+                                            <button class="search-button" type="submit">
+                                                <i class="ri-search-line"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                    <div class="cart-icon">
+                                        <a asp-controller="Shop" asp-action="Cart">
+                                            <img src="~/assets/images/navber-card-img.png" alt="images">
+                                        </a>
+                                    </div>
+
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div> 
+        <!-- End  Navbar Area -->
+     <!-- Start Page Banner Area-->
+        <div class="page-banner-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-9 col-md-6">
+                        <div class="single-page-banner-content">
+                            <h1>Our Blog Details</h1>
+                            <p><a asp-controller="Home" asp-action="Index">Home</a>Blog Details</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="page-banner-img" data-aos="fade-up-left" data-aos-duration="3000" data-aos-once="true">
+                            <img src="~/assets/images/page-banner/page-banner-image-1.png" alt="images">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Banner Area-->
+
+        <!-- Start Blog Details Area -->
+        <div class="blog-details-area ptb-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="single-blog-details-content">
+                            <div class="blog-details-img">
+                                <img src="~/assets/images/blog/blog-details-img-1.jpg" alt="images">
+                            </div>
+                            <ul class="blog-details-list">
+                                <li><i class="ri-account-circle-line"></i><a href="blog-details.html">Kendall Bauch</a></li>
+                                <li><i class="ri-football-line"></i><a href="blog-details.html">Football</a></li>
+                                <li><i class="ri-calendar-check-line"></i>April 17 2022</li>
+                            </ul>
+                            <h3>Monday Morning’s Session With Practice In Field Today</h3>
+                            <p>Magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquipa incididunt
+                            laborum sed ut perspicitis undiste ecat cupidatat non proident.</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do tempor incididunt ut labore et dolore incididy
+                            magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquipa est
+                            laborum sed ut perspicitis undiste ecat cupidatat non proident.</p>
+                            <div class="blog-details-card">
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout the point of using lorem lpsum is that it has a more-or-less normal distributi
+                                of letters as ipsum will uncover many dolore magna aliqua.</p>
+                                <h4>Brooke Heidenreich</h4>
+                                <img src="~/assets/images/blog/blog-details-shape.png" alt="images">
+                            </div>
+                            <p>Magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquipa incididunt
+                            laborum sed ut perspicitis undiste ecat cupidatat non proident.</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do tempor incididunt ut labore et dolore incididy
+                            magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquipa est
+                            laborum sed ut perspicitis undiste ecat cupidatat non proident.</p>
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-6 col-md-6">
+                                    <div class="blog-details-img">
+                                        <img src="~/assets/images/blog/blog-details-img-2.jpg" alt="images">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-6 col-md-6">
+                                    <div class="blog-details-img">
+                                        <img src="~/assets/images/blog/blog-details-img-3.jpg" alt="images">
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="details-list">
+                                <li>Share Now</li>
+                                <li>
+                                    <div>
+                                        <ul>
+                                            <li>
+                                                <a href="https://www.facebook.com/" target="_blank"> 
+                                                    <i class="ri-facebook-fill"></i>
+                                                </a>
+                                            </li>   
+                                            <li>
+                                                <a href="https://twitter.com/" target="_blank">
+                                                    <i class="ri-twitter-fill"></i>
+                                                </a>
+                                            </li>    
+                                            <li>
+                                                <a href="https://www.linkedin.com/" target="_blank">
+                                                    <i class="ri-linkedin-fill"></i>
+                                                </a>  
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="customer-review">
+                                <h2>Customer Reviews</h2>
+                                <div class="review-item">
+                                    <img src="~/assets/images/blog/review-img-2.jpg" alt="images">
+                                    <h4>Norbert Boyer</h4>
+                                    <span>April-25-2022</span>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit etiam pharetra elit odio a gravida turpis varius vivamus dapibus erat quis mattis aliquet.</p>
+                                </div>
+                                <div class="review-item">
+                                    <img src="~/assets/images/blog/review-img-1.jpg" alt="images">
+                                    <h4>Jayda Walsh</h4>
+                                    <span>April-25-2022</span>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit etiam pharetra elit odio a gravida turpis varius vivamus dapibus erat quis mattis aliquet.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="blog-details-right">
+                            <div class="categories">
+                                <h2>Categories</h2>
+                                <ul>
+                                    <li><a href="team-details.html"><i class="ri-arrow-right-s-line"></i>Accessories</a></li>
+                                    <li><a href="team-history.html"><i class="ri-arrow-right-s-line"></i>Equipment</a></li>
+                                    <li><a href="player-list.html"><i class="ri-arrow-right-s-line"></i>Football Team</a></li>
+                                    <li><a href="matches.html"><i class="ri-arrow-right-s-line"></i>Match</a></li>
+                                </ul>
+                            </div>
+                            <div class="popular-posts">
+                                <h2>Recent Posts</h2>
+                                <div class="recent-card">
+                                    <a href="blog-details.html">
+                                        <img src="~/assets/images/blog/blog-details-img-4.jpg" alt="images">
+                                    </a>
+                                    <span>Date: April 15 2022</span>
+                                    <h3><a href="blog-details.html">The Football Game Will Held On 10th December 2022</a></h3>
+                                </div>
+                                <div class="recent-card">
+                                    <a href="blog-details.html">
+                                        <img src="~/assets/images/blog/blog-details-img-5.jpg" alt="images">
+                                    </a>
+                                    <span>Date: April 22 2022</span>
+                                    <h3><a href="blog-details.html">The Football Club Will Not Open Till 12th April 2022</a></h3>
+                                </div>
+                                <div class="recent-card">
+                                    <a href="blog-details.html">
+                                        <img src="~/assets/images/blog/blog-details-img-6.jpg" alt="images">
+                                    </a>
+                                    <span>Date: April 28 2022</span>
+                                    <h3><a href="blog-details.html">Join Everton Host Salford City In Carabao 15th May 2022</a></h3>
+                                </div>
+                            </div>
+                            <div class="categories">
+                                <h2>Tags</h2>
+                                <ul>
+                                    <li><a href="#"><i class="ri-arrow-right-s-line"></i>Baseball</a></li>
+                                    <li><a href="#"><i class="ri-arrow-right-s-line"></i>Football</a></li>
+                                    <li><a href="#"><i class="ri-arrow-right-s-line"></i>Game</a></li>
+                                    <li><a href="#"><i class="ri-arrow-right-s-line"></i>New Team</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Blog Details Area -->
