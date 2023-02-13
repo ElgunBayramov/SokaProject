@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Soka.WebUI.AppCode.Services;
-using Soka.WebUI.Models.DataContexts;
-using Soka.WebUI.Models.Entities;
+using Soka.Domain.AppCode.Services;
+using Soka.Domain.Models.DataContexts;
+using Soka.Domain.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

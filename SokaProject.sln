@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Soka.WebUI", "SokaSite\Soka.WebUI.csproj", "{B619B250-0A6C-4419-95DC-CE95F8348BEF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soka.Domain", "Soka.Domain\Soka.Domain.csproj", "{080A12A8-4AB8-4ECB-9D2E-96A68304B626}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B619B250-0A6C-4419-95DC-CE95F8348BEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B619B250-0A6C-4419-95DC-CE95F8348BEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B619B250-0A6C-4419-95DC-CE95F8348BEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{080A12A8-4AB8-4ECB-9D2E-96A68304B626}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{080A12A8-4AB8-4ECB-9D2E-96A68304B626}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{080A12A8-4AB8-4ECB-9D2E-96A68304B626}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{080A12A8-4AB8-4ECB-9D2E-96A68304B626}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

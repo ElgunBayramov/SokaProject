@@ -1,4 +1,5 @@
 
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -6,8 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Soka.WebUI.AppCode.Services;
-using Soka.WebUI.Models.DataContexts;
+using Soka.Domain.AppCode.Services;
+using Soka.Domain.Models.DataContexts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,6 +51,7 @@ namespace Soka.WebUI
                 .GetAssemblies()
                 .Where(a => a.FullName.StartsWith("Soka."))
                 .ToArray();
+            services.AddMediatR(assemblies);
 
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

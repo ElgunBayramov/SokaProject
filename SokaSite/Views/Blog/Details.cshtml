@@ -1,4 +1,4 @@
-﻿
+﻿@model BlogPost
 @{
     ViewData["Title"] = "Details";
 }
@@ -182,30 +182,19 @@
                     <div class="col-lg-8">
                         <div class="single-blog-details-content">
                             <div class="blog-details-img">
-                                <img src="~/assets/images/blog/blog-details-img-1.jpg" alt="images">
+                                <img style="width: -webkit-fill-available;" src="~/uploads/images/@Model.ImagePath" alt="images">
                             </div>
                             <ul class="blog-details-list">
-                                <li><i class="ri-account-circle-line"></i><a href="blog-details.html">Kendall Bauch</a></li>
-                                <li><i class="ri-football-line"></i><a href="blog-details.html">Football</a></li>
-                                <li><i class="ri-calendar-check-line"></i>April 17 2022</li>
+                                <li><i class="ri-calendar-check-line"></i>@Model.PublishDate?.ToString("dd MMM, yyyy")</li>
                             </ul>
-                            <h3>Monday Morning’s Session With Practice In Field Today</h3>
-                            <p>Magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquipa incididunt
-                            laborum sed ut perspicitis undiste ecat cupidatat non proident.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do tempor incididunt ut labore et dolore incididy
-                            magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquipa est
-                            laborum sed ut perspicitis undiste ecat cupidatat non proident.</p>
+                            <h3>@Model.Title</h3>
+                            <p>@Model.Body</p>
                             <div class="blog-details-card">
                                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout the point of using lorem lpsum is that it has a more-or-less normal distributi
                                 of letters as ipsum will uncover many dolore magna aliqua.</p>
                                 <h4>Brooke Heidenreich</h4>
                                 <img src="~/assets/images/blog/blog-details-shape.png" alt="images">
                             </div>
-                            <p>Magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquipa incididunt
-                            laborum sed ut perspicitis undiste ecat cupidatat non proident.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do tempor incididunt ut labore et dolore incididy
-                            magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquipa est
-                            laborum sed ut perspicitis undiste ecat cupidatat non proident.</p>
                             <div class="row">
                                 <div class="col-lg-6 col-sm-6 col-md-6">
                                     <div class="blog-details-img">
