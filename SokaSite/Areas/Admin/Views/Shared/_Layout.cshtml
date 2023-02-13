@@ -32,6 +32,7 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="~/admin/css/style.css">
     <link rel="stylesheet" type="text/css" href="~/admin/css/jquery.mCustomScrollbar.css">
+     <link rel="stylesheet" type="text/css" href="~/libs/toastr.js/toastr.min.css">
     @RenderSection("addcss",required:false)
     <script src="https://kit.fontawesome.com/1154e1d6ee.js" crossorigin="anonymous"></script>
 </head>
@@ -393,7 +394,9 @@
     <script src="~/admin/js/pcoded.min.js"></script>
     <!-- custom js -->
     <script src="~/admin/js/vartical-layout.min.js"></script>
-
+            <!-- toastr js -->
+    <script type="text/javascript" src="~/libs/toastr.js/toastr.min.js"></script>
+    <script type="text/javascript" src="~/admin/js/customize.toastr.js"></script>
     @RenderSection("addjs",required:false)
     <script type="text/javascript" src="~/admin/js/script.min.js"></script>
     <script>

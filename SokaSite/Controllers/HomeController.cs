@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Soka.Domain.AppCode.Services;
+using Soka.Domain.Business.FaqModule;
 using Soka.Domain.Models.DataContexts;
 using Soka.Domain.Models.Entities;
 using System;
@@ -19,21 +21,24 @@ namespace Soka.WebUI.Controllers
         private readonly SokaDbContext db;
         private readonly CryptoService crypto;
         private readonly EmailService emailService;
+        private readonly IMediator mediator;
 
-        public HomeController(SokaDbContext db,CryptoService crypto,EmailService emailService)
+        public HomeController(SokaDbContext db,CryptoService crypto,EmailService emailService,IMediator mediator)
         {
             this.db = db;
             this.crypto = crypto;
             this.emailService = emailService;
+            this.mediator = mediator;
         }
         public IActionResult Index()
         {
             return View();
         }
         [Route("/about")]
-        public IActionResult About()
+        public async Task<IActionResult> About(FaqsAllQuery query)
         {
-            return View();
+            var faqs = await mediator.Send(query);
+            return View(faqs);
         }
         [Route("/contact")]
         public IActionResult Contact()

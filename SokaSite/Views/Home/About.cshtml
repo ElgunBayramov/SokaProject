@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Faq>
 @{
     ViewData["Title"] = "About";
 }
@@ -259,65 +259,20 @@
                         <div class="about-faq" data-aos="fade-left" data-aos-duration="2000" data-aos-once="true">
                             <div class="faq-accordion">
                                 <ul class="accordion">
-                                    <li class="accordion-item">
-                                        <a class="accordion-title active" href="javascript:void(0)">
+                                    @foreach (var item in Model)
+                                   {
+                                        <li class="accordion-item">
+                                        <a class="accordion-title" href="javascript:void(0)" data-bs-target="#acc-item-@item.Id">
                                             <i class="ri-add-fill add"></i>
                                             <i class="ri-subtract-line subtract"></i>
-                                            What is coronavirus? What is COVID-19?
+                                            @item.Question
                                         </a>
             
-                                        <div class="accordion-content show">
-                                            <p>Lorem ipsum dolor sit amet how do you startup consectetur adipisicing elit accusamus ipsa error excepturi obcaecati aliquid veniam blanditiis quas voluptates maxime unde iste minima dolores dolor perferendis facilis how do you startup blanditiis voluptates.</p>
+                                        <div class="accordion-content" id="acc-item-@item.Id">
+                                            @Html.Raw(item.Answer)
                                         </div>
                                     </li>
-            
-                                    <li class="accordion-item">
-                                        <a class="accordion-title" href="javascript:void(0)">
-                                            <i class="ri-add-fill add"></i>
-                                            <i class="ri-subtract-line subtract"></i>
-                                            What are the symptoms of COVID-19?
-                                        </a>
-            
-                                        <div class="accordion-content">
-                                            <p>Lorem ipsum dolor sit amet how do you startup consectetur adipisicing elit accusamus ipsa error excepturi obcaecati aliquid veniam blanditiis quas voluptates maxime unde iste minima dolores dolor perferendis facilis how do you startup blanditiis voluptates.</p>
-                                        </div>
-                                    </li>
-            
-                                    <li class="accordion-item">
-                                        <a class="accordion-title" href="javascript:void(0)">
-                                            <i class="ri-add-fill add"></i>
-                                            <i class="ri-subtract-line subtract"></i>
-                                            What can I do to prevent myself from coronavirus and others?
-                                        </a>
-            
-                                        <div class="accordion-content">
-                                            <p>Lorem ipsum dolor sit amet how do you startup consectetur adipisicing elit accusamus ipsa error excepturi obcaecati aliquid veniam blanditiis quas voluptates maxime unde iste minima dolores dolor perferendis facilis how do you startup blanditiis voluptates.</p>
-                                        </div>
-                                    </li>
-            
-                                    <li class="accordion-item">
-                                        <a class="accordion-title" href="javascript:void(0)">
-                                            <i class="ri-add-fill add"></i>
-                                            <i class="ri-subtract-line subtract"></i>
-                                            What should I do If I feel sick?
-                                        </a>
-            
-                                        <div class="accordion-content">
-                                            <p>Lorem ipsum dolor sit amet how do you startup consectetur adipisicing elit accusamus ipsa error excepturi obcaecati aliquid veniam blanditiis quas voluptates maxime unde iste minima dolores dolor perferendis facilis how do you startup blanditiis voluptates.</p>
-                                        </div>
-                                    </li>
-            
-                                    <li class="accordion-item">
-                                        <a class="accordion-title" href="javascript:void(0)">
-                                            <i class="ri-add-fill add"></i>
-                                            <i class="ri-subtract-line subtract"></i>
-                                            If a loved one gets sick, how can I care for them?
-                                        </a>
-            
-                                        <div class="accordion-content">
-                                            <p>Lorem ipsum dolor sit amet how do you startup consectetur adipisicing elit accusamus ipsa error excepturi obcaecati aliquid veniam blanditiis quas voluptates maxime unde iste minima dolores dolor perferendis facilis how do you startup blanditiis voluptates.</p>
-                                        </div>
-                                    </li>
+                                   }
                                 </ul>
                             </div>
                         </div>
@@ -342,15 +297,15 @@
                         </div>
                         <div class="col-lg-5">
                             <div class="single-latest-video" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">
-                                <h2>Our Latest Video</h2>
-                                <p>Ligula eget dolor aenean massa cum sociis natoque penatibus ul enean massa cum sociis ipsum dolor.</p>
-                                <p>Lorem ipsum dolor sit amet consectetuer adipiscing commodo ligula eget dolor aenean massa natoque penatibus ul enean massa cum sociis ipsum dolor adipiscing.</p>
+                                <h2>Our First Video</h2>
+                                <p>When we think of football, Cristiano Ronaldo and Lionel Andres Messi come to mind.</p>
+                                <p>You can see the statistics of the two legends by following this <a href="https://www.messivsronaldo.app">link</a></p>
                                 <div class="latest-services">
                                     <div class="player">
                                         <i class="flaticon-soccer-player"></i>
                                     </div>
-                                    <h3>Top 50 Best Supporting Teams In Football</h3>
-                                    <p>Ligula eget dolor ul enean massa cum sociis ipsum dolor sit amet enean massa dolor.</p> 
+                                    <h3>Top 2 Best Players In Football history</h3>
+                                    <p>You can watch the video made for them by playing the video below.</p> 
                                 </div>
                                 <div class="latest-button">
                                     <a href="about.html%20https_/youtu.be/bk7McNUjWgw.html" class="default-btn popup-youtube"> 
