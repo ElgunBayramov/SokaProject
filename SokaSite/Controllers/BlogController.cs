@@ -1,26 +1,33 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using Soka.Domain.Business.BlogPostModule;
 using Soka.Domain.Models.DataContexts;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Soka.WebUI.Controllers
 {
     public class BlogController : Controller
     {
-        private readonly SokaDbContext db;
+        private readonly IMediator mediator;
 
-        public BlogController(SokaDbContext db)
+        public BlogController(IMediator mediator)
         {
-            this.db = db;
+            this.mediator = mediator;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index(BlogPostsAllQuery query)
         {
-            var data = db.BlogPosts.Where(bp => bp.DeletedDate == null).ToList();
-            return View(data);
+            var response = await mediator.Send(query);
+            return View(response);
         }
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(BlogPostSingleQuery query)
         {
-            var data = db.BlogPosts.FirstOrDefault(bp => bp.Id == id && bp.DeletedDate==null);
-            return View(data);
+            var response = await mediator.Send(query);
+            if(response == null)
+            {
+                return NotFound();
+            }
+            return View(response);
         }
     }
 }

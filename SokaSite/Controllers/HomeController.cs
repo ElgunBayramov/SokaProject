@@ -32,7 +32,8 @@ namespace Soka.WebUI.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var data = db.BlogPosts.Where(bp => bp.DeletedDate == null).ToList();
+            return View(data);
         }
         [Route("/about")]
         public async Task<IActionResult> About(FaqsAllQuery query)

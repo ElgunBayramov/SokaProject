@@ -186,7 +186,7 @@
                         <div class="single-blog-card" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
                             <div class="blog-img">
                                 <a asp-action="details" asp-route-id="@item.Id">
-                                    <img style="width: -webkit-fill-available;" src="~/uploads/images/@item.ImagePath" alt="images">
+                                    <img src="~/uploads/images/@item.ImagePath" alt="images">
                                 </a>
                             </div>
                             <span><i class="ri-calendar-check-line"></i>@item.PublishDate?.ToString("dd MMM, yyyy")</span> 
@@ -196,7 +196,9 @@
                                     <li><i class="ri-football-line"></i><a href="blog-details.html">Football</a></li>
                                 </ul>*@
                                 <h3><a asp-action="details" asp-route-id="@item.Id">@item.Title</a></h3>
-                                <p style="height:115px; overflow:hidden">@item.Body</p>
+                                <div class="textpart">
+                                    @Html.Raw(item.Body)
+                                    </div>
                                 <a href="blog-details.html" class="default-btn style-1">Read More<i class="ri-arrow-right-line"></i></a>
                             </div>
                         </div>
@@ -209,5 +211,11 @@
             </div>
         </div>
         <!-- End Blog Area -->
+        <style>
+        .textpart{
+            height:120px;
+            overflow:hidden;
+        }
+        </style>
 
 

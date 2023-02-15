@@ -14,8 +14,9 @@ namespace Soka.Domain.Models.Entities
         public string Body { get; set; }
         public string ImagePath { get; set; }
         public DateTime? PublishDate { get; set; }
-        public int? CategoryId { get; set; }
+        public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
         public virtual ICollection<BlogPostComment> Comments { get; set; }
+        public virtual ICollection<BlogPostTagCloud> TagCloud { get; set; }
     }
 }

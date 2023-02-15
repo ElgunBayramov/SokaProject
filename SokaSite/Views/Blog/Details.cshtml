@@ -188,7 +188,7 @@
                                 <li><i class="ri-calendar-check-line"></i>@Model.PublishDate?.ToString("dd MMM, yyyy")</li>
                             </ul>
                             <h3>@Model.Title</h3>
-                            <p>@Model.Body</p>
+                            <p>@Html.Raw(Model.Body)</p>
                             <div class="blog-details-card">
                                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout the point of using lorem lpsum is that it has a more-or-less normal distributi
                                 of letters as ipsum will uncover many dolore magna aliqua.</p>
