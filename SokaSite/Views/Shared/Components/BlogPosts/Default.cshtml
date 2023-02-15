@@ -1,0 +1,27 @@
+﻿@model IEnumerable<BlogPost>
+
+@foreach (var item in Model)
+{
+    <div class="col-lg-4 col-md-6">
+        <div class="single-blog-card" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
+            <div class="blog-img">
+                <a asp-controller="blog" asp-action="details" asp-route-slug="@item.Slug">
+                    <img style="height:313px;" src="~/uploads/images/@item.ImagePath" alt="images">
+                </a>
+            </div>
+            <span><i class="ri-calendar-check-line"></i>@item.PublishDate?.ToString("dd MMM, yyyy")</span>
+            <div class="single-blog-text">
+                @*                                <ul>
+                    <li><i class="ri-account-circle-line"></i><a href="blog-details.html">Kendall</a></li>
+                    <li><i class="ri-football-line"></i><a href="blog-details.html">Football</a></li>
+                    </ul>*@
+                <h3><a asp-controller="blog" asp-action="details" asp-route-slug="@item.Slug">@item.Title</a></h3>
+                <div class="textpart">
+                    @Html.Raw(item.Body)
+                </div>
+                <a href="blog-details.html" class="default-btn style-1">Read More<i class="ri-arrow-right-line"></i></a>
+            </div>
+        </div>
+    </div>
+}
+

@@ -109,6 +109,20 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
 
         }
+        [HttpPost]
+        public async Task<IActionResult> Remove(BlogPostRemoveCommand command)
+        {
+            var response = await mediator.Send(command);
+
+
+            if (response.Error)
+            {
+                return Json(response);
+            }
+
+            var data = await mediator.Send(new BlogPostsAllQuery());
+            return PartialView("_ListBody", data);
+        }
 
     }
 }

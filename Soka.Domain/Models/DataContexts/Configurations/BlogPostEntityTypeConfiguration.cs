@@ -17,6 +17,8 @@ namespace Soka.Domain.Models.DataContexts.Configurations
                 .IsRequired();
             builder.Property(t => t.Slug)
                 .IsRequired();
+            builder.HasIndex(t => t.Slug)
+                .IsUnique();
             builder.Property(t => t.Body)
                 .IsRequired();
             builder.Property(t => t.ImagePath)

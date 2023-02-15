@@ -261,27 +261,7 @@
                             </div>
                             <div class="popular-posts">
                                 <h2>Recent Posts</h2>
-                                <div class="recent-card">
-                                    <a href="blog-details.html">
-                                        <img src="~/assets/images/blog/blog-details-img-4.jpg" alt="images">
-                                    </a>
-                                    <span>Date: April 15 2022</span>
-                                    <h3><a href="blog-details.html">The Football Game Will Held On 10th December 2022</a></h3>
-                                </div>
-                                <div class="recent-card">
-                                    <a href="blog-details.html">
-                                        <img src="~/assets/images/blog/blog-details-img-5.jpg" alt="images">
-                                    </a>
-                                    <span>Date: April 22 2022</span>
-                                    <h3><a href="blog-details.html">The Football Club Will Not Open Till 12th April 2022</a></h3>
-                                </div>
-                                <div class="recent-card">
-                                    <a href="blog-details.html">
-                                        <img src="~/assets/images/blog/blog-details-img-6.jpg" alt="images">
-                                    </a>
-                                    <span>Date: April 28 2022</span>
-                                    <h3><a href="blog-details.html">Join Everton Host Salford City In Carabao 15th May 2022</a></h3>
-                                </div>
+                                @await Component.InvokeAsync("RecentBlogPosts", new { size = 3 })
                             </div>
                             <div class="categories">
                                 <h2>Tags</h2>

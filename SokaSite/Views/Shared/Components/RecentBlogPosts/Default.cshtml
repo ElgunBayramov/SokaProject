@@ -1,0 +1,16 @@
+﻿@model IEnumerable<BlogPost>
+
+
+@foreach (var item in Model)
+{
+    <div class="recent-card">
+    <a asp-controller="blog" asp-action="details" asp-route-slug="@item.Slug">
+        <img style="width:80px;height: 60px;" src="~/uploads/images/@item.ImagePath" alt="images">
+    </a>
+    <span>Tarix : @item.PublishDate?.ToString("MMMM dd, yyyy")</span>
+    <h3><a asp-controller="blog" asp-action="details" asp-route-slug="@item.Slug">@item.Title</a></h3>
+</div>
+}
+
+
+

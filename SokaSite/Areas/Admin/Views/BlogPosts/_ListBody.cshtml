@@ -25,7 +25,7 @@
             <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">
                 <i class="fa fa-eye"></i>
             </a>
-            <a class="btn btn-sm btn-danger" onclick="removeEntity(@item.Id,'@item.Title')">
+            <a class="btn btn-sm btn-danger" onclick="removeEntity(event,@item.Id,'@item.Title')">
                 <i class="fa fa-trash"></i>
             </a>
         </td>
