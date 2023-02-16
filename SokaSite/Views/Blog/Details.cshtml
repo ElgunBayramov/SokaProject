@@ -190,22 +190,12 @@
                             <h3>@Model.Title</h3>
                             <p>@Html.Raw(Model.Body)</p>
                             <div class="blog-details-card">
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout the point of using lorem lpsum is that it has a more-or-less normal distributi
-                                of letters as ipsum will uncover many dolore magna aliqua.</p>
-                                <h4>Brooke Heidenreich</h4>
+                                <h1>Related Posts</h1>
+                                <h4></h4>
                                 <img src="~/assets/images/blog/blog-details-shape.png" alt="images">
                             </div>
-                            <div class="row">
-                                <div class="col-lg-6 col-sm-6 col-md-6">
-                                    <div class="blog-details-img">
-                                        <img src="~/assets/images/blog/blog-details-img-2.jpg" alt="images">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-sm-6 col-md-6">
-                                    <div class="blog-details-img">
-                                        <img src="~/assets/images/blog/blog-details-img-3.jpg" alt="images">
-                                    </div>
-                                </div>
+                            <div class="row flex-nowrap">
+                            @await Component.InvokeAsync("RelatedBlogPosts",new { postId = Model.Id, size=3})
                             </div>
                             <ul class="details-list">
                                 <li>Share Now</li>
@@ -260,7 +250,7 @@
                                 </ul>
                             </div>
                             <div class="popular-posts">
-                                <h2>Recent Posts</h2>
+                                <h2>Recent Blog Posts</h2>
                                 @await Component.InvokeAsync("RecentBlogPosts", new { size = 3 })
                             </div>
                             <div class="categories">

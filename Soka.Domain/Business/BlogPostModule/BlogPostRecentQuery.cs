@@ -26,7 +26,7 @@ namespace Soka.Domain.Business.BlogPostModule
             {
                 var data = await db.BlogPosts
                     .Where(m => m.DeletedDate == null)
-                    .OrderByDescending(m => m.Id)
+                    .OrderByDescending(m => m.PublishDate)
                     .Take(request.Size < 2 ? 2 : request.Size)
                     .ToListAsync(cancellationToken);
 
