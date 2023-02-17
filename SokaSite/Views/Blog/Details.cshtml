@@ -243,10 +243,7 @@
                             <div class="categories">
                                 <h2>Categories</h2>
                                 <ul>
-                                    <li><a href="team-details.html"><i class="ri-arrow-right-s-line"></i>Accessories</a></li>
-                                    <li><a href="team-history.html"><i class="ri-arrow-right-s-line"></i>Equipment</a></li>
-                                    <li><a href="player-list.html"><i class="ri-arrow-right-s-line"></i>Football Team</a></li>
-                                    <li><a href="matches.html"><i class="ri-arrow-right-s-line"></i>Match</a></li>
+                                    <li><a href="team-details.html"><i class="ri-arrow-right-s-line"></i>@Model.Category?.Name</a></li>
                                 </ul>
                             </div>
                             <div class="popular-posts">
@@ -256,10 +253,12 @@
                             <div class="categories">
                                 <h2>Tags</h2>
                                 <ul>
-                                    <li><a href="#"><i class="ri-arrow-right-s-line"></i>Baseball</a></li>
-                                    <li><a href="#"><i class="ri-arrow-right-s-line"></i>Football</a></li>
-                                    <li><a href="#"><i class="ri-arrow-right-s-line"></i>Game</a></li>
-                                    <li><a href="#"><i class="ri-arrow-right-s-line"></i>New Team</a></li>
+                                     @foreach (var item in Model.TagCloud.Select(tc=>tc.Tag))
+                                     {   
+                                      <li>
+                                    <a asp-action="PostsByTag" asp-route-tagId="@item.Id"><i class="ri-arrow-right-s-line"></i>@item.Text</a>
+                                      </li>
+                                     }
                                 </ul>
                             </div>
                         </div>

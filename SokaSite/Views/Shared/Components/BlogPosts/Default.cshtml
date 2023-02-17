@@ -11,7 +11,7 @@
             </div>
             <span><i class="ri-calendar-check-line"></i>@item.PublishDate?.ToString("dd MMM, yyyy")</span>
             <div class="single-blog-text">
-                @*                                <ul>
+  @*                                              <ul>
                     <li><i class="ri-account-circle-line"></i><a href="blog-details.html">Kendall</a></li>
                     <li><i class="ri-football-line"></i><a href="blog-details.html">Football</a></li>
                     </ul>*@
@@ -19,7 +19,7 @@
                 <div class="textpart">
                     @Html.Raw(item.Body)
                 </div>
-                <a href="blog-details.html" class="default-btn style-1">Read More<i class="ri-arrow-right-line"></i></a>
+                <a asp-controller="blog" asp-action="details" asp-route-slug="@item.Slug" class="default-btn style-1">Read More<i class="ri-arrow-right-line"></i></a>
             </div>
         </div>
     </div>
