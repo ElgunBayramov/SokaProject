@@ -16,6 +16,9 @@ namespace Soka.Domain.Models.DataContexts
         public DbSet<Faq> Faqs { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<BlogPostTagCloud> BlogPostTagCloud { get; set; }
+        public DbSet<Brand> Brands { get; set; }
+        public DbSet<ProductColor> Colors { get; set; }
+        public DbSet<ProductSize> Sizes { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -32,6 +32,11 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             var response = await mediator.Send(query);
             return View(response);
         }
+        public async Task<IActionResult> Publish(BlogPostPublishCommand command)
+        {
+            var response = await mediator.Send(command);
+            return Json(response);
+        }
 
         public async Task<IActionResult> Details(BlogPostSingleQuery query)
         {
