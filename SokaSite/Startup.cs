@@ -1,4 +1,5 @@
 
+using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -52,6 +53,8 @@ namespace Soka.WebUI
                 .Where(a => a.FullName.StartsWith("Soka."))
                 .ToArray();
             services.AddMediatR(assemblies);
+
+            services.AddValidatorsFromAssemblies(assemblies, ServiceLifetime.Singleton);
 
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
