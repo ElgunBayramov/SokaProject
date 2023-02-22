@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -16,6 +17,7 @@ using System.Web;
 
 namespace Soka.WebUI.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         private readonly SokaDbContext db;

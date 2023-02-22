@@ -1,10 +1,14 @@
 ﻿
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Soka.Domain.Models.Entities;
+using Soka.Domain.Models.Entities.Membership;
 
 namespace Soka.Domain.Models.DataContexts
 {
-    public class SokaDbContext : DbContext
+    public class SokaDbContext : IdentityDbContext<SokaUser, SokaRole, int, SokaUserClaim, SokaUserRole,
+        SokaUserLogin, SokaRoleClaim, SokaUserToken>
     {
         public SokaDbContext(DbContextOptions options)
             : base(options) { }

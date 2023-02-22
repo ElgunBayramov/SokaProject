@@ -1,15 +1,20 @@
 
 using FluentValidation;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Soka.Domain.AppCode.Services;
 using Soka.Domain.Models.DataContexts;
+using Soka.Domain.Models.Entities.Membership;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +32,15 @@ namespace Soka.WebUI
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews(cfg =>
+            {
+                var policyRule = new AuthorizationPolicyBuilder()
+                .RequireAuthenticatedUser()
+                .Build();
+
+                cfg.Filters.Add(new AuthorizeFilter(policyRule));
+            });
+
             services.AddRouting(cfg =>
             {
                 cfg.LowercaseUrls = true;
@@ -36,6 +49,46 @@ namespace Soka.WebUI
             {
                 cfg.UseSqlServer(configuration.GetConnectionString("sokaCString"));
             });
+
+            services.AddIdentity<SokaUser, SokaRole>()
+                .AddEntityFrameworkStores<SokaDbContext>();
+
+            services.Configure<IdentityOptions>(cfg => {
+                cfg.Password.RequireNonAlphanumeric = false;
+                cfg.Password.RequireUppercase = false;
+                cfg.Password.RequireLowercase = false;
+                cfg.Password.RequireDigit = false;
+                cfg.Password.RequiredLength = 3;
+                cfg.Password.RequiredUniqueChars = 1; //aAa
+
+                cfg.SignIn.RequireConfirmedPhoneNumber = false;
+                cfg.SignIn.RequireConfirmedAccount = false;
+                cfg.SignIn.RequireConfirmedEmail = true;
+
+                cfg.Lockout.MaxFailedAccessAttempts = 3;
+
+                cfg.User.RequireUniqueEmail = true;
+                //cfg.User.AllowedUserNameCharacters = "";
+            });
+
+            services.ConfigureApplicationCookie(cfg =>
+            {
+                cfg.Cookie.Name = "soka";
+                cfg.LoginPath = "/signin.html";
+                cfg.LogoutPath = "/logout.html";
+
+                cfg.AccessDeniedPath = "/accessdenied.html";
+
+                cfg.ExpireTimeSpan = new TimeSpan(0, 1, 0);
+                cfg.Cookie.HttpOnly = true;
+            });
+
+            services.AddScoped<UserManager<SokaUser>>();
+            services.AddScoped<SignInManager<SokaUser>>();
+            services.AddScoped<RoleManager<SokaRole>>();
+
+            services.AddAuthentication();
+            services.AddAuthorization();
 
             services.Configure<CryptoServiceOptions>(cfg =>
             {
@@ -47,6 +100,8 @@ namespace Soka.WebUI
                 configuration.GetSection("emailAccount").Bind(cfg);
             });
             services.AddSingleton<EmailService>();
+
+            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
             var assemblies = AppDomain.CurrentDomain
                 .GetAssemblies()
@@ -64,11 +119,14 @@ namespace Soka.WebUI
                 app.UseDeveloperExceptionPage();
             }
 
+            app.SeedMembership();
 
             app.UseStaticFiles();
 
             app.UseRouting();
 
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

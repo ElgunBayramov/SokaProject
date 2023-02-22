@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Soka.Domain.Business.BlogPostModule;
 using Soka.Domain.Models.DataContexts;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Soka.WebUI.Controllers
 {
+    [AllowAnonymous]
     public class BlogController : Controller
     {
         private readonly IMediator mediator;
