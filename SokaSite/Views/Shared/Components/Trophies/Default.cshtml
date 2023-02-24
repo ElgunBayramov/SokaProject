@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Tropy>
+
+    @foreach (var item in Model)
+   {
+           <div class="soka-content">
+                        <img style="widht:412px!important; height:412px!important;" src="~/uploads/images/@item.ImagePath" alt="images">
+                        <div class="soka-text">
+                            <h3>@item.Title</h3>
+                            <p>@Html.Raw(item.Body)</p>
+                        </div>
+                    </div>
+   }

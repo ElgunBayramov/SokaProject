@@ -20,5 +20,9 @@ namespace Soka.WebUI.Controllers
             var response = await mediator.Send(query);
             return View(response);
         }
+        public IActionResult Details()
+        {
+            return View();
+        }
     }
 }
