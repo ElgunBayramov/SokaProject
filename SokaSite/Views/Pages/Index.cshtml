@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<League>
 @{
     ViewData["Title"] = "Index";
 }
@@ -9,8 +9,8 @@
                 <div class="row align-items-center">
                     <div class="col-lg-9 col-md-6">
                         <div class="single-page-banner-content">
-                            <h1>Player List</h1>
-                            <p><a asp-controller="Home" asp-action="Index">Home</a>Player List</p>
+                            <h1>Fixtures</h1>
+                            <p><a asp-controller="Home" asp-action="Index">Home</a>Fixtures</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -21,353 +21,196 @@
                 </div>
             </div>
         </div>
-        <!-- End Page Banner Area-->
+        <!-- End Page Banner Area--> 
 
-        <!-- Start Players Area --> 
-        <div class="player-area pt-100 pb-70">
+       <div class="league-table-area pb-100 pt-100">
             <div class="container">
                 <div class="section-title">
-                    <h2>Expert Players</h2>
+                    <h2>Fixture Schedule & League Table</h2>
                 </div>
                 <div class="row">
-                    <div class="col-lg-3 col-sm-6 col-md-6" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
-                        <div class="single-player-card bg-color-1">
-                            <div class="player-img">
-                                <a href="team-details.html"><img src="~/assets/images/player/player-three-img-1.png" alt="images"></a>
-                            </div>
-                            <ul class="plus-icon">
-                                <li>
-                                    <a href="https://www.facebook.com/" target="_blank"> 
-                                        <i class="ri-facebook-fill"></i>
-                                    </a>
-                                </li>   
-                                <li class="player-icon-top">
-                                    <a href="https://twitter.com/" target="_blank">
-                                        <i class="ri-twitter-fill"></i>
-                                    </a>
-                                </li>    
-                                <li>
-                                    <a href="https://www.linkedin.com/" target="_blank">
-                                        <i class="ri-linkedin-fill"></i>
-                                    </a>  
-                                </li> 
-                            </ul>
-                            <div class="player-text">
-                                <h3><a href="team-details.html">Mikayla Bechtelar</a></h3>
-                                <p>Goal Keeper</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-                        <div class="single-player-card bg-color-1">
-                            <div class="player-img">
-                                <a href="team-details.html"><img src="~/assets/images/player/player-three-img-2.png" alt="images"></a>
-                            </div>
-                            <ul class="plus-icon">
-                                <li>
-                                    <a href="https://www.facebook.com/" target="_blank"> 
-                                        <i class="ri-facebook-fill"></i>
-                                    </a>
-                                </li>   
-                                <li class="player-icon-top">
-                                    <a href="https://twitter.com/" target="_blank">
-                                        <i class="ri-twitter-fill"></i>
-                                    </a>
-                                </li>    
-                                <li>
-                                    <a href="https://www.linkedin.com/" target="_blank">
-                                        <i class="ri-linkedin-fill"></i>
-                                    </a>  
-                                </li> 
-                            </ul>
-                            <div class="player-text">
-                                <h3><a href="team-details.html">Millie Luettgen</a></h3>
-                                <p>Center Back</p>
+                    <div class="col-lg-7" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">
+                        <div class="league-table-content">
+                            <h3>Fixtures & Schedule</h3>
+                            <div class="table-responsive"> 
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th><p>Date</p></th> 
+                                            <th scope="col"><p>Match</p></th> 
+                                            <th scope="col"><p class="margin-right">Venue</p></th> 
+                                        </tr> 
+                                    </thead> 
+            
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                       {
+                                           <tr>
+                                            <th scope="col">
+                                               <p>@item.GameDate?.ToString("dd MMM, yyyy")</p>
+                                            </th> 
+                                            <th scope="col">
+                                                <p>@item.Body</p>
+                                            </th> 
+                                            <th scope="col"> 
+                                               <p class="margin-right"> @item.Venue</p>
+                                            </th>
+                                        </tr> 
+                                       }
+                                        
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6 col-md-6" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-                        <div class="single-player-card bg-color-1">
-                            <div class="player-img">
-                                <a href="team-details.html"><img src="~/assets/images/player/player-three-img-3.png" alt="images"></a>
-                            </div>
-                            <ul class="plus-icon">
-                                <li>
-                                    <a href="https://www.facebook.com/" target="_blank"> 
-                                        <i class="ri-facebook-fill"></i>
-                                    </a>
-                                </li>   
-                                <li class="player-icon-top">
-                                    <a href="https://twitter.com/" target="_blank">
-                                        <i class="ri-twitter-fill"></i>
-                                    </a>
-                                </li>    
-                                <li>
-                                    <a href="https://www.linkedin.com/" target="_blank">
-                                        <i class="ri-linkedin-fill"></i>
-                                    </a>  
-                                </li> 
-                            </ul>
-                            <div class="player-text">
-                                <h3><a href="team-details.html">Ransom Mertz</a></h3>
-                                <p>Goal Keeper</p>
-                            </div>
+                    <div class="col-lg-5" style="margin-top:30px; padding-left:50px;" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">
+                      <div class="banner-tow-slider owl-carousel owl-theme owl-loaded owl-drag">    
+                        <div class="owl-stage-outer owl-height" style="height: 750px;"><div class="owl-stage" style="transform: translate3d(-3055px, 0px, 0px); transition: all 0s ease 0s; width: 4888px;"><div class="owl-item cloned" style="width: 611px;"><div class="banner-tow-img">
+                                <img src="~/assets/images/banner/banner-two-image-1.png" alt="images" data-aos="fade-up-left" data-aos-duration="3000">
+                                <div class="banner-two-shape-1 ">
+                                    <img src="~/assets/images/banner/banner-two-image-3.png" alt="images">
+                                </div>
+                            </div></div><div class="owl-item" style="width: 611px;"><div class="banner-tow-img">
+                                <img src="~/assets/images/banner/banner-two-image-2.png" alt="images" data-aos="fade-up-left" data-aos-duration="3000">
+                                <div class="banner-two-shape-1 ">
+                                    <img src="~/assets/images/banner/banner-two-image-3.png" alt="images">
+                                </div>
+                            </div></div><div class="owl-item" style="width: 611px;"><div class="banner-tow-img">
+                                <img src="~/assets/images/banner/banner-two-image-1.png" alt="images" data-aos="fade-up-left" data-aos-duration="3000" class="aos-init aos-animate">
+                                <div class="banner-two-shape-1 ">
+                                    <img src="~/assets/images/banner/banner-two-image-3.png" alt="images">
+                                </div>
+                            </div></div><div class="owl-item" style="width: 611px;"><div class="banner-tow-img">
+                                <img src="~/assets/images/banner/banner-two-image-2.png" alt="images" data-aos="fade-up-left" data-aos-duration="3000" class="aos-init aos-animate">
+                                <div class="banner-two-shape-1 ">
+                                    <img src="~/assets/images/banner/banner-two-image-3.png" alt="images">
+                                </div>
+                           @* </div></div><div class="owl-item animated owl-animated-out fadeOut" style="width: 611px; left: 611px;"><div class="banner-tow-img">
+                                <img src="~/assets/images/banner/banner-two-image-1.png" alt="images" data-aos="fade-up-left" data-aos-duration="3000" class="aos-init aos-animate">
+                                <div class="banner-two-shape-1 ">
+                                    <img src="~/assets/images/banner/banner-two-image-3.png" alt="images">
+                                </div>
+                            </div></div><div class="owl-item active" style="width: 611px;"><div class="banner-tow-img">
+                                <img src="~/assets/images/banner/banner-two-image-2.png" alt="images" data-aos="fade-up-left" data-aos-duration="3000" class="aos-init aos-animate">
+                                <div class="banner-two-shape-1 ">
+                                    <img src="~/assets/images/banner/banner-two-image-3.png" alt="images">
+                                </div>*@
+                         @*   </div></div><div class="owl-item cloned" style="width: 611px;"><div class="banner-tow-img">
+                                <img src="~/assets/images/banner/banner-two-image-1.png" alt="images" data-aos="fade-up-left" data-aos-duration="3000">
+                                <div class="banner-two-shape-1 ">
+                                    <img src="~/assets/images/banner/banner-two-image-3.png" alt="images">
+                                    <img src="~/assets/images/banner/banner-two-image-3.png" alt="images">
+                                </div>
+                            </div></div><div class="owl-item cloned" style="width: 611px;"><div class="banner-tow-img">
+                                <img src="~/assets/images/banner/banner-two-image-2.png" alt="images" data-aos="fade-up-left" data-aos-duration="3000">
+                                <div class="banner-two-shape-1 ">
+                                    <img src="~/assets/images/banner/banner-two-image-3.png" alt="images">
+                                </div>*@
+                            </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><i class="ri-arrow-left-line"></i></button><button type="button" role="presentation" class="owl-next"><i class="ri-arrow-right-line"></i></button></div><div class="owl-dots disabled"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End League Table Area -->
+
+                <!--Start Soka Has Won The Award Area -->
+           <div class="soka-has-area pt-100 pb-100">
+            <div class="container">
+                <div class="section-title">
+                    <h2>A number of popular awards</h2>
+                </div>
+                <div class="soka-has-won-slider owl-carousel owl-theme">
+                    <div class="soka-content">
+                        <img src="~/assets/images/team-history/team-history-img-1.png" alt="images">
+                        <div class="soka-text">
+                            <h3>Champion League 2022</h3>
+                            <p>Marine Cup</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6 col-md-6" data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
-                        <div class="single-player-card bg-color-1">
-                            <div class="player-img">
-                                <a href="team-details.html"><img src="~/assets/images/player/player-three-img-4.png" alt="images"></a>
-                            </div>
-                            <ul class="plus-icon">
-                                <li>
-                                    <a href="https://www.facebook.com/" target="_blank"> 
-                                        <i class="ri-facebook-fill"></i>
-                                    </a>
-                                </li>   
-                                <li class="player-icon-top">
-                                    <a href="https://twitter.com/" target="_blank">
-                                        <i class="ri-twitter-fill"></i>
-                                    </a>
-                                </li>    
-                                <li>
-                                    <a href="https://www.linkedin.com/" target="_blank">
-                                        <i class="ri-linkedin-fill"></i>
-                                    </a>  
-                                </li> 
-                            </ul>
-                            <div class="player-text">
-                                <h3><a href="team-details.html">Verona Wisozk</a></h3>
-                                <p> Middle Forward</p>
-                            </div>
+                    <div class="soka-content">
+                        <img src="~/assets/images/team-history/team-history-img-2.png" alt="images">
+                        <div class="soka-text">
+                            <h3>Champion League 2021</h3>
+                            <p>Marine Cup</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6 col-md-6" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
-                        <div class="single-player-card bg-color-1">
-                            <div class="player-img">
-                                <a href="team-details.html"><img src="~/assets/images/team/team-img-1.jpg" alt="images"></a>
-                            </div>
-                            <ul class="plus-icon">
-                                <li>
-                                    <a href="https://www.facebook.com/" target="_blank"> 
-                                        <i class="ri-facebook-fill"></i>
-                                    </a>
-                                </li>   
-                                <li class="player-icon-top">
-                                    <a href="https://twitter.com/" target="_blank">
-                                        <i class="ri-twitter-fill"></i>
-                                    </a>
-                                </li>    
-                                <li>
-                                    <a href="https://www.linkedin.com/" target="_blank">
-                                        <i class="ri-linkedin-fill"></i>
-                                    </a>  
-                                </li> 
-                            </ul>
-                            <div class="player-text">
-                                <h3><a href="team-details.html">Ettie Hettinger</a></h3>
-                                <p>Defender</p>
-                            </div>
+                    <div class="soka-content">
+                        <img src="~/assets/images/team-history/team-history-img-1.png" alt="images">
+                        <div class="soka-text">
+                            <h3>Champion League 2020</h3>
+                            <p>Premier League Cup</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-                        <div class="single-player-card bg-color-1">
-                            <div class="player-img">
-                                <a href="team-details.html"><img src="~/assets/images/team/team-img-2.jpg" alt="images"></a>
-                            </div>
-                            <ul class="plus-icon">
-                                <li>
-                                    <a href="https://www.facebook.com/" target="_blank"> 
-                                        <i class="ri-facebook-fill"></i>
-                                    </a>
-                                </li>   
-                                <li class="player-icon-top">
-                                    <a href="https://twitter.com/" target="_blank">
-                                        <i class="ri-twitter-fill"></i>
-                                    </a>
-                                </li>    
-                                <li>
-                                    <a href="https://www.linkedin.com/" target="_blank">
-                                        <i class="ri-linkedin-fill"></i>
-                                    </a>  
-                                </li> 
-                            </ul>
-                            <div class="player-text">
-                                <h3><a href="team-details.html">Zachary Herzog</a></h3>
-                                <p>Midfielder</p>
-                            </div>
+                    <div class="soka-content">
+                        <img src="~/assets/images/team-history/team-history-img-1.png" alt="images">
+                        <div class="soka-text">
+                            <h3>Champion League 2018</h3>
+                            <p>Marine Cup</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6 col-md-6" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-                        <div class="single-player-card bg-color-1">
-                            <div class="player-img">
-                                <a href="team-details.html"><img src="~/assets/images/team/team-img-3.jpg" alt="images"></a>
-                            </div>
-                            <ul class="plus-icon">
-                                <li>
-                                    <a href="https://www.facebook.com/" target="_blank"> 
-                                        <i class="ri-facebook-fill"></i>
-                                    </a>
-                                </li>   
-                                <li class="player-icon-top">
-                                    <a href="https://twitter.com/" target="_blank">
-                                        <i class="ri-twitter-fill"></i>
-                                    </a>
-                                </li>    
-                                <li>
-                                    <a href="https://www.linkedin.com/" target="_blank">
-                                        <i class="ri-linkedin-fill"></i>
-                                    </a>  
-                                </li> 
-                            </ul>
-                            <div class="player-text">
-                                <h3><a href="team-details.html">Clint Grady</a></h3>
-                                <p>Forwarder</p>
-                            </div>
+                    <div class="soka-content">
+                        <img src="~/assets/images/team-history/team-history-img-5.png" alt="images">
+                        <div class="soka-text">
+                            <h3>Champion League 2004</h3>
+                            <p>Marine Cup</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6 col-md-6" data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
-                        <div class="single-player-card bg-color-1">
-                            <div class="player-img">
-                                <a href="team-details.html"><img src="~/assets/images/team/team-img-4.jpg" alt="images"></a>
-                            </div>
-                            <ul class="plus-icon">
-                                <li>
-                                    <a href="https://www.facebook.com/" target="_blank"> 
-                                        <i class="ri-facebook-fill"></i>
-                                    </a>
-                                </li>   
-                                <li class="player-icon-top">
-                                    <a href="https://twitter.com/" target="_blank">
-                                        <i class="ri-twitter-fill"></i>
-                                    </a>
-                                </li>    
-                                <li>
-                                    <a href="https://www.linkedin.com/" target="_blank">
-                                        <i class="ri-linkedin-fill"></i>
-                                    </a>  
-                                </li> 
-                            </ul>
-                            <div class="player-text">
-                                <h3><a href="team-details.html">Colt Watsica</a></h3>
-                                <p>Middle</p>
-                            </div>
+                    <div class="soka-content">
+                        <img src="~/assets/images/team-history/team-history-img-2.png" alt="images">
+                        <div class="soka-text">
+                            <h3>Champion League 2008</h3>
+                            <p>Marine Cup</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6 col-md-6" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
-                        <div class="single-player-card bg-color-1">
-                            <div class="player-img">
-                                <a href="team-details.html"><img src="~/assets/images/team/team-img-5.jpg" alt="images"></a>
-                            </div>
-                            <ul class="plus-icon">
-                                <li>
-                                    <a href="https://www.facebook.com/" target="_blank"> 
-                                        <i class="ri-facebook-fill"></i>
-                                    </a>
-                                </li>   
-                                <li class="player-icon-top">
-                                    <a href="https://twitter.com/" target="_blank">
-                                        <i class="ri-twitter-fill"></i>
-                                    </a>
-                                </li>    
-                                <li>
-                                    <a href="https://www.linkedin.com/" target="_blank">
-                                        <i class="ri-linkedin-fill"></i>
-                                    </a>  
-                                </li> 
-                            </ul>
-                            <div class="player-text">
-                                <h3><a href="team-details.html">Mikayla Bechtelar</a></h3>
-                                <p>Goal Keeper</p>
-                            </div>
+                    <div class="soka-content">
+                        <img src="~/assets/images/team-history/team-history-img-1.png" alt="images">
+                        <div class="soka-text">
+                            <h3>Champion League 2012</h3>
+                            <p>Premier League Cup</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-                        <div class="single-player-card bg-color-1">
-                            <div class="player-img">
-                                <a href="team-details.html"><img src="~/assets/images/team/team-img-6.jpg" alt="images"></a>
-                            </div>
-                            <ul class="plus-icon">
-                                <li>
-                                    <a href="https://www.facebook.com/" target="_blank"> 
-                                        <i class="ri-facebook-fill"></i>
-                                    </a>
-                                </li>   
-                                <li class="player-icon-top">
-                                    <a href="https://twitter.com/" target="_blank">
-                                        <i class="ri-twitter-fill"></i>
-                                    </a>
-                                </li>    
-                                <li>
-                                    <a href="https://www.linkedin.com/" target="_blank">
-                                        <i class="ri-linkedin-fill"></i>
-                                    </a>  
-                                </li> 
-                            </ul>
-                            <div class="player-text">
-                                <h3><a href="team-details.html">Millie Luettgen</a></h3>
-                                <p>Center Back</p>
-                            </div>
+                    <div class="soka-content">
+                        <img src="~/assets/images/team-history/team-history-img-1.png" alt="images">
+                        <div class="soka-text">
+                            <h3>Champion League 2027</h3>
+                            <p>Marine Cup</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6 col-md-6" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-                        <div class="single-player-card bg-color-1">
-                            <div class="player-img">
-                                <a href="team-details.html"><img src="~/assets/images/team/team-img-7.jpg" alt="images"></a>
-                            </div>
-                            <ul class="plus-icon">
-                                <li>
-                                    <a href="https://www.facebook.com/" target="_blank"> 
-                                        <i class="ri-facebook-fill"></i>
-                                    </a>
-                                </li>   
-                                <li class="player-icon-top">
-                                    <a href="https://twitter.com/" target="_blank">
-                                        <i class="ri-twitter-fill"></i>
-                                    </a>
-                                </li>    
-                                <li>
-                                    <a href="https://www.linkedin.com/" target="_blank">
-                                        <i class="ri-linkedin-fill"></i>
-                                    </a>  
-                                </li> 
-                            </ul>
-                            <div class="player-text">
-                                <h3><a href="team-details.html">Ransom Mertz</a></h3>
-                                <p>Goal Keeper</p>
-                            </div>
+                    <div class="soka-content">
+                        <img src="~/assets/images/team-history/team-history-img-5.png" alt="images">
+                        <div class="soka-text">
+                            <h3>Champion League 2004</h3>
+                            <p>Marine Cup</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6 col-md-6" data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
-                        <div class="single-player-card bg-color-1">
-                            <div class="player-img">
-                                <a href="team-details.html"><img src="~/assets/images/player/player-three-img-4.png" alt="images"></a>
-                            </div>
-                            <ul class="plus-icon">
-                                <li>
-                                    <a href="https://www.facebook.com/" target="_blank"> 
-                                        <i class="ri-facebook-fill"></i>
-                                    </a>
-                                </li>   
-                                <li class="player-icon-top">
-                                    <a href="https://twitter.com/" target="_blank">
-                                        <i class="ri-twitter-fill"></i>
-                                    </a>
-                                </li>    
-                                <li>
-                                    <a href="https://www.linkedin.com/" target="_blank">
-                                        <i class="ri-linkedin-fill"></i>
-                                    </a>  
-                                </li> 
-                            </ul>
-                            <div class="player-text">
-                                <h3><a href="team-details.html">Verona Wisozk</a></h3>
-                                <p> Middle Forward</p>
-                            </div>
+                    <div class="soka-content">
+                        <img src="~/assets/images/team-history/team-history-img-2.png" alt="images">
+                        <div class="soka-text">
+                            <h3>Champion League 2008</h3>
+                            <p>Marine Cup</p>
+                        </div>
+                    </div>
+                    <div class="soka-content">
+                        <img src="~/assets/images/team-history/team-history-img-1.png" alt="images">
+                        <div class="soka-text">
+                            <h3>Champion League 2012</h3>
+                            <p>Premier League Cup</p>
+                        </div>
+                    </div>
+                    <div class="soka-content">
+                        <img src="~/assets/images/team-history/team-history-img-1.png" alt="images">
+                        <div class="soka-text">
+                            <h3>Champion League 2027</h3>
+                            <p>Marine Cup</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- End Players Area -->
+        <!-- End Soka Has Won The Award Area -->
 
+        <style>
+        .league-table-area{
+            margin-top:100px;
+        }
+        </style>

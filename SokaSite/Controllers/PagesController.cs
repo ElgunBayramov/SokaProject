@@ -1,16 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Soka.Domain.Business.LeagueModule;
+using System.Threading.Tasks;
 
 namespace Soka.WebUI.Controllers
 {
+    [AllowAnonymous]
     public class PagesController : Controller
     {
-        public IActionResult Index()
+        private readonly IMediator mediator;
+
+        public PagesController(IMediator mediator)
         {
-            return View();
+            this.mediator = mediator;
         }
-        public IActionResult Details()
+        public async Task<IActionResult> Index(LeaguesAllQuery query)
         {
-            return View();
+            var response = await mediator.Send(query);
+            return View(response);
         }
     }
 }

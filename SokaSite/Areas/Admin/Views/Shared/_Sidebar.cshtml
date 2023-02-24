@@ -11,17 +11,23 @@
             <li class="pcoded-hasmenu active pcoded-trigger">
                 <a href="javascript:void(0)">
                     <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-                    <span class="pcoded-mtext">Məhsullar</span>
+                    <span class="pcoded-mtext">Menyu</span>
                 </a>
                 <ul class="pcoded-submenu">
                     <li>
                         <a asp-controller="Category" asp-action="index">
-                            <span class="pcoded-mtext">Categories</span>
+                            <span class="pcoded-mtext">Kategoriyalar</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Leagues" asp-action="index">
+                            <span class="pcoded-mtext">Fikstürlər</span>
+                            <span class="pcoded-badge label label-info">NEW</span>
                         </a>
                     </li>
                     <li>
                         <a asp-controller="Contacts" asp-action="index">
-                            <span class="pcoded-mtext">Contacts</span>
+                            <span class="pcoded-mtext">Kontaktlar</span>
                         </a>
                     </li>
 @*                    <li>
@@ -47,14 +53,14 @@
                     </li>
                     <li>
                         <a asp-controller="User" asp-action="index">
-                            <span class="pcoded-mtext">User</span>
+                            <span class="pcoded-mtext">Istifadəçilər</span>
                         </a>
                     </li>
                 </ul>
             </li>
             <li class="pcoded-hasmenu active pcoded-trigger">
                 <a href="javascript:void(0)">
-                    <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                    <span class="pcoded-micon"><i class="feather icon-monitor"></i></span>
                     <span class="pcoded-mtext">Paylaşımlar</span>
                 </a>
                 <ul class="pcoded-submenu">

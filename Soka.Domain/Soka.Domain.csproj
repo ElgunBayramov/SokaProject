@@ -27,4 +27,8 @@
 		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Identity.Core" Version="5.0.17" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Business\MatchModule\" />
+	</ItemGroup>
 </Project>

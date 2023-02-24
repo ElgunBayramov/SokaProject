@@ -72,20 +72,17 @@
                                     <a asp-controller="Home" asp-action="About" class="nav-link">About Us</a>         
                                 </li>  
                                 
-@*                                <li class="nav-item"> 
-
-                                    <a href="#" class="nav-link dropdown-toggle">Pages</a>   
-                                    
+                                <li class="nav-item"> 
+                                    <a asp-controller="Pages" asp-action="Index" class="nav-link dropdown-toggle">Pages</a> 
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
-                                            <a asp-controller="Pages" asp-action="Index" class="nav-link">Player List</a>     
+                                            <a asp-controller="Pages" asp-action="Index" class="nav-link">Fixtures</a>     
                                         </li> 
                                         <li class="nav-item">
-                                            <a asp-controller="Pages" asp-action="Details" class="nav-link">Player Details</a>     
+                                            <a asp-controller="Pages" asp-action="Details" class="nav-link">Matches</a>     
                                         </li> 
                                     </ul>
-
-                                </li>  *@
+                                </li>  
 
                                 <li class="nav-item"> 
                                     <a asp-controller="Shop" asp-action="Index" class="nav-link dropdown-toggle">Shop</a>     
@@ -113,14 +110,14 @@
                                             <a asp-controller="Blog" asp-action="Index" class="nav-link">Blog</a>     
                                         </li> 
                                         <li class="nav-item">
-                                            <a asp-controller="Blog" asp-action="Details" class="nav-link">Blog Details</a>     
+                                            <a class="nav-link">Blog Details</a>     
                                         </li> 
                                     </ul>
 
                                 </li>     
 
                                 <li class="nav-item"> 
-                                    <a asp-controller="Home" asp-action="Contact" class="nav-link">Contact</a>      
+                                    <a asp-controller="Home" asp-action="Contact" class="nav-link">Contact Us</a>      
                                 </li> 
                             </ul> 
 
@@ -226,20 +223,17 @@
                                     <a asp-controller="Home" asp-action="About" class="nav-link">About Us</a>         
                                 </li> 
                                 
-@*                                <li class="nav-item"> 
-
-                                    <a href="#" class="nav-link dropdown-toggle">Pages</a>   
-                                    
+                                <li class="nav-item"> 
+                                    <a asp-controller="Pages" asp-action="Index" class="nav-link dropdown-toggle">Pages</a>  
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
-                                            <a asp-controller="Pages" asp-action="Index" class="nav-link">Player List</a>     
+                                            <a asp-controller="Pages" asp-action="Index" class="nav-link">Fixtures</a>     
                                         </li> 
                                         <li class="nav-item">
-                                            <a asp-controller="Pages" asp-action="Details" class="nav-link">Player Details</a>     
-                                        </li> 
+                                            <a asp-controller="Pages" asp-action="Details" class="nav-link">Matches</a>     
+                                        </li>
                                     </ul>
-
-                                </li>  *@
+                                </li>  
 
                                 <li class="nav-item"> 
                                     <a asp-controller="Shop" asp-action="Index" class="nav-link dropdown-toggle">Shop</a>     
@@ -267,14 +261,14 @@
                                             <a asp-controller="Blog" asp-action="Index" class="nav-link">Blog</a>     
                                         </li> 
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">Blog Details</a>     
+                                            <a class="nav-link">Blog Details</a>     
                                         </li> 
                                     </ul>
 
                                 </li>     
 
                                 <li class="nav-item"> 
-                                    <a asp-controller="Home" asp-action="Contact" class="nav-link">Contact</a>      
+                                    <a asp-controller="Home" asp-action="Contact" class="nav-link">Contact Us</a>      
                                 </li> 
                             </ul> 
 
@@ -369,7 +363,7 @@
                                 <li><a asp-controller="Home" asp-action="Contact"><i class="ri-arrow-right-s-line"></i>Contact Us</a></li>
                                 <li><a asp-controller="Blog" asp-action="Index"><i class="ri-arrow-right-s-line"></i>Blog</a></li>
                                 <li><a asp-controller="Shop" asp-action="Index"><i class="ri-arrow-right-s-line"></i>Shop</a></li>
-                                <li><a asp-controller="Pages" asp-action="Index"><i class="ri-arrow-right-s-line"></i>Player List</a></li>
+                                <li><a asp-controller="Pages" asp-action="Index"><i class="ri-arrow-right-s-line"></i>Pages</a></li>
                             </ul>
                         </div> 
                     </div>
