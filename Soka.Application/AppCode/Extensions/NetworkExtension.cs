@@ -1,4 +1,4 @@
-﻿namespace Soka.Domain.AppCode.Extensions
+﻿namespace Soka.Application.AppCode.Extensions
 {
     static public partial class Extension
     {

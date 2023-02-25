@@ -27,6 +27,7 @@ namespace Soka.Domain.Models.DataContexts
         public DbSet<League> Leagues { get; set; }
         public DbSet<Match> Matches { get; set; }
         public DbSet<Tropy> Trophies { get; set; }
+        public DbSet<Result> Results { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

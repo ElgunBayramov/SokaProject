@@ -5,7 +5,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Soka.Domain.AppCode.Extensions
+namespace Soka.Application.AppCode.Extensions
 {
     public static partial class Extension
     {

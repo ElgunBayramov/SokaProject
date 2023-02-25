@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Soka.Domain.AppCode.Services;
+using Soka.Application.AppCode.Services;
 using Soka.Domain.Models.DataContexts;
 using Soka.Domain.Models.Entities.Membership;
 using System;

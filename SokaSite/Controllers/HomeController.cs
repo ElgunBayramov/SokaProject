@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Soka.Domain.AppCode.Services;
+using Soka.Application.AppCode.Services;
 using Soka.Domain.Business.FaqModule;
 using Soka.Domain.Models.DataContexts;
 using Soka.Domain.Models.Entities;

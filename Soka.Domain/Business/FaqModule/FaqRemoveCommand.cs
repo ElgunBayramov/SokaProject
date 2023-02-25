@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Soka.Domain.AppCode.Infrastructure;
+using Soka.Application.AppCode.Infrastructure;
 using Soka.Domain.Models.DataContexts;
 using System;
 using System.Collections.Generic;

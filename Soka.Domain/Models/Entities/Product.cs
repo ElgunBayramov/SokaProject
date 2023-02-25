@@ -1,4 +1,4 @@
-﻿using Soka.Domain.AppCode.Infrastructure;
+﻿using Soka.Application.AppCode.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -7,7 +7,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Soka.Domain.AppCode.Services
+namespace Soka.Application.AppCode.Services
 {
     public class EmailService
     {
@@ -31,6 +31,24 @@ namespace Soka.Domain.AppCode.Services
             mailMessage.Subject = options.Subject;
             mailMessage.Body = "Memnun olduq,<br/>Zehmet olmasa abuneliyiniz  " +
                     $"<a href='{approveLink}'>link</a> tamamalayasiniz";
+            mailMessage.IsBodyHtml = true;
+
+            await smtpClient.SendMailAsync(mailMessage);
+            return true;
+        }
+        public async Task<bool> SendEmailAsync(string toEmail, string subject,string message)
+        {
+            string fromEmail = options.UserName;
+            SmtpClient smtpClient = new SmtpClient(options.SmtpHost, options.SmtpPort);
+            smtpClient.Credentials = new NetworkCredential(fromEmail, options.Password);
+            smtpClient.EnableSsl = true;
+
+            MailAddress from = new MailAddress(fromEmail, options.DisplayName);
+            MailAddress to = new MailAddress(toEmail);
+
+            MailMessage mailMessage = new MailMessage(from, to);
+            mailMessage.Subject = subject;
+            mailMessage.Body = message;
             mailMessage.IsBodyHtml = true;
 
             await smtpClient.SendMailAsync(mailMessage);

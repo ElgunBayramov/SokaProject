@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
-using Soka.Domain.AppCode.Extensions;
+using Soka.Application.AppCode.Extensions;
 using Soka.Domain.Business.BlogPostModule;
 using Soka.Domain.Business.TagModule;
 using Soka.Domain.Models.DataContexts;

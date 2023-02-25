@@ -7,40 +7,10 @@ using System.Security.Cryptography;
 using System.IO;
 using System.Web;
 
-namespace Soka.Domain.AppCode.Extensions
+namespace Soka.Application.AppCode.Extensions
 {
     public static partial class Extension
     {
-
-        public static string ToMd5(this string value, string saltKey)
-        {
-            byte[] buffer = Encoding.UTF8.GetBytes($"{saltKey}{value}Soka.Domain.AppCode.Extensions");
-
-            //var provider = MD5.Create();
-            var provider = new MD5CryptoServiceProvider();
-
-            var buff = provider.ComputeHash(buffer);
-
-            return string.Join("", buff.Select(b => b.ToString("x2")));
-        }
-
-        public static string ToSha1(this string value, string saltKey)
-        {
-            byte[] buffer = Encoding.UTF8.GetBytes($"{saltKey}{value}2Soka.Domain.AppCode.Extensions");
-
-            var provider = SHA1.Create();
-
-            return string.Join("", provider.ComputeHash(buffer).Select(b => b.ToString("x2")));
-        }
-
-        public static string ToSha256(this string value, string saltKey)
-        {
-            byte[] buffer = Encoding.UTF8.GetBytes($"{saltKey}{value}1Soka.Domain.AppCode.Extensions");
-
-            var provider = SHA256.Create();
-
-            return string.Join("", provider.ComputeHash(buffer).Select(b => b.ToString("x2")));
-        }
 
 
         public static string Encrypt(this string value, string key, bool appliedUrlEncode = false)   //123

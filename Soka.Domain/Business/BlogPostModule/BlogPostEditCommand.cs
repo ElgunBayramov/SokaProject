@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
-using Soka.Domain.AppCode.Extensions;
+using Soka.Application.AppCode.Extensions;
 using Soka.Domain.Models.DataContexts;
 using Soka.Domain.Models.Entities;
 using System;
