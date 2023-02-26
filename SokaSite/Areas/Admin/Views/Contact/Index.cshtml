@@ -1,5 +1,4 @@
-﻿@using Soka.Domain.Models.ViewModels
-@model PagedViewModel<ContactPost>
+﻿@model IEnumerable<ContactPost>
 @{
     ViewData["Title"] = "Index";
 }
@@ -52,11 +51,6 @@
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
-                            <th class="operation">
-                                <a asp-action="create" class="btn btn-success">
-                                    <i class="fa fa-plus"></i>
-                                </a>
-                            </th>
                         </tr>
                     </thead>
                     <tbody id="dynamic-body">

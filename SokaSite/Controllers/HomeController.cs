@@ -36,6 +36,10 @@ namespace Soka.WebUI.Controllers
         {
             return View();
         }
+        public IActionResult LinkAnswer()
+        {
+            return View();
+        }
         [Route("/about")]
         public async Task<IActionResult> About(FaqsAllQuery query)
         {
@@ -115,14 +119,14 @@ namespace Soka.WebUI.Controllers
             }
             else if (subscriber.ApprovedDate != null)
             {
-                return Content("abuneliyiniz artiq tesdiq edilib");
+                return Content("Abuneliyiniz artiq tesdiq edilib");
 
             }
             subscriber.ApprovedDate = DateTime.UtcNow.AddHours(4);
             await db.SaveChangesAsync();
 
 
-            return Content("ugurludur");
+            return RedirectToAction(nameof(LinkAnswer));
         }
     }
 }

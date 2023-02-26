@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Soka.Application.AppCode.Extensions;
 using Soka.Domain.Business.ContactModule;
-using Soka.Domain.Business.FaqModule;
-using Soka.Domain.Models.DataContexts;
-using Soka.Domain.Models.Entities;
+using System.Threading.Tasks;
 
 namespace Soka.WebUI.Areas.Admin.Controllers
 {
@@ -23,15 +14,9 @@ namespace Soka.WebUI.Areas.Admin.Controllers
         {
             this.mediator = mediator;
         }
-        public async Task<IActionResult> Index(ContactPagedQuery query)
+        public async Task<IActionResult> Index(ContactsAllQuery query)
         {
             var response = await mediator.Send(query);
-
-            if (Request.IsAjaxRequest())
-            {
-                return PartialView("_ListBody", response);
-            }
-
             return View(response);
         }
         public async Task<IActionResult> Edit(ContactSingleQuery query)
@@ -70,7 +55,7 @@ namespace Soka.WebUI.Areas.Admin.Controllers
                 return Json(response);
             }
 
-            var data = await mediator.Send(new ContactPagedQuery());
+            var data = await mediator.Send(new ContactsAllQuery());
 
             return PartialView("_ListBody", data);
         }

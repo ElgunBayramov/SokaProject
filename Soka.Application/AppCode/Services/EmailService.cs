@@ -29,8 +29,8 @@ namespace Soka.Application.AppCode.Services
 
             MailMessage mailMessage = new MailMessage(from, to);
             mailMessage.Subject = options.Subject;
-            mailMessage.Body = "Memnun olduq,<br/>Zehmet olmasa abuneliyiniz  " +
-                    $"<a href='{approveLink}'>link</a> tamamalayasiniz";
+            mailMessage.Body = "Məmnun olduq,<br/>Zəhmət olmasa abunəliyinizi  " +
+                    $"<a href='{approveLink}'>link</a> vasitəsilə tamamlayasınız.";
             mailMessage.IsBodyHtml = true;
 
             await smtpClient.SendMailAsync(mailMessage);

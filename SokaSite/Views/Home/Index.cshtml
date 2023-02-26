@@ -51,88 +51,15 @@
             </div> 
         </div>
         <!-- End Banner Area -->
+        <!-- Start Premier League Area-->
            <div class="premier-league-area pb-100"> 
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="premier-league-card aos-init aos-animate" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
-                            <p>Premier League</p>
-                            <div class="row align-items-center">
-                                <div class="col-lg-4 col-4 col-sm-4 col-md-4">
-                                    <div class="premier-league-item">
-                                        <img src="~/assets/images/premier-league/premier-league-img-1.png" alt="images">
-                                        <span>Chelsea</span>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-4 col-sm-4 col-md-4">
-                                    <div class="premier-league-item">
-                                        <h2>3<span>2</span></h2>
-                                        <p>16-April-22</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-4 col-sm-4 col-md-4">
-                                    <div class="premier-league-item">
-                                        <img src="~/assets/images/premier-league/premier-league-img-2.png" alt="images">
-                                        <span>Prestige</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>  
-                    <div class="col-lg-4 col-md-6">
-                        <div class="premier-league-card aos-init aos-animate" data-aos="fade-up" data-aos-duration="1200" data-aos-once="true">
-                            <p>Carling Cup</p>
-                            <div class="row align-items-center">
-                                <div class="col-lg-4 col-4 col-sm-4 col-md-4">
-                                    <div class="premier-league-item">
-                                        <img src="~/assets/images/premier-league/premier-league-img-3.png" alt="images">
-                                        <span>Girondin</span>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-4 col-sm-4 col-md-4">
-                                    <div class="premier-league-item">
-                                        <h2>1<span>1</span></h2>
-                                        <p>16-April-22</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-4 col-sm-4 col-md-4">
-                                    <div class="premier-league-item">
-                                        <img src="~/assets/images/premier-league/premier-league-img-4.png" alt="images" class="league-img">
-                                        <span>Redfire</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="col-lg-4 col-md-6">
-                        <div class="premier-league-card aos-init aos-animate" data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
-                            <p>Women League</p>
-                            <div class="row align-items-center">
-                                <div class="col-lg-4 col-4 col-sm-4 col-md-4">
-                                    <div class="premier-league-item">
-                                        <img src="~/assets/images/premier-league/premier-league-img-5.png" alt="images">
-                                        <span>United</span>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-4 col-sm-4 col-md-4">
-                                    <div class="premier-league-item">
-                                        <h2>2<span>3</span></h2>
-                                        <p>16-April-22</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-4 col-sm-4 col-md-4">
-                                    <div class="premier-league-item">
-                                        <img src="~/assets/images/premier-league/premier-league-img-6.png" alt="images">
-                                        <span>Intera</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @await Component.InvokeAsync("Results")
                 </div>
             </div>
         </div>
-
+        <!-- End Premier League Area-->
         <!-- Start Blog Area -->
         <div class="banner-blog-area pb-70 pt-100">
             <div class="container">

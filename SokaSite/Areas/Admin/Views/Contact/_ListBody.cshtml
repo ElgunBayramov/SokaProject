@@ -1,7 +1,6 @@
-﻿@using Soka.Domain.Models.ViewModels
-@model PagedViewModel<ContactPost>
+﻿@model IEnumerable<ContactPost>
 
-@foreach (var item in Model.Items)
+@foreach (var item in Model)
 {
     <tr>
         <td>@item.Name</td>

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Result>
+
+    @foreach (var item in Model)
+   {
+       <div class="col-lg-4 col-md-6">
+                        <div class="premier-league-card aos-init aos-animate" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
+                            <p>@item.Title</p>
+                            <div class="row align-items-center">
+                                <div class="col-lg-4 col-4 col-sm-4 col-md-4">
+                                    <div class="premier-league-item">
+                                        <img src="~/uploads/images/@item.ImagePath" alt="images">
+                                        <span>@item.ClubName</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-4 col-sm-4 col-md-4">
+                                    <div class="premier-league-item">
+                                        <h2>@item.Body</h2>
+                                        <p>@item.GameDate?.ToString("dd-MMMM-yy")</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-4 col-sm-4 col-md-4">
+                                    <div class="premier-league-item">
+                                        <img src="~/uploads/images/@item.RivalImagePath" alt="images">
+                                        <span>@item.RivalClubName</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+   }

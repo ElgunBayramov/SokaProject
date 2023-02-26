@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Soka.Domain.Business.LeagueModule;
+using Soka.Domain.Business.ResultModule;
 using System.Threading.Tasks;
 
 namespace Soka.WebUI.Controllers
@@ -20,9 +21,10 @@ namespace Soka.WebUI.Controllers
             var response = await mediator.Send(query);
             return View(response);
         }
-        public IActionResult Details()
+        public async Task<IActionResult> Details(ResultsAllQuery query)
         {
-            return View();
+            var response = await mediator.Send(query);
+            return View(response);
         }
     }
 }

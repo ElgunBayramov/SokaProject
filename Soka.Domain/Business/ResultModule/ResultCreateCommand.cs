@@ -20,6 +20,7 @@ namespace Soka.Domain.Business.ResultModule
         public string ClubName { get; set; }
         public string RivalClubName { get; set; }
         public IFormFile Image { get; set; }
+        public IFormFile Image2 { get; set; }
 
         public class ResultCreateCommandHandler : IRequestHandler<ResultCreateCommand, Result>
         {
@@ -38,11 +39,11 @@ namespace Soka.Domain.Business.ResultModule
                 result.Body = request.Body;
                 result.ClubName = request.ClubName;
                 result.RivalClubName = request.RivalClubName;
-                result.ImagePath = request.Image.GetRandomImagePath("result");
-                result.RivalImagePath = request.Image.GetRandomImagePath("result");
 
+                result.ImagePath = request.Image.GetRandomImagePath("result");
+                result.RivalImagePath = request.Image2.GetRandomImagePath("result");
                 await env.SaveAsync(request.Image, result.ImagePath, cancellationToken);
-                await env.SaveAsync(request.Image, result.RivalImagePath, cancellationToken);
+                await env.SaveAsync(request.Image2, result.RivalImagePath, cancellationToken);
 
 
                 await db.Results.AddAsync(result, cancellationToken);

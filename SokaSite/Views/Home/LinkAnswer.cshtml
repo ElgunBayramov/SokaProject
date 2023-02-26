@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewData["Title"] = "LinkAnswer";
+	Layout=null;
+}
+<!DOCTYPE html>
+<html lang="en"> 
+    
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		 <title>Welcome to my WebSite</title> 
+        <link rel="icon" type="image/png" href="~/assets/images/favicon.png"> 
+</head>
+<body>
+<img src="https://cdn.pixabay.com/photo/2013/07/13/10/51/football-157930__480.png" alt="toast">
+<div class="dialog">
+  <div>sizi tebrik edirik</div>
+  <div>artiq idman aleminde</div>
+  <div>olan butun yeniliklerden</div>
+  <div>xeberdar olacaqsiniz...</div>
+</div>
+</body>
+<style>
+    body {
+	margin: 0;
+	background-color: #4b6473;
+	background-image:
+    url(http://codersblock.com/assets/stars1.png),
+    url(http://codersblock.com/assets/stars2.png),
+    url(http://codersblock.com/assets/stars3.png);
+	animation:
+    stars 32s linear infinite,
+	  fade 10s steps(5) 16s forwards;
+}
+img {
+	position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -184px 0 0 -64px;
+	animation: toast 6s ease infinite;
+}
+.dialog {
+	position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 24px 0 0 -300px;
+	width: 552px;
+	padding: 12px;
+	background-color: #fff;
+	border: solid 12px #000;
+  font: bold 22px/36px "Press Start 2P", monospace;
+}
+.dialog div {
+	overflow: hidden;
+	white-space: nowrap;
+	width: 0;
+	animation: dialog 5s steps(24) forwards;
+}
+.dialog div:nth-child(1) {
+	animation-delay: 0s;
+}
+.dialog div:nth-child(2) {
+	animation-delay: 5s;
+}
+.dialog div:nth-child(3) {
+	animation-delay: 10s;
+}
+.dialog div:nth-child(4) {
+	animation-delay: 15s;
+}
+
+@@keyframes toast {
+	50% { transform: translateY(64px); }
+	100% { transform: translateY(0); }
+}
+@@keyframes dialog {
+	100% { width: 100%; }
+}
+@@keyframes stars {
+	100% { background-position:
+      -2048px 512px,
+      -4096px 512px,
+      -8192px 512px; }
+}
+@@keyframes fade {
+	100% { background-color: #1d272d; }
+}
+</style>
+        <script src="~/assets/js/script.js"></script>
+</html>
+

@@ -24,6 +24,8 @@ namespace Soka.Domain.Business.ResultModule
         public string ImagePath { get; set; }
         public string RivalImagePath { get; set; }
         public IFormFile Image { get; set; }
+        public IFormFile Image2 { get; set; }
+
         public class ResultEditCommandHandler : IRequestHandler<ResultEditCommand, Result>
         {
             private readonly SokaDbContext db;
@@ -56,8 +58,14 @@ namespace Soka.Domain.Business.ResultModule
                 await env.SaveAsync(request.Image, newImageName, cancellationToken);
                 env.ArchiveImage(model.ImagePath);
                 model.ImagePath = newImageName;
-                string newImageName2 = request.Image.GetRandomImagePath("result");
-                await env.SaveAsync(request.Image, newImageName2, cancellationToken);
+                if(request.Image2 == null)
+                {
+
+                    goto save;
+                }
+
+                string newImageName2 = request.Image2.GetRandomImagePath("result");
+                await env.SaveAsync(request.Image2, newImageName2, cancellationToken);
                 env.ArchiveImage(model.RivalImagePath);
                 model.RivalImagePath = newImageName2;
 
