@@ -1,8 +1,11 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Soka.Domain.Business.BlogPostModule;
 using Soka.Domain.Models.DataContexts;
+using Soka.Domain.Models.Entities;
+using Soka.Domain.Models.ViewModels;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,14 +15,17 @@ namespace Soka.WebUI.Controllers
     public class BlogController : Controller
     {
         private readonly IMediator mediator;
+        private readonly SokaDbContext db;
 
-        public BlogController(IMediator mediator)
+        public BlogController(IMediator mediator,SokaDbContext db)
         {
             this.mediator = mediator;
+            this.db = db;
         }
-        public async Task<IActionResult> Index(BlogPostsAllQuery query)
+        public async Task<IActionResult> Index(BlogPostPagedQuery query)
         {
             var response = await mediator.Send(query);
+
             return View(response);
         }
         [Route("/blog/tags/{tagId}")]

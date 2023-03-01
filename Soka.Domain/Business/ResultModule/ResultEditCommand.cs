@@ -47,33 +47,33 @@ namespace Soka.Domain.Business.ResultModule
                 model.Title = request.Title;
                 model.Body = request.Body;
                 model.ClubName = request.ClubName;
-                model.RivalClubName = request.RivalClubName;    
+                model.RivalClubName = request.RivalClubName;
 
-                if (request.Image == null)
+                if (request.Image == null && request.Image2 == null)
+                    return model;
+
+                else
                 {
+                    if (request.Image != null)
+                    {
+                        string newImageName = request.Image.GetRandomImagePath("result");
+                        await env.SaveAsync(request.Image, newImageName, cancellationToken);
+                        env.ArchiveImage(model.ImagePath);
+                        model.ImagePath = newImageName;
+                    }
 
-                    goto save;
+                    if (request.Image2 != null)
+                    {
+                        string newImageName2 = request.Image2.GetRandomImagePath("result");
+                        await env.SaveAsync(request.Image2, newImageName2, cancellationToken);
+                        env.ArchiveImage(model.RivalImagePath);
+                        model.RivalImagePath = newImageName2;
+                    }
+
+                    await db.SaveChangesAsync(cancellationToken);
                 }
-                string newImageName = request.Image.GetRandomImagePath("result");
-                await env.SaveAsync(request.Image, newImageName, cancellationToken);
-                env.ArchiveImage(model.ImagePath);
-                model.ImagePath = newImageName;
-                if(request.Image2 == null)
-                {
 
-                    goto save;
-                }
-
-                string newImageName2 = request.Image2.GetRandomImagePath("result");
-                await env.SaveAsync(request.Image2, newImageName2, cancellationToken);
-                env.ArchiveImage(model.RivalImagePath);
-                model.RivalImagePath = newImageName2;
-
-
-            save:
-                await db.SaveChangesAsync(cancellationToken);
                 return model;
-
 
             }
         }

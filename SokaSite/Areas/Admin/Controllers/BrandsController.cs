@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -21,19 +22,20 @@ namespace Soka.WebUI.Areas.Admin.Controllers
         {
             this.mediator = mediator;
         }
-
+        [Authorize(Policy = "admin.brands.index")]
         public async Task<IActionResult> Index(BrandsAllQuery query)
         {
             var response = await mediator.Send(query);
             return View(response);
         }
-
+        [Authorize(Policy = "admin.brands.create")]
         public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "admin.brands.create")]
         public async Task<IActionResult> Create(BrandCreateCommand command)
         {
             var response = await mediator.Send(command);
@@ -43,6 +45,7 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
+        [Authorize(Policy = "admin.brands.edit")]
         public async Task<IActionResult> Edit(BrandSingleQuery query)
         {
             var response = await mediator.Send(query);
@@ -54,6 +57,7 @@ namespace Soka.WebUI.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "admin.brands.edit")]
         public async Task<IActionResult> Edit(BrandEditCommand command)
         {
             var response = await mediator.Send(command);
@@ -63,6 +67,7 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
+        [Authorize(Policy = "admin.brands.details")]
         public async Task<IActionResult> Details(BrandSingleQuery query)
         {
             var response = await mediator.Send(query);
@@ -73,6 +78,7 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             return View(response);
         }
         [HttpPost]
+        [Authorize(Policy = "admin.brands.remove")]
         public async Task<IActionResult> Remove(BrandRemoveCommand command)
         {
             var response = await mediator.Send(command);

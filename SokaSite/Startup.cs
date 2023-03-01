@@ -1,6 +1,7 @@
 
 using FluentValidation;
 using MediatR;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -12,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Soka.Application.AppCode.Providers;
 using Soka.Application.AppCode.Services;
 using Soka.Domain.Models.DataContexts;
 using Soka.Domain.Models.Entities.Membership;
@@ -79,16 +81,25 @@ namespace Soka.WebUI
 
                 cfg.AccessDeniedPath = "/accessdenied.html";
 
-                cfg.ExpireTimeSpan = new TimeSpan(0, 1, 0);
+                cfg.ExpireTimeSpan = new TimeSpan(0, 15, 0);
                 cfg.Cookie.HttpOnly = true;
             });
 
             services.AddScoped<UserManager<SokaUser>>();
             services.AddScoped<SignInManager<SokaUser>>();
             services.AddScoped<RoleManager<SokaRole>>();
-
+            services.AddScoped<IClaimsTransformation, AppClaimsProvider>();
             services.AddAuthentication();
-            services.AddAuthorization();
+            services.AddAuthorization(cfg =>
+            {
+                foreach (var item in AppClaimsProvider.policies)
+                {
+                    cfg.AddPolicy(item, p =>
+                    {
+                        p.RequireClaim(item, "1");
+                    });
+                }
+            });
 
             services.Configure<CryptoServiceOptions>(cfg =>
             {

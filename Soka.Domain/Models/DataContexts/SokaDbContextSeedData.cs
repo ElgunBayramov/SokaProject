@@ -17,6 +17,8 @@ namespace Soka.Domain.Models.DataContexts
 
             using (var scope = app.ApplicationServices.CreateScope())
             {
+                var db = scope.ServiceProvider.GetRequiredService<SokaDbContext>();
+                db.Database.Migrate();
                 var userManager = scope.ServiceProvider.GetRequiredService<UserManager<SokaUser>>();
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<SokaRole>>();
 
