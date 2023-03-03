@@ -9,22 +9,24 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Soka.Domain.Business.CategoryModule
+namespace Soka.Domain.Business.ProductModule
 {
-    public class CategoryAllQuery : IRequest<List<Category>>
+    public class ProductsAllQuery : IRequest<List<Product>>
     {
-        public class CategoryAllQueryHandler : IRequestHandler<CategoryAllQuery, List<Category>>
+        public class ProductsAllQueryHandler : IRequestHandler<ProductsAllQuery, List<Product>>
         {
             private readonly SokaDbContext db;
 
-            public CategoryAllQueryHandler(SokaDbContext db)
+            public ProductsAllQueryHandler(SokaDbContext db)
             {
                 this.db = db;
             }
-            public async Task<List<Category>> Handle(CategoryAllQuery request, CancellationToken cancellationToken)
+            public async Task<List<Product>> Handle(ProductsAllQuery request, CancellationToken cancellationToken)
             {
-                var data = await db.Categories.Where(m => m.DeletedDate == null)
+                var data = await db.Products
+                    .Where(m => m.DeletedDate == null)
                     .ToListAsync(cancellationToken);
+
                 return data;
             }
         }

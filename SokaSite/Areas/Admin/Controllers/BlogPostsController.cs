@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Soka.Application.AppCode.Extensions;
 using Soka.Domain.Business.BlogPostModule;
+using Soka.Domain.Business.CategoryModule;
 using Soka.Domain.Business.TagModule;
 using Soka.Domain.Models.DataContexts;
 using Soka.Domain.Models.Entities;

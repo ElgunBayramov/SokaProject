@@ -44,7 +44,7 @@ namespace Soka.Domain.Business.ProductModule
                 product.ImagePath = request.Image.GetRandomImagePath("product");
 
                 await env.SaveAsync(request.Image, product.ImagePath, cancellationToken);
-
+                product.Slug = product.Name.ToSlug();
                 await db.Products.AddAsync(product,cancellationToken);
                 await db.SaveChangesAsync(cancellationToken);
                 return product;

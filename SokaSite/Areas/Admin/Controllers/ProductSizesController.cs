@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -27,13 +28,14 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             var response = await mediator.Send(query);
             return View(response);
         }
-
+        [Authorize(Policy = "admin.productsizes.create")]
         public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "admin.productsizes.create")]
         public async Task<IActionResult> Create(ProductSizeCreateCommand command)
         {
             var response = await mediator.Send(command);

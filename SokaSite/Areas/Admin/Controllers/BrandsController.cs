@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -17,9 +18,15 @@ namespace Soka.WebUI.Areas.Admin.Controllers
     public class BrandsController : Controller
     {
         private readonly IMediator mediator;
+        private readonly IValidator<BrandCreateCommand> brandCreateCommandValidator;
+        private readonly IValidator<BrandEditCommand> brandEditCommandValidator;
 
-        public BrandsController(IMediator mediator)
+        public BrandsController(IMediator mediator,
+            IValidator<BrandCreateCommand> brandCreateCommandValidator,
+            IValidator<BrandEditCommand> brandEditCommandValidator)
         {
+            this.brandCreateCommandValidator = brandCreateCommandValidator;
+            this.brandEditCommandValidator = brandEditCommandValidator;
             this.mediator = mediator;
         }
         [Authorize(Policy = "admin.brands.index")]
@@ -38,12 +45,22 @@ namespace Soka.WebUI.Areas.Admin.Controllers
         [Authorize(Policy = "admin.brands.create")]
         public async Task<IActionResult> Create(BrandCreateCommand command)
         {
-            var response = await mediator.Send(command);
-            if(response == null)
+            //validate - with fluent validation
+
+            var result = brandCreateCommandValidator.Validate(command);
+
+            if (result.IsValid)
             {
-                return View(command);
+                var response = await mediator.Send(command);
+
+                return RedirectToAction(nameof(Index));
             }
-            return RedirectToAction(nameof(Index));
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+            }
+            return View();
+
         }
         [Authorize(Policy = "admin.brands.edit")]
         public async Task<IActionResult> Edit(BrandSingleQuery query)
@@ -61,7 +78,7 @@ namespace Soka.WebUI.Areas.Admin.Controllers
         public async Task<IActionResult> Edit(BrandEditCommand command)
         {
             var response = await mediator.Send(command);
-            if(response == null)
+            if (response == null)
             {
                 return NotFound();
             }
