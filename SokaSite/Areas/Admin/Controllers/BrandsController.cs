@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using FluentValidation;
+﻿using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using Soka.Domain.Business.BrandModule;
-using Soka.Domain.Models.DataContexts;
-using Soka.Domain.Models.Entities;
+using System.Threading.Tasks;
 
 namespace Soka.WebUI.Areas.Admin.Controllers
 {
@@ -77,12 +70,19 @@ namespace Soka.WebUI.Areas.Admin.Controllers
         [Authorize(Policy = "admin.brands.edit")]
         public async Task<IActionResult> Edit(BrandEditCommand command)
         {
-            var response = await mediator.Send(command);
-            if (response == null)
+            var result = brandEditCommandValidator.Validate(command);
+
+            if (result.IsValid)
             {
-                return NotFound();
+                var response = await mediator.Send(command);
+
+                return RedirectToAction(nameof(Index));
             }
-            return RedirectToAction(nameof(Index));
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+            }
+            return View();
         }
         [Authorize(Policy = "admin.brands.details")]
         public async Task<IActionResult> Details(BrandSingleQuery query)

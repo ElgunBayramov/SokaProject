@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using FluentValidation;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
-using Soka.Application.AppCode.Extensions;
 using Soka.Domain.Business.TropyModule;
-using Soka.Domain.Business.TagModule;
-using Soka.Domain.Models.DataContexts;
-using Soka.Domain.Models.Entities;
+using System.Threading.Tasks;
 
 namespace Soka.WebUI.Areas.Admin.Controllers
 {
@@ -21,10 +10,16 @@ namespace Soka.WebUI.Areas.Admin.Controllers
     public class TrophiesController : Controller
     {
         private readonly IMediator mediator;
+        private readonly IValidator<TropyCreateCommand> tropyCreateCommandValidator;
+        private readonly IValidator<TropyEditCommand> tropyEditCommandValidator;
 
-        public TrophiesController(IMediator mediator)
+        public TrophiesController(IMediator mediator,
+             IValidator<TropyCreateCommand> tropyCreateCommandValidator,
+            IValidator<TropyEditCommand> tropyEditCommandValidator)
         {
             this.mediator = mediator;
+            this.tropyCreateCommandValidator = tropyCreateCommandValidator;
+            this.tropyEditCommandValidator = tropyEditCommandValidator;
         }
 
         public async Task<IActionResult> Index(TrophiesAllQuery query)
@@ -52,17 +47,21 @@ namespace Soka.WebUI.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(TropyCreateCommand command)
         {
-            if (command.Image == null)
-            {
-                ModelState.AddModelError("Image", "Şəkil seçilməyib");
-            }
+            //validate - with fluent validation
 
-            if (ModelState.IsValid)
+            var result = tropyCreateCommandValidator.Validate(command);
+
+            if (result.IsValid)
             {
                 var response = await mediator.Send(command);
+
                 return RedirectToAction(nameof(Index));
             }
-            return View(command);
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+            }
+            return View();
         }
         public async Task<IActionResult> Edit(TropySingleQuery query)
         {

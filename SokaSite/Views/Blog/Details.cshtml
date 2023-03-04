@@ -101,10 +101,10 @@
                             <div class="categories">
                                 <h2>Tags</h2>
                                 <ul>
-                                     @foreach (var item in Model.TagCloud.Select(tc=>tc.Tag))
+                                     @foreach (var item in Model.TagCloud)
                                      {   
                                       <li>
-                                    <a asp-action="PostsByTag" asp-route-tagId="@item.Id"><i class="ri-arrow-right-s-line"></i>@item.Text</a>
+                                    <a asp-action="PostsByTag" asp-route-tagId="@item.Tag.Id"><i class="ri-arrow-right-s-line"></i>@item.Tag.Text</a>
                                       </li>
                                      }
                                 </ul>

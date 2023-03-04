@@ -27,7 +27,7 @@
         <div class="banner-blog-area pt-100 pb-70">
             <div class="container">
                 <div class="row justify-content-center"> 
-                   @foreach (var item in Model.Items)
+                @foreach (var item in Model.Items)
 {
     <div class="col-lg-4 col-md-6">
         <div class="single-blog-card" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
@@ -42,19 +42,20 @@
                     <li><i class="ri-account-circle-line"></i><a href="blog-details.html">Kendall</a></li>
                     <li><i class="ri-football-line"></i><a href="blog-details.html">Football</a></li>
                     </ul>*@
-                <h3><a asp-controller="blog" asp-action="details" asp-route-slug="@item.Slug">@item.Title</a></h3>
+         <h3><a asp-controller="blog" asp-action="details" asp-route-slug="@item.Slug">@item.Title</a></h3>
                 <div class="textpart">
                     @Html.Raw(item.Body)
                 </div>
-                <a asp-controller="blog" asp-action="details" asp-route-slug="@item.Slug" class="default-btn style-1">Read More<i class="ri-arrow-right-line"></i></a>
-            </div>
+               @* await Component.InvokeAsync("BlogPosts")*@
+             <a asp-controller="blog" asp-action="details" asp-route-slug="@item.Slug" class="default-btn style-1">Read More<i class="ri-arrow-right-line"></i></a>
+          </div>
         </div>
     </div>
     }
                 </div>
         <div class="row">
             <div class="col-12">
-                @Model.GetPager(Url,"index",area:"")
+               @Model.GetPager(Url,"index",area:"")
             </div>
         </div>
             </div>

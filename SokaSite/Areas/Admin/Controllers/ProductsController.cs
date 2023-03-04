@@ -55,7 +55,6 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             ViewBag.BrandId = new SelectList(brands, "Id", "Name");
             var categories = await mediator.Send(new CategoryAllQuery());
             ViewBag.CategoryId = new SelectList(categories, "Id", "Name");
-
             foreach (var error in result.Errors)
             {
                 ModelState.AddModelError(error.PropertyName, error.ErrorMessage);

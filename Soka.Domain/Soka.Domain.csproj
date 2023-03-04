@@ -31,7 +31,6 @@
 
 	<ItemGroup>
 	  <Folder Include="Business\MatchModule\" />
-	  <Folder Include="Behaviours\" />
 	</ItemGroup>
 
 	<ItemGroup>

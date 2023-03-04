@@ -28,14 +28,12 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             var response = await mediator.Send(query);
             return View(response);
         }
-        [Authorize(Policy = "admin.productcolors.create")]
         public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Policy = "admin.productcolors.create")]
         public async Task<IActionResult> Create(ProductColorCreateCommand command)
         {
             var response = await mediator.Send(command);
@@ -45,7 +43,6 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
-        [Authorize(Policy = "admin.productcolors.edit")]
         public async Task<IActionResult> Edit(ProductColorSingleQuery query)
         {
             var response = await mediator.Send(query);
@@ -57,7 +54,6 @@ namespace Soka.WebUI.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Policy = "admin.productcolors.edit")]
         public async Task<IActionResult> Edit(ProductColorEditCommand command)
         {
             var response = await mediator.Send(command);
@@ -67,7 +63,6 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
-        [Authorize(Policy = "admin.productcolors.details")]
         public async Task<IActionResult> Details(ProductColorSingleQuery query)
         {
             var response = await mediator.Send(query);
@@ -78,7 +73,7 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             return View(response);
         }
         [HttpPost]
-        [Authorize(Policy = "admin.productcolors.remove")]
+    
         public async Task<IActionResult> Remove(ProductColorRemoveCommand command)
         {
             var response = await mediator.Send(command);

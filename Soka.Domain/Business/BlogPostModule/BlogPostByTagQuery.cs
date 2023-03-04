@@ -6,13 +6,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Soka.Application.AppCode.Infrastructure;
+using Soka.Domain.Models.ViewModels;
 
 namespace Soka.Domain.Business.BlogPostModule
 {
-    public class BlogPostByTagQuery : IRequest<List<BlogPost>>
+    public class BlogPostByTagQuery : PageableModel,IRequest<PagedViewModel<BlogPost>>
     {
+        public override int PageSize
+        {
+            get
+            {
+                if (base.PageSize < 3)
+                    base.PageSize = 3;
+
+                return base.PageSize;
+            }
+        }
         public int TagId { get; set; }
-        public class BlogPostsAllQueryHandler : IRequestHandler<BlogPostByTagQuery, List<BlogPost>>
+        public class BlogPostsAllQueryHandler : IRequestHandler<BlogPostByTagQuery, PagedViewModel<BlogPost>>
         {
             private readonly SokaDbContext db;
 
@@ -21,19 +33,16 @@ namespace Soka.Domain.Business.BlogPostModule
                 this.db = db;
             }
 
-            public async Task<List<BlogPost>> Handle(BlogPostByTagQuery request, CancellationToken cancellationToken)
+            public async Task<PagedViewModel<BlogPost>> Handle(BlogPostByTagQuery request, CancellationToken cancellationToken)
             {
-                //var data = await db.BlogPosts
-                //    .Include(bp => bp.TagCloud.Where(tc => tc.TagId == request.TagId))
-                // .Where(m => m.TagCloud.Any() && m.DeletedDate == null)
-
-                var data = await(from bp in db.BlogPosts
+                var query = (from bp in db.BlogPosts
                                   join tc in db.BlogPostTagCloud on bp.Id equals tc.BlogPostId
                                   where tc.TagId == request.TagId
                                   select bp)
                             .Distinct()
-                            .ToListAsync(cancellationToken);
-
+                            .AsQueryable();
+                query = query.OrderBy(m=>m.PublishDate);
+                var data = new PagedViewModel<BlogPost>(query, request.PageIndex, request.PageSize);
                 return data;
             }
         }
