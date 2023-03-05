@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using FluentValidation;
+﻿using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
+using Soka.Application.AppCode.Extensions;
 using Soka.Domain.Business.CategoryModule;
-using Soka.Domain.Models.DataContexts;
-using Soka.Domain.Models.Entities;
+using System.Threading.Tasks;
 
 namespace Soka.WebUI.Areas.Admin.Controllers
 {
@@ -18,18 +12,27 @@ namespace Soka.WebUI.Areas.Admin.Controllers
     {
         private readonly IMediator mediator;
         private readonly IValidator<CategoryCreateCommand> categoryCreateCommandValidator;
+        private readonly IValidator<CategoryEditCommand> categoryEditCommandValidator;
 
         public CategoriesController(IMediator mediator,
-            IValidator<CategoryCreateCommand> categoryCreateCommandValidator)
+            IValidator<CategoryCreateCommand> categoryCreateCommandValidator,
+            IValidator<CategoryEditCommand> categoryEditCommandValidator)
         {
             this.mediator = mediator;
             this.categoryCreateCommandValidator = categoryCreateCommandValidator;
+            this.categoryEditCommandValidator = categoryEditCommandValidator;
         }
 
-        public async Task<IActionResult> Index(CategoryAllQuery query)
+        public async Task<IActionResult> Index(CategoryPagedQuery query)
         {
-            var data = await mediator.Send(query);
-            return View(data);
+            var response = await mediator.Send(query);
+
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_ListBody", response);
+            }
+
+            return View(response);
         }
 
         public async Task<IActionResult> Details(CategorySingleQuery query)
@@ -84,12 +87,21 @@ namespace Soka.WebUI.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(CategoryEditCommand command)
         {
-            var response = await mediator.Send(command);
-            if (response == null)
+            //validate - with fluent validation
+
+            var result = categoryEditCommandValidator.Validate(command);
+
+            if (result.IsValid)
             {
-                return NotFound();
+                var response = await mediator.Send(command);
+
+                return RedirectToAction(nameof(Index));
             }
-            return RedirectToAction(nameof(Index));
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+            }
+            return View();
         }
         [HttpPost]
         public async Task<IActionResult> Remove(CategoryRemoveCommand command)
@@ -99,7 +111,12 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             {
                 return Json(Response);
             }
-            var data = await mediator.Send(new CategoryAllQuery());
+            var newQuery = new CategoryPagedQuery
+            {
+                PageIndex = command.PageIndex,
+                PageSize = command.PageSize
+            };
+            var data = await mediator.Send(newQuery);
             return PartialView("_ListBody", data);
         }
 

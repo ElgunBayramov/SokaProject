@@ -5,6 +5,10 @@
     {
       "library": "select2@4.0.13",
       "destination": "wwwroot/libs/select2/"
+    },
+    {
+      "library": "slider-pro@1.6.2",
+      "destination": "wwwroot/libs/slider-pro/"
     }
   ]
 }

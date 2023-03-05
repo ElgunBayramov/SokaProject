@@ -28,9 +28,15 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             this.mediator = mediator;
         }
 
-        public async Task<IActionResult> Index(BlogPostsAllQuery query)
+        public async Task<IActionResult> Index(BlogPostPagedQuery query)
         {
             var response = await mediator.Send(query);
+
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_ListBody", response);
+            }
+
             return View(response);
         }
         public async Task<IActionResult> Publish(BlogPostPublishCommand command)
@@ -125,8 +131,12 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             {
                 return Json(response);
             }
-
-            var data = await mediator.Send(new BlogPostsAllQuery());
+            var newQuery = new BlogPostPagedQuery
+            {
+                PageIndex = command.PageIndex,
+                PageSize = command.PageSize
+            };
+            var data = await mediator.Send(newQuery);
             return PartialView("_ListBody", data);
         }
 

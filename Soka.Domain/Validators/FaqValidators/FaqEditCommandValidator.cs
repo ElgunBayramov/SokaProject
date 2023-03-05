@@ -18,11 +18,11 @@ namespace Soka.Domain.Validators.FaqValidators
 
             RuleFor(m => m.Answer)
                 .NotEmpty()
-                .WithMessage("Sual qeyd edilməyib");
+                .WithMessage("Cavab qeyd edilməyib");
 
             RuleFor(m => m.Question)
                 .NotEmpty()
-                .WithMessage("Cavab qeyd edilməyib");
+                .WithMessage("Sual qeyd edilməyib");
         }
     }
 }

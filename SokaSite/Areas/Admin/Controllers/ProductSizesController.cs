@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using Soka.Domain.Business.ProductSizeModule;
-using Soka.Domain.Models.DataContexts;
-using Soka.Domain.Models.Entities;
+using System.Threading.Tasks;
 
 namespace Soka.WebUI.Areas.Admin.Controllers
 {
@@ -17,10 +11,16 @@ namespace Soka.WebUI.Areas.Admin.Controllers
     public class ProductSizesController : Controller
     {
         private readonly IMediator mediator;
+        private readonly IValidator<ProductSizeCreateCommand> productsizeCreateCommandValidator;
+        private readonly IValidator<ProductSizeEditCommand> productsizeEditCommandValidator;
 
-        public ProductSizesController(IMediator mediator)
+        public ProductSizesController(IMediator mediator,
+            IValidator<ProductSizeCreateCommand> productsizeCreateCommandValidator,
+              IValidator<ProductSizeEditCommand> productsizeEditCommandValidator)
         {
             this.mediator = mediator;
+            this.productsizeCreateCommandValidator = productsizeCreateCommandValidator;
+            this.productsizeEditCommandValidator = productsizeEditCommandValidator;
         }
 
         public async Task<IActionResult> Index(ProductSizesAllQuery query)
@@ -38,12 +38,21 @@ namespace Soka.WebUI.Areas.Admin.Controllers
         [Authorize(Policy = "admin.productsizes.create")]
         public async Task<IActionResult> Create(ProductSizeCreateCommand command)
         {
-            var response = await mediator.Send(command);
-            if (response == null)
+            //validate - with fluent validation
+
+            var result = productsizeCreateCommandValidator.Validate(command);
+
+            if (result.IsValid)
             {
-                return View(command);
+                var response = await mediator.Send(command);
+
+                return RedirectToAction(nameof(Index));
             }
-            return RedirectToAction(nameof(Index));
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+            }
+            return View();
         }
         public async Task<IActionResult> Edit(ProductSizeSingleQuery query)
         {
@@ -58,12 +67,21 @@ namespace Soka.WebUI.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(ProductSizeEditCommand command)
         {
-            var response = await mediator.Send(command);
-            if (response == null)
+            //validate - with fluent validation
+
+            var result = productsizeEditCommandValidator.Validate(command);
+
+            if (result.IsValid)
             {
-                return NotFound();
+                var response = await mediator.Send(command);
+
+                return RedirectToAction(nameof(Index));
             }
-            return RedirectToAction(nameof(Index));
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+            }
+            return View();
         }
         public async Task<IActionResult> Details(ProductSizeSingleQuery query)
         {

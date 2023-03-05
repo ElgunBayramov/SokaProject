@@ -1,213 +1,424 @@
-﻿
+﻿@model PagedViewModel<Product>
 @{
     ViewData["Title"] = "Index";
 }
 
-        <!-- Start Page Banner Area-->
-        <div class="page-banner-area">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <div class="col-lg-9 col-md-6">
-                        <div class="single-page-banner-content">
-                            <h1>Shop Products</h1>
-                            <p><a asp-controller="Shop" asp-action="Index">Home</a>Shop Products</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="page-banner-img" data-aos="fade-up-left" data-aos-duration="3000" data-aos-once="true">
-                            <img src="~/assets/images/page-banner/page-banner-image-1.png" alt="images">
-                        </div>
-                    </div>
+<!-- Start Page Banner Area-->
+<div class="page-banner-area">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-9 col-md-6">
+                <div class="single-page-banner-content">
+                    <h1>Shop Products</h1>
+                    <p><a asp-controller="Shop" asp-action="Index">Home</a>Shop Products</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="page-banner-img" data-aos="fade-up-left" data-aos-duration="3000" data-aos-once="true">
+                    <img src="~/assets/images/page-banner/page-banner-image-1.png" alt="images">
                 </div>
             </div>
         </div>
-        <!-- End Page Banner Area-->
+    </div>
+</div>
+<!-- End Page Banner Area-->
 
-        <!-- Start Collection Area -->
-        <div class="collection-area pt-100 pb-70">
-            <div class="container">
-                <div class="shop-item"> 
-                    <div class="row align-items-center">
-                        <div class="col-lg-9">
-                            <div class="showing">
-                                <p>Showing 1–6 Of 9 Results</p>
-                            </div>
+<div class="main-shop-page">
+    <div class="container">
+        <!-- Row End -->
+        <div class="row">
+            <!-- Product Categorie List Start -->
+            <div class="col-lg-9 col-lg-push-3 col-md-9 col-md-push-3 order-1">
+                <!-- Grid & List View Start -->
+                <div class="row align-items-center">
+                    <div class="col-lg-9">
+                        <div class="showing">
+                            <p>Showing 1–6 Of 9 Results</p>
                         </div>
-                        <div class="col-lg-3">
-                            <div class="shop-select">
-                                <div class="form-group">
-                                    <select>
-                                        <option value="">Default Sorting </option>
-                                        <option value="">Alpha Goalkeeper</option>
-                                        <option value="">Prestige Soccer T-Shirt</option>
-                                        <option value="">England Vapor Match</option>
-                                        <option value="">Nike Hupervenom Phantom</option>
-                                        <option value="">Glove Vapor Match</option>
-                                    </select>	
-                                </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="shop-select">
+                            <div class="form-group">
+                                <select style="display: none;">
+                                    <option value="">Position</option>
+                                    <option value="">Product Name</option>
+                                    <option value="">Price</option>
+                                </select><div class="nice-select" tabindex="0"><span class="current">Position </span><ul class="list"><li data-value="" class="option selected">Position</li><li data-value="" class="option">Price</li><li data-value="" class="option">Product Name</li></ul></div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-3 col-sm-6 col-md-6">
-                            <div class="collection-card"  data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
-                                <div class="collection-item shop-img">
-                                    <span>Sale</span>
-                                    <a href="shop-details.html">
-                                        <img src="~/assets/images/collection/collection-img-1.png" alt="images">
-                                    </a>
-                                    <a href="cart.html" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
-                                </div>
-                                <ul class="collection-list">
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-half-line"></i></li>
-                                </ul>
-                                <h3><a href="shop-details.html">Alpha Goalkeeper Glove</a></h3>
-                                <p><del>£425.00</del>$350.00</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-md-6">
-                            <div class="collection-card"  data-aos="fade-up" data-aos-duration="1200" data-aos-once="true">
-                                <div class="collection-item shop-img">
-                                    <a href="shop-details.html">
-                                        <img src="~/assets/images/collection/collection-img-2.png" alt="images">
-                                    </a>
-                                    <a href="cart.html" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
-                                </div>
-                                <ul class="collection-list">
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-half-line"></i></li>
-                                </ul>
-                                <h3><a href="shop-details.html">Prestige Soccer T-Shirt</a></h3>
-                                <p><del>£189.99</del>$150.00</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-md-6">
-                            <div class="collection-card"  data-aos="fade-up" data-aos-duration="1800" data-aos-once="true">
-                                <div class="collection-item shop-img">
-                                    <span>Sale</span>
-                                    <a href="shop-details.html">
-                                        <img src="~/assets/images/collection/collection-img-3.png" alt="images">
-                                    </a>
-                                    <a href="cart.html" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
-                                </div>
-                                <ul class="collection-list">
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-half-line"></i></li>
-                                </ul>
-                                <h3><a href="shop-details.html">England Vapor Match Home</a></h3>
-                                <p><del>£425.00</del>$350.00</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-md-6">
-                            <div class="collection-card"  data-aos="fade-up" data-aos-duration="2500" data-aos-once="true">
-                                <div class="collection-item shop-img">
-                                    <a href="shop-details.html">
-                                        <img src="~/assets/images/collection/collection-img-4.png" alt="images">
-                                    </a>
-                                    <a href="cart.html" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
-                                </div>
-                                <ul class="collection-list">
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-half-line"></i></li>
-                                </ul>
-                                <h3><a href="shop-details.html">Nike Hupervenom Phantom 3 FG</a></h3>
-                                <p><del>£176.00</del>$150.00</p>
-                            </div>
-                        </div> 
-                        <div class="col-lg-3 col-sm-6 col-md-6">
-                            <div class="collection-card"  data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
-                                <div class="collection-item shop-img">
-                                    <span>Sale</span>
-                                    <a href="shop-details.html">
-                                        <img src="~/assets/images/collection/collection-img-8.png" alt="images">
-                                    </a>
-                                    <a href="cart.html" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
-                                </div>
-                                <ul class="collection-list">
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-half-line"></i></li>
-                                </ul>
-                                <h3><a href="shop-details.html">Nike Hupervenom Phantom 2 FG</a></h3>
-                                <p><del>£276.00</del>$200.00</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-md-6">
-                            <div class="collection-card"  data-aos="fade-up" data-aos-duration="1200" data-aos-once="true">
-                                <div class="collection-item shop-img">
-                                    <a href="shop-details.html">
-                                        <img src="~/assets/images/collection/collection-img-5.png" alt="images">
-                                    </a>
-                                    <a href="cart.html" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
-                                </div>
-                                <ul class="collection-list">
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-half-line"></i></li>
-                                </ul>
-                                <h3><a href="shop-details.html">England Vapor Match Home</a></h3>
-                                <p><del>£325.99</del>$275.00</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-md-6">
-                            <div class="collection-card"  data-aos="fade-up" data-aos-duration="1800" data-aos-once="true">
-                                <div class="collection-item shop-img">
-                                    <span>Sale</span>
-                                    <a href="shop-details.html">
-                                        <img src="~/assets/images/collection/collection-img-6.png" alt="images">
-                                    </a>
-                                    <a href="cart.html" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
-                                </div>
-                                <ul class="collection-list">
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-half-line"></i></li>
-                                </ul>
-                                <h3><a href="shop-details.html">Prestige Soccer T-Shirt</a></h3>
-                                <p><del>£289.99</del>$250.00</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-md-6">
-                            <div class="collection-card"  data-aos="fade-up" data-aos-duration="2500" data-aos-once="true">
-                                <div class="collection-item shop-img">
-                                    <a href="shop-details.html">
-                                        <img src="~/assets/images/collection/collection-img-7.png" alt="images">
-                                    </a>
-                                    <a href="cart.html" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
-                                </div>
-                                <ul class="collection-list">
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-half-line"></i></li>
-                                </ul>
-                                <h3><a href="shop-details.html">Alpha Goalkeeper Glove</a></h3>
-                                <p><del>£125.00</del>$100.00</p>
+                </div>
+                <!-- Grid & List View End -->
+                <div id="products">
+                    <div class="main-categorie">
+                        <div class="tab-content border-default fix">
+
+                            <div id="grid-view">
+                                <partial name="_Products" model="@Model" />
+
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>
+                <!--Breadcrumb and Page Show End -->
             </div>
+            <!-- product Categorie List End -->
+            <!-- Sidebar Shopping Option Start -->
+            <div class="col-lg-3 col-lg-pull-9 col-md-3 col-md-pull-9 order-0">
+
+                <div class="sidebar white-bg">
+                    <div class="border-default universal-padding sidebar-widget">
+                        <div class="group-title">
+                            <h2>Availability</h2>
+                        </div>
+                        <ul class="manufactures-list">
+                            <li>
+                                <input type="checkbox" name="filter.v.availability" value="1" id="Filter-availability-1">
+                                <label for="Filter-availability-1">In stock (42)</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="filter.v.availability" value="0" id="Filter-availability-2">
+                                <label for="Filter-availability-2">Out of stock (4)</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="border-default universal-padding mtb-40">
+                        <div class="group-title">
+                            <h2>color</h2>
+                        </div>
+                        <ul class="color-option">
+                            <li>
+                                <a class="filled" style="background-color:#000001" data-id="1" data-entity-type="colors"></a>
+                            </li>
+                            <li>
+                                <a class="filled" style="background-color:#ffffff" data-id="2" data-entity-type="colors"></a>
+                            </li>
+                            <li>
+                                <a class="filled" style="background-color:#ccc" data-id="3" data-entity-type="colors"></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="border-default universal-padding">
+                        <div class="group-title">
+                            <h2>price</h2>
+                        </div>
+                        <div id="price-range"></div>
+                    </div>
+                    <div class="border-default universal-padding mtb-40 sidebar-widget">
+                        <div class="group-title">
+                            <h2>Brand</h2>
+                        </div>
+                        <ul class="manufactures-list">
+                            <li>
+                                <a data-id="1" data-entity-type="brands">
+                                    Brand1
+                                </a>
+                            </li>
+                            <li>
+                                <a data-id="2" data-entity-type="brands">
+                                    Brand2
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="border-default universal-padding mb-40 sidebar-widget">
+                        <div class="group-title">
+                            <h2>Size</h2>
+                        </div>
+                        <ul class="manufactures-list">
+                            <li>
+                                <a>
+                                    xs
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Sidebar Shopping Option End -->
         </div>
-        <!-- End Collection Area -->
+        <!-- Row End -->
+    </div>
+    <!-- Container End -->
+</div>
+@section addcss{
+<style>
+    .sidebar li a {
+        color: #444;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 30px;
+        text-transform: capitalize;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+        .sidebar li a:hover {
+            color: #4380db;
+        }
+
+    .universal-padding {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .universal-margin {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .group-title {
+        border-bottom: 1px solid #ebebeb;
+        color: #363f4d;
+        margin-bottom: 20px;
+        padding-bottom: 25px;
+        padding-top: 25px;
+        position: relative;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -moz-justify-content: space-between;
+        -ms-justify-content: space-between;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .border-default {
+        border: 1px solid #ebebeb;
+        border-radius: 3px;
+        padding-bottom: 30px;
+    }
+
+    .group-title h2 {
+        font-family: "Rubik", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .sidebar .group-title {
+        padding: 20px 0;
+    }
+
+        .sidebar .group-title h2 {
+            font-weight: 500;
+        }
+
+    .sidebar li a {
+        color: #444;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 30px;
+        text-transform: capitalize;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+    .main-shop-page {
+        margin-top: 50px;
+    }
+
+    .sidebar li a:hover {
+        color: #4380db;
+    }
+
+    /* color option css */
+    .color-option li a {
+        display: block;
+        height: 18px;
+        margin: 0 8px 10px 0;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+        width: 26px;
+        outline: 1px solid transparent;
+    }
+
+        .color-option li a:hover {
+            outline: 1px solid #ff5216;
+        }
+
+    .color-option li {
+        display: inline-block;
+    }
+
+    .black {
+        background: #000;
+    }
+
+    .blue {
+        background: #1857f7;
+    }
+
+    .grey {
+        background: #8f8f8f;
+    }
+
+    .green {
+        background: #53a828;
+    }
+
+    .purple {
+        background: #ce64d4;
+    }
+
+    .orange {
+        background: #eb6703;
+    }
+
+    .rose {
+        background: #ef3dff;
+    }
+
+    .red {
+        background: #ff0000;
+    }
+
+    .yellow {
+        background: #ffd500;
+    }
+
+    #grid-view {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .main-categorie .border-default {
+        padding-bottom: 0;
+        border-right: none;
+        border-left: none;
+        border-bottom: none;
+    }
+
+    [data-entity-type] {
+        position: relative;
+        padding-left: 30px;
+        display: block;
+        cursor: pointer;
+    }
+
+        [data-entity-type]:not(.filled)::before {
+            content: "";
+            font-size: 0.7em;
+            font-weight: 900;
+            font-family: "Font Awesome 5 Free";
+            position: absolute;
+            border: 1px solid #cccccc85;
+            width: 18px;
+            height: 18px;
+            border-radius: 2px;
+            top: 50%;
+            left: 0px;
+            transform: translateY(-50%);
+            text-align: center;
+            text-indent: 1px;
+            line-height: 1.7em;
+        }
+
+        [data-entity-type].active:not(.filled)::before {
+            content: "\f00c";
+            color: #ffffff;
+            background-color: #cccccc85;
+            border-color: #cccccc85;
+        }
+
+        [data-entity-type].filled {
+            width: 30px;
+            height: 25px;
+            border-radius: 2px;
+            border: 1px solid #cccccc85;
+        }
+
+            [data-entity-type].filled::before {
+                content: "";
+                display: inline-block;
+                padding-left: 1px;
+                line-height: 7pt;
+                font-size: 5pt;
+                font-weight: 900;
+                font-family: "Font Awesome 5 Free";
+                position: absolute;
+                top: 1px;
+                right: 1px;
+            }
+
+            [data-entity-type].filled.active::before {
+                content: "\f00c";
+                color: #000000c4;
+                background-color: #ffffff;
+                border: 1px solid #000000c4;
+                width: 12px;
+                height: 12px;
+                border-radius: 100%;
+            }
+
+    #price-range[range]::before {
+        content: attr(range);
+        display: flex;
+        justify-content: center;
+        padding-top: 5px;
+    }
+</style>
+ }
+@section addjs{
+<script>
+    const filter = {
+        brands: [],
+        min: 0,
+        max: 0
+    };
+
+
+    function applyFilter(filter) {
+
+        if ($.processId != undefined)
+            clearTimeout($.processId);
+
+        $.processId = setTimeout(function() {
+            console.log(filter);
+        }, 1000);
+    }
+
+    $(document).ready(function() {
+
+
+        $("#price-range")
+            .attr('range', `0₼ - 74₼`)
+            .slider({
+                range: true,
+                min: 0,
+                max: 80,
+                values: [10, 74],
+                slide: function(e, ui) {
+                    $(e.target).attr('range', `${ui.values[0]}₼ - ${ui.values[1]}₼`);
+                    filter.min = ui.values[0];
+                    filter.max = ui.values[1];
+                    applyFilter(filter);
+                }
+            });
+
+
+        $('a[data-entity-type]').click(function(e) {
+            let values = $(e.currentTarget).data();
+
+            filter[`${values.entityType}`].push(values.id);
+
+            applyFilter(filter);
+        });
+    });
+
+
+</script>
+}
+<script src="https://kit.fontawesome.com/dbccfca02d.js" crossorigin="anonymous"></script>
 

@@ -17,7 +17,7 @@ namespace Soka.Domain.Models.DataContexts.Configurations
                 .IsRequired();
             builder.Property(t => t.Slug)
                 .IsRequired();
-            builder.Property(t => t.Description)
+            builder.Property(t => t.ShortDescription)
                 .IsRequired();
 
         }

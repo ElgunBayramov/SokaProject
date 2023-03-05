@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Soka.Domain.Business.BlogPostModule
 {
-    public class BlogPostRemoveCommand : IRequest<JsonResponse>
+    public class BlogPostRemoveCommand : PageableModel,IRequest<JsonResponse>
     {
         public int Id { get; set; }
         public class BlogPostRemoveCommandHandler : IRequestHandler<BlogPostRemoveCommand, JsonResponse>

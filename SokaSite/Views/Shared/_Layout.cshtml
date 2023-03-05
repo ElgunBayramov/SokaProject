@@ -20,11 +20,13 @@
         <link rel="stylesheet" href="~/assets/css/nice-select.min.css"> 
         <link rel="stylesheet" href="~/assets/css/style.css"> 
         <link rel="stylesheet" href="~/assets/css/dark.css"> 
-        <link rel="stylesheet" href="~/assets/css/responsive.css">  
-
+        <link rel="stylesheet" href="~/assets/css/responsive.css">
+         <!-- price slider css -->
+    <link rel="stylesheet" href="~/assets/css/jquery-ui.min.css">
         <title>Welcome to my WebSite</title> 
 
         <link rel="icon" type="image/png" href="~/assets/images/favicon.png"> 
+        @RenderSection("addcss",required:false)
         <style>
             @@media only screen and (max-width: 767px) {
   .soka-content img {
@@ -468,6 +470,9 @@
         <script src="~/assets/js/nice-select.min.js"></script>  
         <script src="~/assets/js/custom.js"></script> 
         <script src="~/assets/js/script.js"></script>
+         <!-- price slider js -->
+    <script src="~/assets/js/jquery-ui.min.js"></script>
+    <script src="~/assets/js/jquery.countdown.min.js"></script>
                  <script>
     $(document).ready(function(){
         $('#frmNewsletter').submit(function(e) {
@@ -490,6 +495,7 @@
         $(`.nav-item a[href='${location.pathname}']`).addClass('active');
     });
         </script>
-    </body>
+        @RenderSection("addjs",required:false)
 
+    </body>
 </html>

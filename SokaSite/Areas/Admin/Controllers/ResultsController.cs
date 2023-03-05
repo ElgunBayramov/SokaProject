@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -16,10 +17,13 @@ namespace Soka.WebUI.Areas.Admin.Controllers
     public class ResultsController : Controller
     {
         private readonly IMediator mediator;
+        private readonly IValidator<ResultCreateCommand> resultCreateCommandValidator;
 
-        public ResultsController(IMediator mediator)
+        public ResultsController(IMediator mediator,
+            IValidator<ResultCreateCommand> resultCreateCommandValidator)
         {
             this.mediator = mediator;
+            this.resultCreateCommandValidator = resultCreateCommandValidator;
         }
         public async Task<IActionResult> Index(ResultsAllQuery query)
         {
@@ -45,21 +49,21 @@ namespace Soka.WebUI.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ResultCreateCommand command)
         {
-            if (command.Image == null)
-            {
-                ModelState.AddModelError("Image", "Şəkil seçilməyib");
-            }
-            if (command.Image2 == null)
-            {
-                ModelState.AddModelError("Image2", "Şəkil seçilməyib");
-            }
+            //validate - with fluent validation
 
-            if (ModelState.IsValid)
+            var result = resultCreateCommandValidator.Validate(command);
+
+            if (result.IsValid)
             {
                 var response = await mediator.Send(command);
+
                 return RedirectToAction(nameof(Index));
             }
-            return View(command);
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+            }
+            return View();
         }
         public async Task<IActionResult> Edit(ResultSingleQuery query)
         {

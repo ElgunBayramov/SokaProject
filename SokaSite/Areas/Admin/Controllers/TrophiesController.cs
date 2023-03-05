@@ -11,15 +11,12 @@ namespace Soka.WebUI.Areas.Admin.Controllers
     {
         private readonly IMediator mediator;
         private readonly IValidator<TropyCreateCommand> tropyCreateCommandValidator;
-        private readonly IValidator<TropyEditCommand> tropyEditCommandValidator;
 
         public TrophiesController(IMediator mediator,
-             IValidator<TropyCreateCommand> tropyCreateCommandValidator,
-            IValidator<TropyEditCommand> tropyEditCommandValidator)
+             IValidator<TropyCreateCommand> tropyCreateCommandValidator)
         {
             this.mediator = mediator;
             this.tropyCreateCommandValidator = tropyCreateCommandValidator;
-            this.tropyEditCommandValidator = tropyEditCommandValidator;
         }
 
         public async Task<IActionResult> Index(TrophiesAllQuery query)

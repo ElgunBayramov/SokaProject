@@ -30,10 +30,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Business\MatchModule\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <ProjectReference Include="..\Soka.Application\Soka.Application.csproj" />
 	</ItemGroup>
 </Project>

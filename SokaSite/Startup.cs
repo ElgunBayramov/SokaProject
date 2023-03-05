@@ -96,7 +96,12 @@ namespace Soka.WebUI
                 {
                     cfg.AddPolicy(item, p =>
                     {
-                        p.RequireClaim(item, "1");
+                        //p.RequireClaim(item, "1");
+                        p.RequireAssertion(handler =>
+                        {
+                            return handler.User.IsInRole("sa")
+                            || handler.User.HasClaim(c => c.Type.Equals(item) && c.Value.Equals("1"));
+                        });
                     });
                 }
             });

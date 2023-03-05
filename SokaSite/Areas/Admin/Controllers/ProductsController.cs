@@ -15,15 +15,12 @@ namespace Soka.WebUI.Areas.Admin.Controllers
     {
         private readonly IMediator mediator;
         private readonly IValidator<ProductCreateCommand> productCreateCommandValidator;
-        private readonly IValidator<ProductEditCommand> productEditCommandValidator;
 
         public ProductsController(IMediator mediator,
-            IValidator<ProductCreateCommand> productCreateCommandValidator,
-            IValidator<ProductEditCommand> productEditCommandValidator)
+            IValidator<ProductCreateCommand> productCreateCommandValidator)
         {
             this.mediator = mediator;
             this.productCreateCommandValidator = productCreateCommandValidator;
-            this.productEditCommandValidator = productEditCommandValidator;
         }
         public async Task<IActionResult> Index(ProductsAllQuery query)
         {

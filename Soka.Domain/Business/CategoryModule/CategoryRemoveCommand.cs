@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Soka.Domain.Business.CategoryModule
 {
-    public class CategoryRemoveCommand : IRequest<JsonResponse>
+    public class CategoryRemoveCommand : PageableModel,IRequest<JsonResponse>
     {
         public int Id { get; set; }
         public class CategoryRemoveCommandHandler : IRequestHandler<CategoryRemoveCommand, JsonResponse>

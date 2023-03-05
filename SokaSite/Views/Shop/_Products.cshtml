@@ -1,0 +1,25 @@
+﻿@model PagedViewModel<Product>
+
+@foreach (var item in Model.Items)
+{
+   <div class="col-lg-3 col-sm-6 col-md-6">
+                            <div class="collection-card aos-init aos-animate" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
+                                <div class="collection-item shop-img">
+                                    <span>Sale</span>
+                                    <a href="shop-details.html">
+                                        <img src="uploads/images/@item.ImagePath" alt="images">
+                                    </a>
+                                    <a href="cart.html" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
+                                </div>
+                                <ul class="collection-list">
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-fill"></i></li>
+                                    <li><i class="ri-star-half-line"></i></li>
+                                </ul>
+                                <h3><a href="shop-details.html">@item.Name</a></h3>
+                                <p><del>£425.00</del>$350.00</p>
+                            </div>
+                        </div>
+}

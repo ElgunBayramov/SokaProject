@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using Soka.Domain.Business.LeagueModule;
-using Soka.Domain.Models.DataContexts;
-using Soka.Domain.Models.Entities;
+using System.Threading.Tasks;
 
 namespace Soka.WebUI.Areas.Admin.Controllers
 {
@@ -16,10 +10,16 @@ namespace Soka.WebUI.Areas.Admin.Controllers
     public class LeaguesController : Controller
     {
         private readonly IMediator mediator;
+        private readonly IValidator<LeagueCreateCommand> leagueCreateCommandValidator;
+        private readonly IValidator<LeagueEditCommand> leagueEditCommandValidator;
 
-        public LeaguesController(IMediator mediator)
+        public LeaguesController(IMediator mediator,
+            IValidator<LeagueCreateCommand> leagueCreateCommandValidator,
+            IValidator<LeagueEditCommand> leagueEditCommandValidator)
         {
             this.mediator = mediator;
+            this.leagueCreateCommandValidator = leagueCreateCommandValidator;
+            this.leagueEditCommandValidator = leagueEditCommandValidator;
         }
 
         public async Task<IActionResult> Index(LeaguesAllQuery query)
@@ -47,12 +47,21 @@ namespace Soka.WebUI.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(LeagueCreateCommand command)
         {
-            var response = await mediator.Send(command);
-            if (response == null)
+            //validate - with fluent validation
+
+            var result = leagueCreateCommandValidator.Validate(command);
+
+            if (result.IsValid)
             {
-                return NotFound();
+                var response = await mediator.Send(command);
+
+                return RedirectToAction(nameof(Index));
             }
-            return RedirectToAction(nameof(Index));
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+            }
+            return View();
         }
         public async Task<IActionResult> Edit(LeagueSingleQuery query)
         {
@@ -67,14 +76,23 @@ namespace Soka.WebUI.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, LeagueEditCommand command)
+        public async Task<IActionResult> Edit(LeagueEditCommand command)
         {
-            if (id != command.Id)
+            //validate - with fluent validation
+
+            var result = leagueEditCommandValidator.Validate(command);
+
+            if (result.IsValid)
             {
-                return NotFound();
+                var response = await mediator.Send(command);
+
+                return RedirectToAction(nameof(Index));
             }
-            var response = await mediator.Send(command);
-            return RedirectToAction(nameof(Index));
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+            }
+            return View();
 
         }
         [HttpPost]

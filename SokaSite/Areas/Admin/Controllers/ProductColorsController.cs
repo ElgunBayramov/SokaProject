@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -17,10 +18,16 @@ namespace Soka.WebUI.Areas.Admin.Controllers
     public class ProductColorsController : Controller
     {
         private readonly IMediator mediator;
+        private readonly IValidator<ProductColorCreateCommand> productcolorCreateCommandValidator;
+        private readonly IValidator<ProductColorEditCommand> productcolorEditCommandValidator;
 
-        public ProductColorsController(IMediator mediator)
+        public ProductColorsController(IMediator mediator,
+             IValidator<ProductColorCreateCommand> productcolorCreateCommandValidator,
+              IValidator<ProductColorEditCommand> productcolorEditCommandValidator)
         {
             this.mediator = mediator;
+            this.productcolorCreateCommandValidator = productcolorCreateCommandValidator;
+            this.productcolorEditCommandValidator = productcolorEditCommandValidator;
         }
         [Authorize(Policy = "admin.productcolors.index")]
         public async Task<IActionResult> Index(ProductColorsAllQuery query)
@@ -36,12 +43,21 @@ namespace Soka.WebUI.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ProductColorCreateCommand command)
         {
-            var response = await mediator.Send(command);
-            if (response == null)
+            //validate - with fluent validation
+
+            var result = productcolorCreateCommandValidator.Validate(command);
+
+            if (result.IsValid)
             {
-                return View(command);
+                var response = await mediator.Send(command);
+
+                return RedirectToAction(nameof(Index));
             }
-            return RedirectToAction(nameof(Index));
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+            }
+            return View();
         }
         public async Task<IActionResult> Edit(ProductColorSingleQuery query)
         {
@@ -56,12 +72,21 @@ namespace Soka.WebUI.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(ProductColorEditCommand command)
         {
-            var response = await mediator.Send(command);
-            if (response == null)
+            //validate - with fluent validation
+
+            var result = productcolorEditCommandValidator.Validate(command);
+
+            if (result.IsValid)
             {
-                return NotFound();
+                var response = await mediator.Send(command);
+
+                return RedirectToAction(nameof(Index));
             }
-            return RedirectToAction(nameof(Index));
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+            }
+            return View();
         }
         public async Task<IActionResult> Details(ProductColorSingleQuery query)
         {

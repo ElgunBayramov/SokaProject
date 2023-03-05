@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using Soka.Domain.Business.FaqModule;
-using Soka.Domain.Models.DataContexts;
-using Soka.Domain.Models.Entities;
+using System.Threading.Tasks;
 
 namespace Soka.WebUI.Areas.Admin.Controllers
 {
@@ -16,10 +10,16 @@ namespace Soka.WebUI.Areas.Admin.Controllers
     public class FaqsController : Controller
     {
         private readonly IMediator mediator;
+        private readonly IValidator<FaqCreateCommand> faqCreateCommandValidator;
+        private readonly IValidator<FaqEditCommand> faqEditCommandValidator;
 
-        public FaqsController(IMediator mediator)
+        public FaqsController(IMediator mediator,
+            IValidator<FaqCreateCommand> faqCreateCommandValidator,
+            IValidator<FaqEditCommand> faqEditCommandValidator)
         {
             this.mediator = mediator;
+            this.faqCreateCommandValidator = faqCreateCommandValidator;
+            this.faqEditCommandValidator = faqEditCommandValidator;
         }
 
         public async Task<IActionResult> Index(FaqsAllQuery query)
@@ -48,8 +48,21 @@ namespace Soka.WebUI.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(FaqCreateCommand command)
         {
-            var response = await mediator.Send(command);
-            return RedirectToAction(nameof(Index));
+            //validate - with fluent validation
+
+            var result = faqCreateCommandValidator.Validate(command);
+
+            if (result.IsValid)
+            {
+                var response = await mediator.Send(command);
+
+                return RedirectToAction(nameof(Index));
+            }
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+            }
+            return View();
         }
 
         public async Task<IActionResult> Edit(FaqSingleQuery query)
@@ -65,14 +78,23 @@ namespace Soka.WebUI.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, FaqEditCommand command)
+        public async Task<IActionResult> Edit(FaqEditCommand command)
         {
-            if (id != command.Id)
+            //validate - with fluent validation
+
+            var result = faqEditCommandValidator.Validate(command);
+
+            if (result.IsValid)
             {
-                return NotFound();
+                var response = await mediator.Send(command);
+
+                return RedirectToAction(nameof(Index));
             }
-            var response = await mediator.Send(command);
-            return RedirectToAction(nameof(Index));
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+            }
+            return View();
 
         }
         [HttpPost]
