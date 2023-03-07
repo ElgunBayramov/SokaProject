@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Soka.Application.AppCode.Extensions;
-using Soka.Domain.Business.ShopModule;
+using Soka.Domain.Business.FilterModule;
 using System.Threading.Tasks;
 
 namespace Soka.WebUI.Controllers
@@ -16,7 +16,7 @@ namespace Soka.WebUI.Controllers
             this.mediator = mediator;
         }
         [AllowAnonymous]
-        public async Task<IActionResult> Index(ShopFilterPagedQuery query)
+        public async Task<IActionResult> Index(SearchFilterQuery query)
         {
             var response = await mediator.Send(query);
 

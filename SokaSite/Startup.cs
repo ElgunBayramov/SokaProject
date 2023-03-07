@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
@@ -18,9 +17,7 @@ using Soka.Application.AppCode.Services;
 using Soka.Domain.Models.DataContexts;
 using Soka.Domain.Models.Entities.Membership;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Soka.WebUI
 {
@@ -124,6 +121,7 @@ namespace Soka.WebUI
                 .Where(a => a.FullName.StartsWith("Soka."))
                 .ToArray();
             services.AddMediatR(assemblies);
+            services.AddAutoMapper(assemblies);
 
             services.AddValidatorsFromAssemblies(assemblies, ServiceLifetime.Singleton);
 

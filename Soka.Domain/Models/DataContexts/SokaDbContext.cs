@@ -1,5 +1,4 @@
 ﻿
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Soka.Domain.Models.Entities;
@@ -28,7 +27,8 @@ namespace Soka.Domain.Models.DataContexts
         public DbSet<Match> Matches { get; set; }
         public DbSet<Tropy> Trophies { get; set; }
         public DbSet<Result> Results { get; set; }
-
+        public DbSet<ProductType> Types { get; set; }
+        public DbSet<ProductCatalogItem> ProductCatalog { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

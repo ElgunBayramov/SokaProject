@@ -65,82 +65,11 @@
             <!-- product Categorie List End -->
             <!-- Sidebar Shopping Option Start -->
             <div class="col-lg-3 col-lg-pull-9 col-md-3 col-md-pull-9 order-0">
-
-                <div class="sidebar white-bg">
-                    <div class="border-default universal-padding sidebar-widget">
-                        <div class="group-title">
-                            <h2>Availability</h2>
-                        </div>
-                        <ul class="manufactures-list">
-                            <li>
-                                <input type="checkbox" name="filter.v.availability" value="1" id="Filter-availability-1">
-                                <label for="Filter-availability-1">In stock (42)</label>
-                            </li>
-                            <li>
-                                <input type="checkbox" name="filter.v.availability" value="0" id="Filter-availability-2">
-                                <label for="Filter-availability-2">Out of stock (4)</label>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="border-default universal-padding mtb-40">
-                        <div class="group-title">
-                            <h2>color</h2>
-                        </div>
-                        <ul class="color-option">
-                            <li>
-                                <a class="filled" style="background-color:#000001" data-id="1" data-entity-type="colors"></a>
-                            </li>
-                            <li>
-                                <a class="filled" style="background-color:#ffffff" data-id="2" data-entity-type="colors"></a>
-                            </li>
-                            <li>
-                                <a class="filled" style="background-color:#ccc" data-id="3" data-entity-type="colors"></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="border-default universal-padding">
-                        <div class="group-title">
-                            <h2>price</h2>
-                        </div>
-                        <div id="price-range"></div>
-                    </div>
-                    <div class="border-default universal-padding mtb-40 sidebar-widget">
-                        <div class="group-title">
-                            <h2>Brand</h2>
-                        </div>
-                        <ul class="manufactures-list">
-                            <li>
-                                <a data-id="1" data-entity-type="brands">
-                                    Brand1
-                                </a>
-                            </li>
-                            <li>
-                                <a data-id="2" data-entity-type="brands">
-                                    Brand2
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="border-default universal-padding mb-40 sidebar-widget">
-                        <div class="group-title">
-                            <h2>Size</h2>
-                        </div>
-                        <ul class="manufactures-list">
-                            <li>
-                                <a>
-                                    xs
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- Sidebar Shopping Option End -->
+                 @await Component.InvokeAsync("FilterPanel")
+                 </div>
         </div>
-        <!-- Row End -->
-    </div>
-    <!-- Container End -->
-</div>
+        </div>
+        </div>
 @section addcss{
 <style>
     .sidebar li a {
@@ -370,55 +299,80 @@
     }
 </style>
  }
-@section addjs{
-<script>
-    const filter = {
-        brands: [],
-        min: 0,
-        max: 0
-    };
+
+    @section addjs{
+    <script>
+        const filter = {
+            brands: [],
+            colors: [],
+            types: [],
+            sizes: [],
+            min: 0,
+            max: 0
+        };
 
 
-    function applyFilter(filter) {
+        function applyFilter(filter) {
 
-        if ($.processId != undefined)
-            clearTimeout($.processId);
+            if ($.processId != undefined)
+                clearTimeout($.processId);
 
-        $.processId = setTimeout(function() {
-            console.log(filter);
-        }, 1000);
-    }
+            $.processId = setTimeout(function() {
+                
+                $.ajax({
+                    type:'POST',
+                    data:filter,
+                    contentType:'application/x-www-form-urlencoded',
+                    success: function(response){
+                        $('#grid-view').html(response);
+                        console.log(response);
+                    },
+                    error: function(response){
+                        console.error(response);
+                    }
+                });
+            }, 1000);
+        }
 
-    $(document).ready(function() {
+        $(document).ready(function() {
+
+            const data = $("#price-range").data();
+
+            $("#price-range")
+                .attr('range', `${data.min}₼ - ${data.max}₼`)
+                .slider({
+                    range: true,
+                    min: data.min,
+                    max: data.max,
+                    values: [data.min, data.max],
+                    slide: function(e, ui) {
+                        $(e.target).attr('range', `${ui.values[0]}₼ - ${ui.values[1]}₼`);
+                        filter.min = ui.values[0];
+                        filter.max = ui.values[1];
+                        applyFilter(filter);
+                    }
+                });
 
 
-        $("#price-range")
-            .attr('range', `0₼ - 74₼`)
-            .slider({
-                range: true,
-                min: 0,
-                max: 80,
-                values: [10, 74],
-                slide: function(e, ui) {
-                    $(e.target).attr('range', `${ui.values[0]}₼ - ${ui.values[1]}₼`);
-                    filter.min = ui.values[0];
-                    filter.max = ui.values[1];
-                    applyFilter(filter);
+            $('a[data-entity-type]').click(function(e) {
+                let values = $(e.currentTarget).data();
+
+                if (filter[`${values.entityType}`].filter(item => item == values.id).length == 0) {
+                    filter[`${values.entityType}`].push(values.id);
+                    $(e.currentTarget).addClass('active');
                 }
+                else {
+                    filter[`${values.entityType}`] = filter[`${values.entityType}`].filter(item => item != values.id);
+                    $(e.currentTarget).removeClass('active');
+                }
+
+                applyFilter(filter);
             });
-
-
-        $('a[data-entity-type]').click(function(e) {
-            let values = $(e.currentTarget).data();
-
-            filter[`${values.entityType}`].push(values.id);
-
-            applyFilter(filter);
         });
-    });
 
 
-</script>
-}
+
+    </script>
+        }
 <script src="https://kit.fontawesome.com/dbccfca02d.js" crossorigin="anonymous"></script>
 
