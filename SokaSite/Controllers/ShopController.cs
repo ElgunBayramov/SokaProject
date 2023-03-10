@@ -31,6 +31,7 @@ namespace Soka.WebUI.Controllers
 
             return View(response);
         }
+        [AllowAnonymous]
         [Route("/product/{id}")]
         public async Task<IActionResult> Details(ProductSingleQuery query)
         {
@@ -67,8 +68,8 @@ namespace Soka.WebUI.Controllers
 
             return Json(response);
         }
-        [Route("basket.html")]
         [AllowAnonymous]
+        [Route("basket.html")]
         public async Task<IActionResult> Basket(BasketQuery query)
         {
             var response = await mediator.Send(query);

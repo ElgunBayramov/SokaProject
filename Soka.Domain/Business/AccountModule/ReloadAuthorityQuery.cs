@@ -1,21 +1,22 @@
-﻿using MediatR;
-using Microsoft.EntityFrameworkCore;
-using Soka.Application.AppCode.Providers;
-using Soka.Domain.AppCode.Extensions;
+﻿using Soka.Application.AppCode.Extensions;
 using Soka.Domain.Models.DataContexts;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Soka.Domain.AppCode.Providers;
 
 namespace Soka.Domain.Business.AccountModule
 {
     public class ReloadAuthorityQuery : IRequest<bool>
     {
         public ClaimsPrincipal User { get; set; }
+
+
         public class ReloadAuthorityQueryHandler : IRequestHandler<ReloadAuthorityQuery, bool>
         {
             private readonly SokaDbContext db;
@@ -28,21 +29,32 @@ namespace Soka.Domain.Business.AccountModule
             {
                 var userId = request.User.GetUserId();
 
-                if(request.User.Identity is ClaimsIdentity ci)
+                if (request.User.Identity is ClaimsIdentity ci)
                 {
+                    var roles = await (from ur in db.UserRoles
+                                       join r in db.Roles on ur.RoleId equals r.Id
+                                       where ur.UserId == userId
+                                       select r.Name)
+                     .ToArrayAsync(cancellationToken);
+
+                    foreach (var roleName in roles)
+                    {
+                        ci.AddClaim(new Claim(ClaimTypes.Role, roleName));
+                    }
+
                     var currentClaims = await (from ur in db.UserRoles
                                                join rc in db.RoleClaims on ur.RoleId equals rc.RoleId
                                                where ur.UserId == userId && rc.ClaimValue.Equals("1")
                                                select rc.ClaimType)
 
-                     .Union(from uc in db.UserClaims
-                            where uc.UserId == userId && uc.ClaimValue.Equals("1")
-                            select uc.ClaimType)
+                    .Union(from uc in db.UserClaims
+                           where uc.UserId == userId && uc.ClaimValue.Equals("1")
+                           select uc.ClaimType)
 
-                     .Distinct()
-                     .ToArrayAsync(cancellationToken);
+                    .Distinct()
+                    .ToArrayAsync(cancellationToken);
 
-                    var excepted = (from p in AppClaimsProvider.policies
+                    var excepted = (from p in (AppClaimProvider.principals ?? new string[] { })
                                     join c in ci.Claims on p equals c.Type
                                     select c.Type)
                     .Except(currentClaims);
@@ -55,7 +67,7 @@ namespace Soka.Domain.Business.AccountModule
                         ci.RemoveClaim(claim);
                     }
 
-                    excepted = currentClaims.Except(from p in AppClaimsProvider.policies
+                    excepted = currentClaims.Except(from p in (AppClaimProvider.principals ?? new string[] { })
                                                     join c in ci.Claims on p equals c.Type
                                                     select c.Type);
 
@@ -64,6 +76,8 @@ namespace Soka.Domain.Business.AccountModule
                         ci.AddClaim(new Claim(claimName, "1"));
                     }
                 }
+
+
                 return true;
             }
         }

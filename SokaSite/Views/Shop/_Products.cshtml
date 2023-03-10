@@ -7,7 +7,7 @@
             <div class="collection-item shop-img">
                 <span>Sale</span>
                 <a asp-controller="shop" asp-action="details" asp-route-id="@item.Id">
-                    <img src="uploads/images/@item.ImagePath" alt="images">
+                    <img src="/uploads/images/@item.ImagePath" alt="images">
                 </a>
                 <a href="javascript:addToBasket(@item.Id)" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
             </div>
@@ -19,7 +19,7 @@
                 <li><i class="ri-star-half-line"></i></li>
             </ul>
             <h3><a asp-controller="shop" asp-action="details" asp-route-id="@item.Id">@item.Name</a></h3>
-            <p><del>£425.00</del>$350.00</p>
+            <p><del>425.00₼</del>@item.Price?.ToString("0.00₼")</p>
             <div class="actions-secondary">
                 <a class="action--wishlist tile-actions--btn flex wishlist-btn wishlist"
                href="javascript:addToWishlist(@item.Id)" button-wishlist="" data-product-handle="accusantium-doloremque">

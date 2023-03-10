@@ -14,5 +14,6 @@
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
 		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.27.0" />
 	</ItemGroup>
 </Project>

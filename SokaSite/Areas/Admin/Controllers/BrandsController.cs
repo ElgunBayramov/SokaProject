@@ -22,20 +22,17 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             this.brandEditCommandValidator = brandEditCommandValidator;
             this.mediator = mediator;
         }
-        [Authorize(Policy = "admin.brands.index")]
         public async Task<IActionResult> Index(BrandsAllQuery query)
         {
             var response = await mediator.Send(query);
             return View(response);
         }
-        [Authorize(Policy = "admin.brands.create")]
         public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Policy = "admin.brands.create")]
         public async Task<IActionResult> Create(BrandCreateCommand command)
         {
             //validate - with fluent validation
@@ -55,7 +52,6 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             return View();
 
         }
-        [Authorize(Policy = "admin.brands.edit")]
         public async Task<IActionResult> Edit(BrandSingleQuery query)
         {
             var response = await mediator.Send(query);
@@ -67,7 +63,6 @@ namespace Soka.WebUI.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Policy = "admin.brands.edit")]
         public async Task<IActionResult> Edit(BrandEditCommand command)
         {
             var result = brandEditCommandValidator.Validate(command);
@@ -84,7 +79,6 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             }
             return View();
         }
-        [Authorize(Policy = "admin.brands.details")]
         public async Task<IActionResult> Details(BrandSingleQuery query)
         {
             var response = await mediator.Send(query);
@@ -95,7 +89,6 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             return View(response);
         }
         [HttpPost]
-        [Authorize(Policy = "admin.brands.remove")]
         public async Task<IActionResult> Remove(BrandRemoveCommand command)
         {
             var response = await mediator.Send(command);

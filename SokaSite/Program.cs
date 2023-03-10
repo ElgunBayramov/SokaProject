@@ -1,16 +1,10 @@
+using Soka.Domain.AppCode.Providers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Soka.Application.AppCode.Providers;
-using Soka.WebUI;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 
 namespace Soka.WebUI
 {
@@ -20,7 +14,7 @@ namespace Soka.WebUI
         {
             var types = typeof(Program).Assembly.GetTypes();
 
-            AppClaimsProvider.policies = types
+            AppClaimProvider.principals = types
                 .Where(t => typeof(ControllerBase).IsAssignableFrom(t) && t.IsDefined(typeof(AuthorizeAttribute), true))
                 .SelectMany(t => t.GetCustomAttributes<AuthorizeAttribute>())
                 .Union(
@@ -36,6 +30,7 @@ namespace Soka.WebUI
                 .SelectMany(a => a.Policy.Split(new[] { "," }, System.StringSplitOptions.RemoveEmptyEntries))
                 .Distinct()
                 .ToArray();
+
             CreateHostBuilder(args).Build().Run();
         }
 

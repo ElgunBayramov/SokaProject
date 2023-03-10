@@ -21,11 +21,11 @@ namespace Soka.WebUI.Controllers
     public class HomeController : Controller
     {
         private readonly SokaDbContext db;
-        private readonly CryptoService crypto;
-        private readonly EmailService emailService;
+        private readonly ICryptoService crypto;
+        private readonly IEmailService emailService;
         private readonly IMediator mediator;
 
-        public HomeController(SokaDbContext db,CryptoService crypto,EmailService emailService,IMediator mediator)
+        public HomeController(SokaDbContext db,ICryptoService crypto,IEmailService emailService,IMediator mediator)
         {
             this.db = db;
             this.crypto = crypto;
@@ -84,7 +84,7 @@ namespace Soka.WebUI.Controllers
                 //string token = $"{subscriber.Id}-{subscriber.Email}".Encrypt(Extension.saltKey,true);
                 string token = crypto.Encrypt($"{subscriber.Id}-{subscriber.Email}", true);
                 string approveLink = $"https://{Request.Host}/subscribe-approve?token={token}";
-                await emailService.SendEmailAsync(email, approveLink);
+                await emailService.SendEmailAsync(email,approveLink);
             }
 
         end:

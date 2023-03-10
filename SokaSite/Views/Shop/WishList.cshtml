@@ -66,7 +66,7 @@
                                         <td class="product-price"><span class="amount">@item.Price?.ToString("0.00₼")</span></td>
                                         <td class="product-stock-status"><span>in stock</span></td>
                                         <td class="product-add-to-cart">
-                                            <a href="javascript:void(@item.Id)" data-product-id="@item.Id" basket>add to cart</a>
+                                            <a href="javascript:addToBasket(@item.Id)">add to cart</a>
                                         </td>
                                     </tr>
                                 }
@@ -285,6 +285,29 @@
 
             });
         });
+        function addToBasket(id){
+        let basket = $.cookie('basket');
+
+        if(basket == undefined){
+            basket = [];
+        }
+
+        else{
+            basket = JSON.parse(basket);
+        }
+          
+        
+          if(basket.filter(item => item == id).length == 0){
+               $.ajax({
+              success: function(response) {
+                    toastr.success("Səbətə əlavə edildi", "Uğur!");
+                    }
+                });
+            basket.push(id);
+            $.cookie('basket',JSON.stringify(basket).replace(/"/g,""), { expires: 15, path: ''});
+        }
+
+ }
     </script>
 }
 <script src="https://kit.fontawesome.com/dbccfca02d.js" crossorigin="anonymous"></script>

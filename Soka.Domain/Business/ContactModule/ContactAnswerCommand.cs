@@ -19,9 +19,9 @@ namespace Soka.Domain.Business.ContactModule
         public class ContactAnswerCommandHandler : IRequestHandler<ContactAnswerCommand, ContactPost>
         {
             private readonly SokaDbContext sokaDbContext;
-            private readonly EmailService emailService;
+            private readonly IEmailService emailService;
 
-            public ContactAnswerCommandHandler(SokaDbContext sokaDbContext,EmailService emailService)
+            public ContactAnswerCommandHandler(SokaDbContext sokaDbContext,IEmailService emailService)
             {
                 this.sokaDbContext = sokaDbContext;
                 this.emailService = emailService;

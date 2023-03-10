@@ -13,9 +13,11 @@ namespace Soka.WebUI.AppCode.ViewComponents
         {
             this.mediator = mediator;
         }
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync(int size)
         {
-            var query = new ResultsAllQuery();
+            var query = new ResultRecentQuery();
+            query.Size = size;
+
             var response = await mediator.Send(query);
             return View(response);
         }

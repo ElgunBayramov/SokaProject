@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Soka.Application.AppCode.Extensions;
 using Soka.Application.AppCode.Infrastructure;
-using Soka.Domain.AppCode.Extensions;
 using Soka.Domain.Models.DataContexts;
 using Soka.Domain.Models.Entities;
 using System.Threading;

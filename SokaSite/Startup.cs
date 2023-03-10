@@ -1,7 +1,9 @@
 
 using FluentValidation;
 using MediatR;
+using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -12,8 +14,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Soka.Application.AppCode.Providers;
+using Soka.Application.AppCode.Extensions;
 using Soka.Application.AppCode.Services;
+using Soka.Domain.AppCode.Providers;
 using Soka.Domain.Models.DataContexts;
 using Soka.Domain.Models.Entities.Membership;
 using System;
@@ -31,14 +34,7 @@ namespace Soka.WebUI
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews(cfg =>
-            {
-                var policyRule = new AuthorizationPolicyBuilder()
-                .RequireAuthenticatedUser()
-                .Build();
-
-                cfg.Filters.Add(new AuthorizeFilter(policyRule));
-            });
+            services.AddControllersWithViews();
 
             services.AddRouting(cfg =>
             {
@@ -50,72 +46,33 @@ namespace Soka.WebUI
             });
 
             services.AddIdentity<SokaUser, SokaRole>()
-                .AddEntityFrameworkStores<SokaDbContext>();
-
-            services.Configure<IdentityOptions>(cfg => {
-                cfg.Password.RequireNonAlphanumeric = false;
-                cfg.Password.RequireUppercase = false;
-                cfg.Password.RequireLowercase = false;
-                cfg.Password.RequireDigit = false;
-                cfg.Password.RequiredLength = 3;
-                cfg.Password.RequiredUniqueChars = 1; //aAa
-
-                cfg.SignIn.RequireConfirmedPhoneNumber = false;
-                cfg.SignIn.RequireConfirmedAccount = false;
-                cfg.SignIn.RequireConfirmedEmail = true;
-
-                cfg.Lockout.MaxFailedAccessAttempts = 3;
-
-                cfg.User.RequireUniqueEmail = true;
-                //cfg.User.AllowedUserNameCharacters = "";
-            });
-
-            services.ConfigureApplicationCookie(cfg =>
-            {
-                cfg.Cookie.Name = "soka";
-                cfg.LoginPath = "/signin.html";
-                cfg.LogoutPath = "/logout.html";
-
-                cfg.AccessDeniedPath = "/accessdenied.html";
-
-                cfg.ExpireTimeSpan = new TimeSpan(0, 15, 0);
-                cfg.Cookie.HttpOnly = true;
-            });
+                .AddEntityFrameworkStores<SokaDbContext>()
+                .AddDefaultTokenProviders()
+                .AddErrorDescriber<SokaIdentityErrorDescriber>();
 
             services.AddScoped<UserManager<SokaUser>>();
             services.AddScoped<SignInManager<SokaUser>>();
             services.AddScoped<RoleManager<SokaRole>>();
-            services.AddScoped<IClaimsTransformation, AppClaimsProvider>();
-            services.AddAuthentication();
-            services.AddAuthorization(cfg =>
+
+            services.Configure<AntiforgeryOptions>(cfg =>
             {
-                foreach (var item in AppClaimsProvider.policies)
-                {
-                    cfg.AddPolicy(item, p =>
-                    {
-                        //p.RequireClaim(item, "1");
-                        p.RequireAssertion(handler =>
-                        {
-                            return handler.User.IsInRole("sa")
-                            || handler.User.HasClaim(c => c.Type.Equals(item) && c.Value.Equals("1"));
-                        });
-                    });
-                }
+                cfg.Cookie.Name = "soka-ant";
             });
+
 
             services.Configure<CryptoServiceOptions>(cfg =>
             {
                 configuration.GetSection("cryptography").Bind(cfg);
             });
-            services.AddSingleton<CryptoService>();
+            services.AddSingleton<ICryptoService, CryptoService>();
             services.Configure<EmailServiceOptions>(cfg =>
             {
                 configuration.GetSection("emailAccount").Bind(cfg);
             });
-            services.AddSingleton<EmailService>();
+            services.AddSingleton<IEmailService, EmailService>();
 
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
-
+            services.AddScoped<IClaimsTransformation, AppClaimProvider>();
             var assemblies = AppDomain.CurrentDomain
                 .GetAssemblies()
                 .Where(a => a.FullName.StartsWith("Soka."))
@@ -124,8 +81,39 @@ namespace Soka.WebUI
             services.AddAutoMapper(assemblies);
 
             services.AddValidatorsFromAssemblies(assemblies, ServiceLifetime.Singleton);
+            services.AddAuthentication(cfg =>
+            {
+                cfg.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                cfg.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                cfg.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                cfg.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                cfg.DefaultSignOutScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            })
+                .AddCookie(cfg =>
+                {
+                    cfg.Cookie.Name = "soka";
+                    cfg.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+                    cfg.LoginPath = "/signin.html";
+                    cfg.AccessDeniedPath = "/accessdenied.html";
+                });
 
+            services.AddAuthorization(cfg =>
+            {
+
+                foreach (string principal in AppClaimProvider.principals)
+                {
+                    cfg.AddPolicy(principal, p =>
+                    {
+                        p.RequireAssertion(handler =>
+                        {
+                            return handler.User.HasAccess(principal);
+
+                        });
+                    });
+                }
+            });
         }
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -138,8 +126,8 @@ namespace Soka.WebUI
             app.UseStaticFiles();
 
             app.UseRouting();
-
             app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -154,3 +142,4 @@ namespace Soka.WebUI
         }
     }
 }
+

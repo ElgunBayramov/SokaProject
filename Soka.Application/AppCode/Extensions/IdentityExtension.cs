@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using System;
 using System.Security.Claims;
 
-namespace Soka.Domain.AppCode.Extensions
+namespace Soka.Application.AppCode.Extensions
 {
     public static partial class Extension
     {

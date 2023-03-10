@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Soka.Application.AppCode.Services
 {
-    public class EmailService
+    public class EmailService : IEmailService
     {
         private readonly EmailServiceOptions options;
 
@@ -36,7 +36,7 @@ namespace Soka.Application.AppCode.Services
             await smtpClient.SendMailAsync(mailMessage);
             return true;
         }
-        public async Task<bool> SendEmailAsync(string toEmail, string subject,string message)
+        public async Task<bool> SendEmailAsync(string toEmail, string subject, string message)
         {
             string fromEmail = options.UserName;
             SmtpClient smtpClient = new SmtpClient(options.SmtpHost, options.SmtpPort);

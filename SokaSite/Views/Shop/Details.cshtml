@@ -29,7 +29,7 @@
                 <div class="row align-items-center"> 
                     <div class="col-lg-6">
                         <div class="single-shop-product">
-                            <img src="~/uploads/images/@Model.ImagePath" alt="images">
+                            <img src="/uploads/images/@Model.ImagePath" alt="images">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -45,7 +45,7 @@
                             </ul>
                             <p>@Model.ShortDescription</p>
                             <ul class="shop-product-list">
-                                <li><a href="#"><i class="ri-service-line"></i></a></li>
+                                <li><a asp-controller="shop" asp-action="index"><i class="ri-service-line"></i></a></li>
                                 <li><a href="#"><i class="ri-gallery-fill"></i></a></li>
                                 <li><a href="#"><i class="ri-arrow-right-line"></i></a></li>
                                 <li>
@@ -64,7 +64,7 @@
                                     </span>
                                 </li>
                             </ul>
-                            <a href="javascript:addToBasket(@Model.Id)" type="submit" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
+                            <a asp-controller="shop" asp-action="index" type="submit" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
                         </div>
                     </div>
                 </div> 
@@ -108,92 +108,14 @@
         <div class="collection-area pt-100 pb-70">
             <div class="container">
                 <div class="section-title">
-                    <h2>Related Products</h2>
+                    <h2>Other Products</h2>
                 </div>
                 <div class="shop-item"> 
                     <div class="row">
-                        <div class="col-lg-3 col-sm-6 col-md-6">
-                            <div class="collection-card"  data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
-                                <div class="collection-item shop-img">
-                                    <span>Sale</span>
-                                    <a href="shop-details.html">
-                                        <img src="~/assets/images/shop/shop-details-imgs-1.png" alt="images">
-                                    </a>
-                                    <a href="cart.html" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
-                                </div>
-                                <ul class="collection-list">
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-half-line"></i></li>
-                                </ul>
-                                <h3><a href="shop-details.html">Nike Hupervenom Phantom 2 FG</a></h3>
-                                <p>£476.00</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-md-6">
-                            <div class="collection-card"  data-aos="fade-up" data-aos-duration="1200" data-aos-once="true">
-                                <div class="collection-item shop-img">
-                                    <a href="shop-details.html">
-                                        <img src="~/assets/images/shop/shop-details-imgs-2.png" alt="images">
-                                    </a>
-                                    <a href="cart.html" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
-                                </div>
-                                <ul class="collection-list">
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-half-line"></i></li>
-                                </ul>
-                                <h3><a href="shop-details.html">England Vapor Match Home</a></h3>
-                                <p>£325.99</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-md-6">
-                            <div class="collection-card"  data-aos="fade-up" data-aos-duration="1800" data-aos-once="true">
-                                <div class="collection-item shop-img">
-                                    <span>Sale</span>
-                                    <a href="shop-details.html">
-                                        <img src="~/assets/images/shop/shop-details-imgs-3.png" alt="images">
-                                    </a>
-                                    <a href="cart.html" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
-                                </div>
-                                <ul class="collection-list">
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-half-line"></i></li>
-                                </ul>
-                                <h3><a href="shop-details.html">Prestige Soccer T-Shirt</a></h3>
-                                <p>£289.99</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-md-6">
-                            <div class="collection-card"  data-aos="fade-up" data-aos-duration="2500" data-aos-once="true">
-                                <div class="collection-item shop-img">
-                                    <a href="shop-details.html">
-                                        <img src="~/assets/images/shop/shop-details-imgs-4.png" alt="images">
-                                    </a>
-                                    <a href="cart.html" class="default-btn">Add To Cart<i class="ri-arrow-right-line"></i></a>
-                                </div>
-                                <ul class="collection-list">
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-fill"></i></li>
-                                    <li><i class="ri-star-half-line"></i></li>
-                                </ul>
-                                <h3><a href="shop-details.html">Alpha Goalkeeper Glove</a></h3>
-                                <p>£125.00</p>
-                            </div>
-                        </div>
+                   @await Component.InvokeAsync("Products", new {size=4})
                     </div>
                 </div> 
             </div>
         </div>
         <!-- End Collection Area -->
-
-
+      

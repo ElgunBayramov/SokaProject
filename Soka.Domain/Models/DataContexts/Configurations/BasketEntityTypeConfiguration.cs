@@ -8,11 +8,11 @@ namespace Soka.Domain.Models.DataContexts.Configurations
     {
         public void Configure(EntityTypeBuilder<Basket> builder)
         {
-            builder.HasKey(k => new
-            {
-                k.ProductId,
-                k.CreatedByUserId
-            });
+            //builder.HasKey(k => new
+            //{
+            //    k.ProductId,
+            //    k.CreatedByUserId
+            //});
 
             builder.Property(m => m.Id)
                 .UseIdentityColumn();

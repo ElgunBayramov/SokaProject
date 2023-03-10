@@ -28,14 +28,12 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             var response = await mediator.Send(query);
             return View(response);
         }
-        [Authorize(Policy = "admin.productsizes.create")]
         public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Policy = "admin.productsizes.create")]
         public async Task<IActionResult> Create(ProductSizeCreateCommand command)
         {
             //validate - with fluent validation

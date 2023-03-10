@@ -10,6 +10,7 @@ namespace Soka.Domain.Models.DataContexts
     {
         public static IApplicationBuilder SeedMembership(this IApplicationBuilder app)
         {
+            return app;
             const string adminEmail = "elgunbayramov223@gmail.com";
             const string adminUserName = "elgunbayramov";
             const string adminPassword = "123";

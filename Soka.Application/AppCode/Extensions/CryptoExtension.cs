@@ -1,16 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using System.Security.Cryptography;
+using System.Linq;
 using System.IO;
+using System;
 using System.Web;
 
 namespace Soka.Application.AppCode.Extensions
 {
     public static partial class Extension
     {
+        public static string ToMd5(this string value, string saltKey)
+        {
+            byte[] buffer = Encoding.UTF8.GetBytes($"{saltKey}{value}Soka.Application.AppCode.Extensions");
+
+            //var provider = MD5.Create();
+            var provider = new MD5CryptoServiceProvider();
+
+            var buff = provider.ComputeHash(buffer);
+
+            return string.Join("", buff.Select(b => b.ToString("x2")));
+        }
+
+        public static string ToSha1(this string value, string saltKey)
+        {
+            byte[] buffer = Encoding.UTF8.GetBytes($"{saltKey}{value}2Soka.Application.AppCode.Extensions");
+
+            var provider = SHA1.Create();
+
+            return string.Join("", provider.ComputeHash(buffer).Select(b => b.ToString("x2")));
+        }
+
+        public static string ToSha256(this string value, string saltKey)
+        {
+            byte[] buffer = Encoding.UTF8.GetBytes($"{saltKey}{value}1Soka.Application.AppCode.Extensions");
+
+            var provider = SHA256.Create();
+
+            return string.Join("", provider.ComputeHash(buffer).Select(b => b.ToString("x2")));
+        }
 
 
         public static string Encrypt(this string value, string key, bool appliedUrlEncode = false)   //123
@@ -42,7 +69,6 @@ namespace Soka.Application.AppCode.Extensions
                         {
                             return HttpUtility.UrlEncode(Convert.ToBase64String(result));
                         }
-
                         return Convert.ToBase64String(result);
                     }
                 }

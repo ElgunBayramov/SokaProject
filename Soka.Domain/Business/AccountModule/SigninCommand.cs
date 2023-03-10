@@ -1,67 +1,89 @@
-﻿using Soka.Domain.Models.Entities.Membership;
+﻿using Soka.Application.AppCode.Extensions;
+using Soka.Domain.Models.Entities.Membership;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
-using System.ComponentModel.DataAnnotations;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Soka.Domain.Business.AccountModule
 {
-    public class SigninCommand : IRequest<bool>
+    public class SigninCommand : IRequest<SokaUser>
     {
         public string UserName { get; set; }
-
-        [DataType(DataType.Password)]
         public string Password { get; set; }
 
 
-        public class SigninCommandHandler : IRequestHandler<SigninCommand, bool>
+        public class SigninCommandHandler : IRequestHandler<SigninCommand, SokaUser>
         {
             private readonly SignInManager<SokaUser> signinManager;
-            private readonly UserManager<SokaUser> userManager;
             private readonly IActionContextAccessor ctx;
 
-            public SigninCommandHandler(SignInManager<SokaUser> signinManager,
-                UserManager<SokaUser> userManager,
-                IActionContextAccessor ctx)
+            public SigninCommandHandler(SignInManager<SokaUser> signinManager, IActionContextAccessor ctx)
             {
                 this.signinManager = signinManager;
-                this.userManager = userManager;
                 this.ctx = ctx;
             }
-            public async Task<bool> Handle(SigninCommand request, CancellationToken cancellationToken)
+
+
+            public async Task<SokaUser> Handle(SigninCommand request, CancellationToken cancellationToken)
             {
-                var user = await userManager.FindByEmailAsync(request.UserName);
+                SokaUser user = null;
+
+
+                if (request.UserName.IsEmail())
+                {
+                    user = await signinManager.UserManager.FindByEmailAsync(request.UserName);
+                }
+                else
+                {
+                    user = await signinManager.UserManager.FindByNameAsync(request.UserName);
+                }
+
 
                 if (user == null)
                 {
                     ctx.ActionContext.ModelState.AddModelError("UserName", "Istifadeci adi ve ya sifre sehvdir");
-                    goto notFound;
+
+                    return null;
                 }
 
-                var result = await signinManager.PasswordSignInAsync(user, request.Password, true, true);
+                var result = await signinManager.CheckPasswordSignInAsync(user, request.Password, true);
+
+
+                if (result.IsLockedOut)
+                {
+                    ctx.ActionContext.ModelState.AddModelError("UserName", "Hesabibiz kecici olaraq mehdudlashdirilib");
+
+                    return null;
+                }
+
+
+                if (result.IsNotAllowed)
+                {
+                    ctx.ActionContext.ModelState.AddModelError("UserName", "Hesaba daxil olmaq mumkun deyil");
+
+                    return null;
+                }
+
+
+
+                if (!user.EmailConfirmed)
+                {
+                    ctx.ActionContext.ModelState.AddModelError("UserName", "Hesabiniz tesdiq edilmeyib");
+
+                    return null;
+                }
+
 
                 if (result.Succeeded)
                 {
-                    return true;
-                }
-                else if (result.IsLockedOut)
-                {
-                    ctx.ActionContext.ModelState.AddModelError("UserName", "Muveqqeti olaraq sistemden istifade huququnuz legv edilib");
-                    goto notFound;
-                }
-                else if (result.IsNotAllowed)
-                {
-                    ctx.ActionContext.ModelState.AddModelError("UserName", "Sisteme daxil olmaq huququnuz legv edilib");
-                    goto notFound;
+                    return user;
                 }
 
-
-            notFound:
-                return false;
+                ctx.ActionContext.ModelState.AddModelError("UserName", "Istifadeci adi ve ya sifre sehvdir");
+                return null;
             }
         }
-
     }
 }

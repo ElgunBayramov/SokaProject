@@ -29,7 +29,6 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             this.productcolorCreateCommandValidator = productcolorCreateCommandValidator;
             this.productcolorEditCommandValidator = productcolorEditCommandValidator;
         }
-        [Authorize(Policy = "admin.productcolors.index")]
         public async Task<IActionResult> Index(ProductColorsAllQuery query)
         {
             var response = await mediator.Send(query);
