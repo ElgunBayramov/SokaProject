@@ -1,8 +1,6 @@
-﻿using Soka.Application.AppCode.Infrastructure;
+﻿using Soka.Domain.AppCode.Infrastructure;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Soka.Domain.Models.Entities
@@ -20,5 +18,10 @@ namespace Soka.Domain.Models.Entities
         public virtual Brand Brand { get; set; }
         public int CategoryId { get; set; } = 0;
         public virtual Category Category { get; set; }
+
+        internal Task<Product> FirstOrDefaultAsync(Func<object, bool> p, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

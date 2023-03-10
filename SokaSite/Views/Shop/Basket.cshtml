@@ -1,0 +1,167 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Basket";
+}
+
+<!-- Start Page Banner Area-->
+<div class="page-banner-area">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-9 col-md-6">
+                <div class="single-page-banner-content">
+                    <h1>Cart</h1>
+                    <p><a asp-controller="Home" asp-action="Index">Home</a>Basket</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="page-banner-img" data-aos="fade-up-left" data-aos-duration="3000" data-aos-once="true">
+                    <img src="~/assets/images/page-banner/page-banner-image-1.png" alt="images">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Banner Area-->
+<!-- Start Cart Area -->
+<div class="cart-area pt-100 pb-70">
+    <div class="container">
+        <div class="cart-table">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="shop-text">Products</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Single Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Remove</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th scope="col" class="player-list">
+                                    <a href="cart.html"><img src="~/uploads/images/@item.ImagePath" alt="images"></a>
+                                </th>
+                                <th scope="col">
+                                    <a href="cart.html">@item.Name</a>
+                                    <ul>
+                                        <li><i class="ri-star-fill"></i></li>
+                                        <li><i class="ri-star-fill"></i></li>
+                                        <li><i class="ri-star-fill"></i></li>
+                                        <li><i class="ri-star-fill"></i></li>
+                                        <li><i class="ri-star-half-line"></i></li>
+                                        <li><span>0.4</span></li>
+                                    </ul>
+                                </th>
+                                <th scope="col" class="price" data-price="@item.Price">
+                                      @item.Price
+                                </th>
+                                <th scope="col">
+                                    <div class="pass-quantity">
+                                        <div class="input-counter">
+                                            <span class="minus-btn">
+                                                <i class="ri-subtract-fill"></i>
+                                            </span>
+                                            <input type="text" class="quantity" value="1">
+                                            <span class="plus-btn">
+                                                <i class="ri-add-line"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th scope="col" id="total">
+                                     @item.Price
+                                </th>
+                                <th scope="col">
+                                    <a onclick="removeFromBasket(event,@item.Id)">
+                                        <i class="ri-delete-bin-line"></i>
+                                    </a>
+                                </th>
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <div class="shop-button">
+                        <a asp-controller="shop" asp-action="index" class="default-btn">Continue Shopping<i class="ri-arrow-right-line"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Cart Area -->
+<style>
+.player-list{
+    width:200px;
+}
+.player-list img{
+    padding:0;
+}
+.price{
+    text-align: center;
+    border: white;
+    background-color: white;
+}
+</style>
+@section addcss{
+    <link rel="stylesheet" type="text/css" href="~/libs/toastr.js/toastr.min.css">
+}
+
+@section addjs{    
+    <script type="text/javascript" src="~/libs/toastr.js/toastr.min.js"></script>
+    <script type="text/javascript" src="~/admin/js/customize.toastr.js"></script>
+    <script src="~/libs/jquery.cookie/jquery.cookie.js"></script>
+    <script>
+        function removeFromBasket(ev, id) {
+            ev.preventDefault();
+            //[1,2,3,4]
+
+            let basket = $.cookie('basket');
+
+            if (basket != undefined) {
+                //logic
+                basket = JSON.parse(`${basket}`);
+
+                basket = basket.filter(item => item != id);
+
+                $.cookie('basket', JSON.stringify(basket).replace(/"/g, ""),
+                    {
+                        expires: 15,
+                        path: ''
+                    });
+            }
+
+
+            $(ev.currentTarget).closest('tr').remove();
+        }
+$(document).ready(function() {
+  $(".input-counter").on("input", ".quantity", function() {
+    var price = parseInt($(".price").data("price"));
+    var quantity = +$(this).val();
+    $("#total").text("$" + parseInt(price) * parseInt(quantity));
+  })
+
+  var $buttonPlus = $('.plus-btn');
+  var $buttonMin = $('.minus-btn');
+  var $quantity = $('.quantity');
+  
+  /*For plus and minus buttons*/
+  $buttonPlus.click(function() {
+    $quantity.val(parseInt($quantity.val())).trigger('input');
+  });
+  
+  $buttonMin.click(function() {
+    $quantity.val(Math.max(parseInt($quantity.val()), 0)).trigger('input');
+  });
+})
+        </script>
+}

@@ -29,6 +29,7 @@ namespace Soka.Domain.Models.DataContexts
         public DbSet<Result> Results { get; set; }
         public DbSet<ProductType> Types { get; set; }
         public DbSet<ProductCatalogItem> ProductCatalog { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

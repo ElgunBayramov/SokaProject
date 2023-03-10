@@ -1,4 +1,4 @@
-﻿using Soka.Application.AppCode.Infrastructure;
+﻿using Soka.Domain.AppCode.Infrastructure;
 
 namespace Soka.Domain.Models.Entities
 {

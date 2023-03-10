@@ -1,31 +1,47 @@
-﻿@model IEnumerable<Product>
+﻿@model PagedViewModel<Product>
 
-
-@foreach (var item in Model)
-{
-    <tr>
-        <td class="image-cell">
-            @if (!string.IsNullOrWhiteSpace(item.ImagePath))
-            {
-                <img src="~/uploads/images/@item.ImagePath"/>
-            }
-        </td>
-        <td class="cell-medium">
-            @item.Name
-        </td>
-        <td class="cell-medium">
-            @item.ShortDescription.ToPlainText()
-        </td>
-        <td class="operation">
-            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">
-                <i class="fa fa-pencil"></i>
-            </a>
-            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">
-                <i class="fa fa-eye"></i>
-            </a>
-            <a class="btn btn-sm btn-danger" onclick="removeEntity(event,@item.Id,'@item.Name')">
-                <i class="fa fa-trash"></i>
-            </a>
-        </td>
-    </tr>
-}
+<table class="table table-imaged">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Short Description</th>
+            <th class="operation">
+                <a asp-action="create" class="btn btn-success">
+                    <i class="fa fa-plus"></i>
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td class="image-cell">
+                    @if (!string.IsNullOrWhiteSpace(item.ImagePath))
+                    {
+                        <img src="~/uploads/images/@item.ImagePath" />
+                    }
+                </td>
+                <td class="cell-medium">
+                    @item.Name
+                </td>
+                <td class="cell-medium">
+                    @item.ShortDescription.ToPlainText()
+                </td>
+                <td class="operation">
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">
+                        <i class="fa fa-eye"></i>
+                    </a>
+                    <a class="btn btn-sm btn-danger" onclick="removeEntity(event,@item.Id,'@item.Name')">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Model.GetPager(Url,"Index",area:"admin",paginateFunction:"goPage")

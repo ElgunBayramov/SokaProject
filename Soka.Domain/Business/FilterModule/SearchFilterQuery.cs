@@ -25,9 +25,9 @@ namespace Soka.Domain.Business.FilterModule
         {
             get
             {
-                if (base.PageSize < 12)
+                if (base.PageSize < 8)
                 {
-                    base.PageSize = 12;
+                    base.PageSize = 8;
                 }
 
                 return base.PageSize;

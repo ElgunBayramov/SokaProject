@@ -9,6 +9,10 @@
     {
       "library": "slider-pro@1.6.2",
       "destination": "wwwroot/libs/slider-pro/"
+    },
+    {
+      "library": "jquery-cookie@1.4.1",
+      "destination": "wwwroot/libs/jquery-cookie/"
     }
   ]
 }

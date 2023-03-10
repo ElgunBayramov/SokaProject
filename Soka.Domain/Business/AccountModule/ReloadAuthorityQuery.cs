@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Soka.Application.AppCode.Providers;
+using Soka.Domain.AppCode.Extensions;
 using Soka.Domain.Models.DataContexts;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace Soka.Domain.Business.AccountModule
             }
             public async Task<bool> Handle(ReloadAuthorityQuery request, CancellationToken cancellationToken)
             {
-                var userId = Convert.ToInt32(request.User.Claims.FirstOrDefault(c => c.Type.Equals(ClaimTypes.NameIdentifier)).Value);
+                var userId = request.User.GetUserId();
 
                 if(request.User.Identity is ClaimsIdentity ci)
                 {

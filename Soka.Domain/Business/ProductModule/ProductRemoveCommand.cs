@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Soka.Domain.Business.ProductModule
 {
-    public class ProductRemoveCommand : IRequest<JsonResponse>
+    public class ProductRemoveCommand : PageableModel, IRequest<JsonResponse>
     {
         public int Id { get; set; }
         public class ProductRemoveCommandHandler : IRequestHandler<ProductRemoveCommand, JsonResponse>

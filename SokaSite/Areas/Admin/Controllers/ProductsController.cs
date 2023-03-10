@@ -7,6 +7,7 @@ using Soka.Domain.Business.CategoryModule;
 using Soka.Domain.Business.BrandModule;
 using Soka.Domain.Business.ProductModule;
 using System.Threading.Tasks;
+using Soka.Application.AppCode.Extensions;
 
 namespace Soka.WebUI.Areas.Admin.Controllers
 {
@@ -22,9 +23,15 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             this.mediator = mediator;
             this.productCreateCommandValidator = productCreateCommandValidator;
         }
-        public async Task<IActionResult> Index(ProductsAllQuery query)
+        public async Task<IActionResult> Index(ProductPagedQuery query)
         {
             var response = await mediator.Send(query);
+
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_ListBody", response);
+            }
+
             return View(response);
         }
         public async Task<IActionResult> Create()
@@ -115,8 +122,12 @@ namespace Soka.WebUI.Areas.Admin.Controllers
             {
                 return Json(response);
             }
-
-            var data = await mediator.Send(new ProductsAllQuery());
+            var newQuery = new ProductPagedQuery
+            {
+                PageIndex = command.PageIndex,
+                PageSize = command.PageSize
+            };
+            var data = await mediator.Send(newQuery);
             return PartialView("_ListBody", data);
         }
 

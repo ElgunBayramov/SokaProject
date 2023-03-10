@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Soka.Domain.Models.DataContexts;
 
 namespace Soka.Domain.Migrations
 {
     [DbContext(typeof(SokaDbContext))]
-    partial class SokaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230308133024_ShopBasket")]
+    partial class ShopBasket
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,7 +26,7 @@ namespace Soka.Domain.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CreatedByUserId")
+                    b.Property<int?>("CreatedByUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedTime")
@@ -69,7 +71,7 @@ namespace Soka.Domain.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CreatedByUserId")
+                    b.Property<int?>("CreatedByUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedTime")
@@ -120,7 +122,7 @@ namespace Soka.Domain.Migrations
                     b.Property<int>("BlogPostId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CreatedByUserId")
+                    b.Property<int?>("CreatedByUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedTime")
@@ -173,7 +175,7 @@ namespace Soka.Domain.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CreatedByUserId")
+                    b.Property<int?>("CreatedByUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedTime")
@@ -205,7 +207,7 @@ namespace Soka.Domain.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CreatedByUserId")
+                    b.Property<int?>("CreatedByUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedTime")
@@ -247,7 +249,7 @@ namespace Soka.Domain.Migrations
                     b.Property<DateTime?>("AnsweredDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CreatedByUserId")
+                    b.Property<int?>("CreatedByUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedTime")
@@ -300,7 +302,7 @@ namespace Soka.Domain.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CreatedByUserId")
+                    b.Property<int?>("CreatedByUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedTime")
@@ -336,7 +338,7 @@ namespace Soka.Domain.Migrations
                     b.Property<string>("Body")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CreatedByUserId")
+                    b.Property<int?>("CreatedByUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedTime")
@@ -373,7 +375,7 @@ namespace Soka.Domain.Migrations
                     b.Property<string>("Body")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CreatedByUserId")
+                    b.Property<int?>("CreatedByUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedTime")
@@ -619,7 +621,7 @@ namespace Soka.Domain.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CreatedByUserId")
+                    b.Property<int?>("CreatedByUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedTime")
@@ -682,7 +684,7 @@ namespace Soka.Domain.Migrations
                     b.Property<int>("TypeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CreatedByUserId")
+                    b.Property<int?>("CreatedByUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedTime")
@@ -723,7 +725,7 @@ namespace Soka.Domain.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CreatedByUserId")
+                    b.Property<int?>("CreatedByUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedTime")
@@ -754,7 +756,7 @@ namespace Soka.Domain.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CreatedByUserId")
+                    b.Property<int?>("CreatedByUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedTime")
@@ -785,7 +787,7 @@ namespace Soka.Domain.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CreatedByUserId")
+                    b.Property<int?>("CreatedByUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedTime")
@@ -822,7 +824,7 @@ namespace Soka.Domain.Migrations
                     b.Property<string>("ClubName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CreatedByUserId")
+                    b.Property<int?>("CreatedByUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedTime")
@@ -868,7 +870,7 @@ namespace Soka.Domain.Migrations
                     b.Property<DateTime?>("ApprovedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CreatedByUserId")
+                    b.Property<int?>("CreatedByUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedTime")
@@ -899,7 +901,7 @@ namespace Soka.Domain.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CreatedByUserId")
+                    b.Property<int?>("CreatedByUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedTime")
@@ -933,7 +935,7 @@ namespace Soka.Domain.Migrations
                     b.Property<string>("Body")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CreatedByUserId")
+                    b.Property<int?>("CreatedByUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedTime")
@@ -987,9 +989,7 @@ namespace Soka.Domain.Migrations
 
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CreatedByUserId");
 
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "DeletedByUser")
                         .WithMany()
@@ -1012,9 +1012,7 @@ namespace Soka.Domain.Migrations
 
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CreatedByUserId");
 
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "DeletedByUser")
                         .WithMany()
@@ -1056,9 +1054,7 @@ namespace Soka.Domain.Migrations
                 {
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CreatedByUserId");
 
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "DeletedByUser")
                         .WithMany()
@@ -1073,9 +1069,7 @@ namespace Soka.Domain.Migrations
                 {
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CreatedByUserId");
 
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "DeletedByUser")
                         .WithMany()
@@ -1096,9 +1090,7 @@ namespace Soka.Domain.Migrations
                 {
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CreatedByUserId");
 
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "DeletedByUser")
                         .WithMany()
@@ -1113,9 +1105,7 @@ namespace Soka.Domain.Migrations
                 {
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CreatedByUserId");
 
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "DeletedByUser")
                         .WithMany()
@@ -1130,9 +1120,7 @@ namespace Soka.Domain.Migrations
                 {
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CreatedByUserId");
 
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "DeletedByUser")
                         .WithMany()
@@ -1147,9 +1135,7 @@ namespace Soka.Domain.Migrations
                 {
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CreatedByUserId");
 
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "DeletedByUser")
                         .WithMany()
@@ -1227,9 +1213,7 @@ namespace Soka.Domain.Migrations
 
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CreatedByUserId");
 
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "DeletedByUser")
                         .WithMany()
@@ -1254,9 +1238,7 @@ namespace Soka.Domain.Migrations
 
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CreatedByUserId");
 
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "DeletedByUser")
                         .WithMany()
@@ -1297,9 +1279,7 @@ namespace Soka.Domain.Migrations
                 {
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CreatedByUserId");
 
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "DeletedByUser")
                         .WithMany()
@@ -1314,9 +1294,7 @@ namespace Soka.Domain.Migrations
                 {
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CreatedByUserId");
 
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "DeletedByUser")
                         .WithMany()
@@ -1331,9 +1309,7 @@ namespace Soka.Domain.Migrations
                 {
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CreatedByUserId");
 
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "DeletedByUser")
                         .WithMany()
@@ -1348,9 +1324,7 @@ namespace Soka.Domain.Migrations
                 {
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CreatedByUserId");
 
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "DeletedByUser")
                         .WithMany()
@@ -1365,9 +1339,7 @@ namespace Soka.Domain.Migrations
                 {
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CreatedByUserId");
 
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "DeletedByUser")
                         .WithMany()
@@ -1382,9 +1354,7 @@ namespace Soka.Domain.Migrations
                 {
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CreatedByUserId");
 
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "DeletedByUser")
                         .WithMany()
@@ -1399,9 +1369,7 @@ namespace Soka.Domain.Migrations
                 {
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CreatedByUserId");
 
                     b.HasOne("Soka.Domain.Models.Entities.Membership.SokaUser", "DeletedByUser")
                         .WithMany()

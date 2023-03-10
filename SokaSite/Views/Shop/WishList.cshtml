@@ -1,0 +1,291 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "Wishlist";
+}
+
+  <!-- Start Page Banner Area-->
+        <div class="page-banner-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-9 col-md-6">
+                        <div class="single-page-banner-content">
+                            <h1>Wishlist</h1>
+                            <p><a asp-controller="Home" asp-action="Index">Home</a>Wishlist</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="page-banner-img" data-aos="fade-up-left" data-aos-duration="3000" data-aos-once="true">
+                            <img src="~/assets/images/page-banner/page-banner-image-1.png" alt="images">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Banner Area-->
+
+<!-- Wish List Start -->
+<div class="cart-main-area wish-list pb-50 pt-100">
+    <div class="container">
+        <!-- Section Title Start -->
+        <h2 class="text-capitalize sub-heading">wishlist</h2>
+        <!-- Section Title Start End -->
+        <div class="row">
+            <div class="col-md-12 col-12 col-12">
+                <!-- Form Start -->
+                <form action="#">
+                    <!-- Table Content Start -->
+                    <div class="table-content table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="product-remove">Remove</th>
+                                    <th class="product-thumbnail">Image</th>
+                                    <th class="product-name">Product</th>
+                                    <th class="product-price">Unit Price</th>
+                                    <th class="product-quantity">Stock Status</th>
+                                    <th class="product-subtotal">add to cart</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td class="product-remove">
+                                            <a href="http://google.com" onclick="removeFromWishlist(event,@item.Id)">
+                                                <i class="fa fa-times" aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                        <td class="product-thumbnail">
+                                            <a href="#">
+                                                <img src="~/uploads/images/@item.ImagePath"
+                                                 alt="cart-image" />
+                                            </a>
+                                        </td>
+                                        <td class="product-name"><a href="#">@item.Name</a></td>
+                                        <td class="product-price"><span class="amount">@item.Price?.ToString("0.00₼")</span></td>
+                                        <td class="product-stock-status"><span>in stock</span></td>
+                                        <td class="product-add-to-cart">
+                                            <a href="javascript:void(@item.Id)" data-product-id="@item.Id" basket>add to cart</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Table Content Start -->
+                </form>
+                <!-- Form End -->
+            </div>
+        </div>
+        <!-- Row End -->
+    </div>
+</div>
+<!-- Wish List End -->
+<style>
+    .cart-main-area{
+        margin-bottom:50px;
+    }
+.table-content table {
+  background: #fff none repeat scroll 0 0;
+  border-color: #e5e5e5;
+  border-radius: 0;
+  border-style: solid;
+  border-width: 1px 0 0 1px;
+  text-align: center;
+  width: 100%;
+}
+
+.table-content table th {
+  border-top: medium none;
+  font-weight: normal;
+  padding: 20px 10px;
+  text-align: center;
+  text-transform: capitalize;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.table-content table th,
+.table-content table td {
+  border-bottom: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
+}
+
+.table-content table td {
+  border-top: medium none;
+  padding: 20px 0;
+  vertical-align: middle;
+  font-size: 13px;
+}
+
+.table-content table td input {
+  background: #e5e5e5 none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 3px;
+  color: #6f6f6f;
+  font-size: 15px;
+  font-weight: normal;
+  height: 40px;
+  padding: 0 5px 0 10px;
+  width: 60px;
+}
+
+.table-content table td.product-subtotal {
+  font-size: 14px;
+  font-weight: 500;
+  width: 120px;
+}
+
+.table-content table td.product-name a,
+.product-stock-status span {
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+  color: #6f6f6f;
+  text-transform: capitalize;
+}
+
+.product-stock-status{
+    width:150px;
+}
+.product-stock-status span {
+  font-weight: normal;
+  color: #4380db;
+}
+
+.table-content table td.product-name {
+  width: 270px;
+}
+
+.table-content table td.product-thumbnail {
+  width: 150px;
+}
+
+.table-content table td.product-remove i {
+  color: #919191;
+  display: inline-block;
+  font-size: 20px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 40px;
+}
+
+.table-content table .product-price .amount {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.table-content table td.product-remove i:hover {
+  color: #4380db;
+}
+
+.table-content table td.product-quantity {
+  width: 180px;
+}
+
+.table-content table td.product-remove {
+  width: 150px;
+}
+
+.table-content table td.product-price {
+  width: 130px;
+}
+
+.table-content table td.product-name a:hover,
+.buttons-cart a:hover {
+  color: #4380db;
+}
+
+.product-thumbnail img {
+  width: 100%;
+}
+.cart-main-area.wish-list .product-add-to-cart a {
+  background: #fe0000 none repeat scroll 0 0;
+  color: #ffffff;
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 56px;
+  text-transform: uppercase;
+  width: 260px;
+  margin: 0 auto;
+}
+
+.cart-main-area.wish-list .product-add-to-cart a:hover {
+  background: #1a1a1a;
+  color: #ffffff;
+
+}
+.cart-main-area.wish-list td.product-add-to-cart {
+  width: 150px;
+}
+</style>
+@section addcss{
+    <link rel="stylesheet" type="text/css" href="~/libs/toastr.js/toastr.min.css">
+}
+
+@section addjs{    
+    <script type="text/javascript" src="~/libs/toastr.js/toastr.min.js"></script>
+    <script type="text/javascript" src="~/admin/js/customize.toastr.js"></script>
+    <script src="~/libs/jquery.cookie/jquery.cookie.js"></script>
+    <script>
+        function removeFromWishlist(ev, id) {
+            ev.preventDefault();
+            //[1,2,3,4]
+
+            let wishlist = $.cookie('wishlist');
+
+            if (wishlist != undefined) {
+                //logic
+                wishlist = JSON.parse(`${wishlist}`);
+
+                wishlist = wishlist.filter(item => item != id);
+
+                $.cookie('wishlist', JSON.stringify(wishlist).replace(/"/g, ""),
+                    {
+                        expires: 15,
+                        path: ''
+                    });
+            }
+
+
+            $(ev.currentTarget).closest('tr').remove();
+        }
+
+
+        $(document).ready(function() {
+            $('a[data-product-id][basket]').click(function(e) {
+                e.preventDefault();
+
+                let data = $(e.currentTarget).data();
+
+                $.ajax({
+                    url: '@Url.Action("AddToBasket")',
+                    type: 'POST',
+                    data: data,
+                    contentType: 'application/x-www-form-urlencoded',
+                    success: function(response) {
+
+                        if (response.error == true) {
+                             toastr.error(response.message, "Xəta!");
+                            return;
+                        }
+
+                        toastr.success(response.message, "Ugur!");
+                        removeFromWishlist(e,data.id);
+
+                    },
+                    error: function(response) {
+                        console.log(response);
+                    },
+                });
+
+            });
+        });
+    </script>
+}
+<script src="https://kit.fontawesome.com/dbccfca02d.js" crossorigin="anonymous"></script>
+

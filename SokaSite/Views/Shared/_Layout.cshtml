@@ -102,7 +102,10 @@
                                             <a asp-controller="Shop" asp-action="Details" class="nav-link">Shop Details</a>     
                                         </li> 
                                         <li class="nav-item">
-                                            <a asp-controller="Shop" asp-action="Cart" class="nav-link">Cart</a>     
+                                            <a asp-controller="Shop" asp-action="Basket" class="nav-link">Cart</a>     
+                                        </li> 
+                                        <li class="nav-item">
+                                            <a asp-controller="Shop" asp-action="WishList" class="nav-link">WishList</a>     
                                         </li> 
                                     </ul>
 
@@ -142,7 +145,7 @@
                                     </div>
 
                                     <div class="cart-icon">
-                                        <a asp-controller="Shop" asp-action="Cart">
+                                        <a asp-controller="Shop" asp-action="Basket">
                                             <img src="~/assets/images/navber-card-img.png" alt="images">
                                         </a>
                                     </div>
@@ -182,7 +185,7 @@
                                     </div>
 
                                     <div class="cart-icon">
-                                        <a asp-controller="Shop" asp-action="Cart">
+                                        <a asp-controller="Shop" asp-action="Basket">
                                             <img src="~/assets/images/navber-card-img.png" alt="images">
                                         </a>
                                     </div>
@@ -194,6 +197,12 @@
                 </div>
             </div>    
         </div> 
+        @if (TempData["InfoMessage"] != null)
+        {
+            <div class="alert alert-warning">
+                @TempData["InfoMessage"]
+            </div>
+        }
     }
     else
     {
@@ -253,7 +262,10 @@
                                             <a asp-controller="Shop" asp-action="Details" class="nav-link">Shop Details</a>     
                                         </li> 
                                         <li class="nav-item">
-                                            <a asp-controller="Shop" asp-action="Cart" class="nav-link">Cart</a>     
+                                            <a asp-controller="Shop" asp-action="Basket" class="nav-link">Cart</a>     
+                                        </li> 
+                                         <li class="nav-item">
+                                            <a asp-controller="Shop" asp-action="WishList" class="nav-link">WishList</a>     
                                         </li> 
                                     </ul>
 
@@ -340,8 +352,13 @@
                 </div>
             </div>    
             </div>
+        @if (TempData["InfoMessage"] != null)
+        {
+            <div class="alert alert-warning">
+                @TempData["InfoMessage"]
+            </div>
+        }
     }
-
 
         @RenderBody()
          <partial name="_Newsletter"/>
@@ -473,8 +490,54 @@
          <!-- price slider js -->
     <script src="~/assets/js/jquery-ui.min.js"></script>
     <script src="~/assets/js/jquery.countdown.min.js"></script>
-                 <script>
+
+    <form class="modal" tabindex="-1" id="softlogin" method="post" autocomplete="off">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sistemə daxil olun</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group form-primary">
+                        <input id="username" class="form-control" placeholder="Email or UserName"
+                               name="UserName" />
+                    </div>
+                    <div class="form-group form-primary">
+                        <input id="password" class="form-control"
+                               placeholder="Password" name="Password" type="password" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success">Daxil Ol</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script>
     $(document).ready(function(){
+         $.ajaxSetup({
+                statusCode: {
+                    401: function() {
+                         $('#softlogin').modal('show');
+                    }
+                }
+            });
+
+            $('#softlogin').submit(function(e) {
+
+                e.preventDefault();
+
+                e.currentTarget.reset();
+                $(e.currentTarget).modal('hide');
+                return;
+
+                $.ajax({
+
+                });
+
+            });
         $('#frmNewsletter').submit(function(e) {
             e.preventDefault();
             let fd = new FormData(e.currentTarget);

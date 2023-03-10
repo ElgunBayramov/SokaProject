@@ -1,9 +1,5 @@
-﻿using Soka.Application.AppCode.Infrastructure;
-using System;
+﻿using Soka.Domain.AppCode.Infrastructure;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Soka.Domain.Models.Entities
 {

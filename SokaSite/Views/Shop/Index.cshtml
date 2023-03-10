@@ -57,6 +57,11 @@
                                 <partial name="_Products" model="@Model" />
 
                             </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    @Model.GetPager(Url,"index",area:"")
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -65,13 +70,35 @@
             <!-- product Categorie List End -->
             <!-- Sidebar Shopping Option Start -->
             <div class="col-lg-3 col-lg-pull-9 col-md-3 col-md-pull-9 order-0">
-                 @await Component.InvokeAsync("FilterPanel")
-                 </div>
+                @await Component.InvokeAsync("FilterPanel")
+            </div>
         </div>
-        </div>
-        </div>
+    </div>
+</div>
 @section addcss{
+<link rel="stylesheet" type="text/css" href="~/libs/toastr.js/toastr.min.css">
 <style>
+    .blog-pagination {
+        display: flex;
+        flex-direction: row;
+    }
+
+        .blog-pagination a {
+            display: inline-block;
+            padding: 10px;
+            border: 1px solid #ddd;
+            color: #fe0000;
+        }
+
+        .blog-pagination li.active a {
+            background-color: #fe0000;
+            color: #ffffff;
+        }
+
+        .blog-pagination li {
+            list-style: none;
+        }
+
     .sidebar li a {
         color: #444;
         display: inline-block;
@@ -300,79 +327,125 @@
 </style>
  }
 
-    @section addjs{
-    <script>
-        const filter = {
-            brands: [],
-            colors: [],
-            types: [],
-            sizes: [],
-            min: 0,
-            max: 0
-        };
+@section addjs{
+<script type="text/javascript" src="~/libs/toastr.js/toastr.min.js"></script>
+<script type="text/javascript" src="~/admin/js/customize.toastr.js"></script>
+<script src="~/libs/jquery.cookie/jquery.cookie.js"></script>
+<script>
+    const filter = {
+        brands: [],
+        colors: [],
+        types: [],
+        sizes: [],
+        min: 0,
+        max: 0
+    };
 
 
-        function applyFilter(filter) {
+    function applyFilter(filter) {
 
-            if ($.processId != undefined)
-                clearTimeout($.processId);
+        if ($.processId != undefined)
+            clearTimeout($.processId);
 
-            $.processId = setTimeout(function() {
-                
-                $.ajax({
-                    type:'POST',
-                    data:filter,
-                    contentType:'application/x-www-form-urlencoded',
-                    success: function(response){
-                        $('#grid-view').html(response);
-                        console.log(response);
-                    },
-                    error: function(response){
-                        console.error(response);
-                    }
-                });
-            }, 1000);
+        $.processId = setTimeout(function() {
+
+            $.ajax({
+                type:'POST',
+                data:filter,
+                contentType:'application/x-www-form-urlencoded',
+                success: function(response){
+                    $('#grid-view').html(response);
+                    console.log(response);
+                },
+                error: function(response){
+                    console.error(response);
+                }
+            });
+        }, 1000);
+    }
+
+    $(document).ready(function() {
+        const data = $("#price-range").data();
+
+        $("#price-range")
+            .attr('range', `${data.min}₼ - ${data.max}₼`)
+            .slider({
+                range: true,
+                min: data.min,
+                max: data.max,
+                values: [data.min, data.max],
+                slide: function(e, ui) {
+                    $(e.target).attr('range', `${ui.values[0]}₼ - ${ui.values[1]}₼`);
+                    filter.min = ui.values[0];
+                    filter.max = ui.values[1];
+                    applyFilter(filter);
+                }
+            });
+
+
+        $('a[data-entity-type]').click(function(e) {
+            let values = $(e.currentTarget).data();
+
+            if (filter[`${values.entityType}`].filter(item => item == values.id).length == 0) {
+                filter[`${values.entityType}`].push(values.id);
+                $(e.currentTarget).addClass('active');
+            }
+            else {
+                filter[`${values.entityType}`] = filter[`${values.entityType}`].filter(item => item != values.id);
+                $(e.currentTarget).removeClass('active');
+            }
+
+            applyFilter(filter);
+        });
+    });
+    function addToWishlist(id){
+        let wishlist = $.cookie('wishlist');
+
+        if(wishlist == undefined){
+            wishlist = [];
+        }
+        else{
+            wishlist = JSON.parse(wishlist);
         }
 
-        $(document).ready(function() {
-
-            const data = $("#price-range").data();
-
-            $("#price-range")
-                .attr('range', `${data.min}₼ - ${data.max}₼`)
-                .slider({
-                    range: true,
-                    min: data.min,
-                    max: data.max,
-                    values: [data.min, data.max],
-                    slide: function(e, ui) {
-                        $(e.target).attr('range', `${ui.values[0]}₼ - ${ui.values[1]}₼`);
-                        filter.min = ui.values[0];
-                        filter.max = ui.values[1];
-                        applyFilter(filter);
+        if(wishlist.filter(item => item == id).length == 0){
+            $.ajax({
+              success: function(response) {
+                    toastr.success("Istək səhifəsinə əlavə edildi", "Uğur!");
                     }
                 });
+            wishlist.push(id);
+            $.cookie('wishlist',JSON.stringify(wishlist).replace(/"/g,""), { expires: 15, path: ''});
+        }
+    }
+     function addToBasket(id){
+        let basket = $.cookie('basket');
+
+        if(basket == undefined){
+            basket = [];
+        }
+
+        else{
+            basket = JSON.parse(basket);
+        }
+          
+        
+          if(basket.filter(item => item == id).length == 0){
+               $.ajax({
+              success: function(response) {
+                    toastr.success("Səbətə əlavə edildi", "Uğur!");
+                    }
+                });
+            basket.push(id);
+            $.cookie('basket',JSON.stringify(basket).replace(/"/g,""), { expires: 15, path: ''});
+        }
+
+ }
 
 
-            $('a[data-entity-type]').click(function(e) {
-                let values = $(e.currentTarget).data();
 
-                if (filter[`${values.entityType}`].filter(item => item == values.id).length == 0) {
-                    filter[`${values.entityType}`].push(values.id);
-                    $(e.currentTarget).addClass('active');
-                }
-                else {
-                    filter[`${values.entityType}`] = filter[`${values.entityType}`].filter(item => item != values.id);
-                    $(e.currentTarget).removeClass('active');
-                }
-
-                applyFilter(filter);
-            });
-        });
-
-
-
-    </script>
+</script>
         }
 <script src="https://kit.fontawesome.com/dbccfca02d.js" crossorigin="anonymous"></script>
+
 
