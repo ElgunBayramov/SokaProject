@@ -11,6 +11,7 @@ namespace Soka.Domain.Models.Entities.Membership
     {
         public string Name { get; set; }
         public string Surname { get; set; }
+        public string PassWord { get; set; }
         public string ProfileImagePath { get; set; }
         public string CoverImagePath { get; set; }
     }

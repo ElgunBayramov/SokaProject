@@ -12,7 +12,7 @@ namespace Soka.Domain.Models.DataContexts
         {
             return app;
             const string adminEmail = "elgunbayramov223@gmail.com";
-            const string adminUserName = "elgunbayramov";
+            const string adminUserName = "elgunbayramov";   
             const string adminPassword = "123";
             const string roleName = "sa";
 

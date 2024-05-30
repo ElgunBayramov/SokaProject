@@ -36,6 +36,7 @@ namespace Soka.WebUI.Controllers
             return View("Index", response);
         }
         [Route("/blog/{slug}")]
+
         public async Task<IActionResult> Details(BlogPostSingleQuery query)
         {
             var response = await mediator.Send(query);

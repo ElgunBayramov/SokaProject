@@ -15,18 +15,10 @@ namespace Soka.Domain.Business.UserModule
         {
             get
             {
+                if (base.PageSize < 6)
+                    base.PageSize = 6;
+
                 return base.PageSize;
-            }
-            set
-            {
-                if (value <= 15)
-                {
-                    base.PageSize = 15;
-                }
-                else
-                {
-                    base.PageSize = value;
-                }
             }
         }
 

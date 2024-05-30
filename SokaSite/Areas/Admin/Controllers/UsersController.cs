@@ -3,6 +3,9 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Soka.Application.AppCode.Extensions;
+using Soka.Domain.Models.Entities.Membership;
+using Soka.Domain.Models.DataContexts;
 
 namespace Soka.WebUI.Areas.Admin.Controllers
 {
@@ -11,17 +14,24 @@ namespace Soka.WebUI.Areas.Admin.Controllers
     public class UsersController : Controller
     {
         private readonly IMediator mediator;
+        private readonly SokaDbContext db;
 
-        public UsersController(IMediator mediator)
+        public UsersController(IMediator mediator,SokaDbContext db)
         {
             this.mediator = mediator;
+            this.db = db;
         }
 
         public async Task<IActionResult> Index(UsersPagedQuery query)
         {
-            var data = await mediator.Send(query);
+            var response = await mediator.Send(query);
 
-            return View(data);
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_ListBody", response);
+            }
+
+            return View(response);
         }
 
         public async Task<IActionResult> Details(UserDetailQuery query)

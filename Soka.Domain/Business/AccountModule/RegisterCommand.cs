@@ -50,6 +50,7 @@ namespace Soka.Domain.Business.AccountModule
                     Email = request.Email,
                     Name = request.Name,
                     Surname = request.Surname,
+                    EmailConfirmed = true,
                     UserName = $"{request.Name}-{Guid.NewGuid()}".ToLower()
                 };
 
